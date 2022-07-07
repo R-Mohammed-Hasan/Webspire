@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag 'message', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="container">
+    <div class="messages-container my-5">
+        <div class="message-header">
+            <p class="name-of-user"><a href=""> hasan_the_don007</a></p>
+            <div class="chatting-user">
+                <img src="<%= asset_path 'activity.png' %>" alt="">
+                <div class="user-info"> <a href="">   Mohammed Riyas</a>
+                    <p class="status-of-user">Active 1 hour before</p>
+                </div>
+            </div>
+        </div>
+        <div class="user-chattings">
+            <div class="chatting-names-of-user">
+                <div class="user-chatting active">
+                    <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
+                    <p class="user-name">
+                        Mohammed Mohsin
+                    </p>
+                </div>
+                <div class="user-chatting">
+                    <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
+                    <p class="user-name">
+                        Mohammed Mohsin
+                    </p>
+                </div>
+            </div>
+            <div class="chattings-details">
+                <div class="details-of-chatting">
+
+                </div>
+                <form action="./message.html">
+                    <input type="text" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
+                    <input type="submit" class="btn btn-primary" value="Send">
+                </form>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>

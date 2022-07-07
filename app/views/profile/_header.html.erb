@@ -1,0 +1,53 @@
+   <!-- Search bar and navigation icons -->
+    <!-- Logo -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <video muted autoplay loop width="100%" height="100%" class="webspire-video">
+                    <source  src="./../../assets/images/Webspire-logo.mp4" type="video.mp4">
+                    <track kind="subtitles">
+                </video>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item ms-5">
+                        <a class="nav-link active-link" aria-current="page" href="#"><img title="Home" src="<%= asset_path'home-icon.png' %>" width="90%" alt=""></a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <a class="nav-link" href="message.html"><img title="Message" src="<%= asset_path'message-icon.png' %>" width="90%" alt=""></a>
+                    </li>
+
+                    <li class="nav-item ms-5">
+                        <a class="nav-link" href="#" tabindex="-1"><img title="Explore" src="./../../assets/images/explore.png" width="90%" alt=""></a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <a class="nav-link" href="#" tabindex="-1"><img title="Activity" src="./../../assets/images/activity.png" width="90%" alt=""></a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search a problem..?" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <li class="nav-item ms-3 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./../../assets/images/user-default-icon.png" width="50%" alt="">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="#">View Profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Edit Profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Bookmarks</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item last" href="#">Sign Out...</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </nav>

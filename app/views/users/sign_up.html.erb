@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'signUp', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'signUp', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<form action="" onsubmit="onsubmitHandler()">
+    <div class="row m-5">
+        <h1 class="heading">Sign Up</h1>
+        <h4>Chat and know about your friends online</h4>
+        <div class="login">
+            <img src="" alt="">
+            <a href="./login.html" class="btn btn-primary my-4 px-4 py-1">Login Now..!</a>
+        </div>
+        <div class="or">
+            OR
+        </div>
+        <div class="input-group my-3">
+            <input class="form-control" type="text" name="" onfocusout="signUpButton()" pattern="[a-zA-Z ]{5,}" id="fullName" required placeholder="Full Name">
+        </div>
+        <div class="input-group my-3">
+            <input class="form-control" type="text" name="" required onfocusout="signUpButton()" value="" pattern="[a-zA-Z_-0-9]{5,}" id="userName" required placeholder="User Name">
+        </div>
+        <div class="input-group my-3">
+            <input class="form-control" type="number" name="" onfocusout="signUpButton()" id="mobileNumber" pattern required placeholder="Mobile Number">
+        </div>
+        <div class="input-group my-3">
+            <input class="form-control" type="password" name="" onfocusout="signUpButton()" value="" id="password" title="Please enter more than 8 characters that include special characters like ., and numbers" pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[.,\-_]).{8,}" required
+                placeholder="Password">
+            <img src="./../assets/images/showPassword.png" class="showPassword" onclick="showPassword(event)" alt="">
+        </div>
+        <div class="input-group my-3">
+            <input class="form-check-input me-3" type="checkbox" onfocusout="signUpButton()" id="ourAgreement">
+            <label for="ourAgreement"> Agree to our Policy </label>
+        </div>
+        <button type="submit" class="btn btn-primary m-5 p-1" disabled>Sign Up</button>
+    </div>
+</form>

@@ -1,0 +1,73 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.user-profile-container {
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    column-gap: 5%;
+}
+
+.user-profile-container .user-img img {
+    width: 100%;
+}
+
+.user-details .user-name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.user-details .user-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    width: 50%;
+}
+
+.user-description .followers {
+    font-size: 22px;
+}
+
+.user-description .score .user-score {
+    font-size: 24px;
+    margin: 2% auto 0% 0%;
+    font-weight: bold;
+}
+
+.user-description .followers div {
+    margin: 2%;
+    display: inline-block;
+}
+
+.user-description .user-info {
+    font-size: 18px;
+}
+
+.post-header {
+    text-align: center;
+    margin-top: 5%;
+    font-weight: bold;
+}
+
+.user-posts {
+    margin-left: 5%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 33%);
+}
+
+.user-posts .post {
+    padding: 2%;
+    margin: 5% 0%;
+}
+
+.user-posts .post img {
+    width: 90%;
+}

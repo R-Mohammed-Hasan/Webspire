@@ -1,0 +1,71 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.user-profile-container {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    column-gap: 5%;
+}
+
+.user-profile-container .user-img {
+    width: 13%;
+}
+
+.user-profile-container .user-img img {
+    width: 100%;
+}
+
+.user-profile-container .user-details {
+    width: 70%;
+}
+
+.user-details .user-name {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.user-details .profile-photo {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.profile-edit-container {
+    width: 90%;
+    display: flex;
+    justify-content: right;
+    margin-bottom: 5%;
+}
+
+.profile-edit-form {
+    font-size: 18px;
+    width: 70%;
+    text-align: center;
+}
+
+.profile-edit-form .col-form-label {
+    font-weight: bold;
+    font-size: 19px;
+    width: 100%;
+}
+
+.col-auto.input {
+    width: 60%;
+}
+
+.col-auto.label {
+    width: 30%
+}
+
+.col-auto.description {
+    margin-left: 30%;
+    width: 60%;
+    text-align: left;
+}

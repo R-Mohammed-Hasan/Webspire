@@ -1,0 +1,141 @@
+body {
+    font-family: 'Poppins';
+    background-color: rgb(239, 239, 239);
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+}
+
+.container {
+    height: 90%;
+}
+
+.messages-container {
+    background-color: white;
+    padding: 10px;
+    width: 95%;
+}
+
+.message-header {
+    display: flex;
+    border: 1px solid rgb(198, 194, 194);
+    border-radius: 5px;
+    align-items: center;
+    height: 80px;
+}
+
+.name-of-user {
+    font-size: 20px;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-right: 1px solid rgb(198, 194, 194);
+}
+
+.chatting-user {
+    font-size: 21px;
+    font-weight: bold;
+    display: flex;
+}
+
+.chatting-user img {
+    width: 7%;
+    height: 7%;
+    border-radius: 100%;
+    margin: 0% 4%;
+}
+
+.chatting-user .status-of-user {
+    color: grey;
+    font-size: 19px;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.user-chattings {
+    display: flex;
+    height: 750px;
+    width: 100%;
+}
+
+.chatting-names-of-user {
+    width: 35%;
+    overflow-y: auto;
+    border-left: 1px solid rgb(202, 199, 199);
+    border-bottom: 1px solid rgb(202, 199, 199);
+    border-right: 1px solid rgb(202, 199, 199);
+}
+
+.user-chatting {
+    display: flex;
+    align-items: center;
+    height: 12%;
+    transition: 0.2s all;
+}
+
+.user-chatting.active {
+    background-color: rgb(235, 233, 233);
+    border-left: 3px solid rgb(181, 180, 180);
+}
+
+.user-chatting:hover {
+    background-color: rgb(235, 233, 233);
+    border-left: 3px solid rgb(181, 180, 180);
+    cursor: pointer;
+}
+
+.user-chatting img {
+    width: 12%;
+    margin: 4%;
+}
+
+.user-chatting .user-name {
+    width: 90%;
+    font-size: 19px;
+}
+
+.chattings-details {
+    width: 65%;
+    border-right: 1px solid rgb(180, 180, 180);
+    border-bottom: 1px solid rgb(180, 180, 180);
+}
+
+.chattings-details .details-of-chatting {
+    width: 100%;
+    background-color: rgb(202, 202, 202);
+    height: 90%;
+    overflow-y: auto;
+}
+
+.chattings-details form {
+    height: 8%;
+    width: 100%;
+    position: relative;
+    margin-top: 1.2%;
+}
+
+.chattings-details form input[type="text"] {
+    width: 99%;
+    height: 90%;
+    margin: 0% 1%;
+    border-radius: 30px;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.chattings-details form input[type="submit"] {
+    position: absolute;
+    inset: 5% .5% auto auto;
+    font-size: 18px;
+    height: 80%;
+    border-radius: 30px;
+}

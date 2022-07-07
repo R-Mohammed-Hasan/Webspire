@@ -1,0 +1,160 @@
+body {
+    background-color: rgb(243, 241, 241);
+}
+
+form,
+.signUpNow {
+    position: absolute;
+    width: 26%;
+    height: auto;
+    text-align: center;
+    background-color: aliceblue;
+    border: 1px solid rgb(164, 164, 164);
+}
+
+form {
+    inset: 11% auto auto 44%;
+    transform: translate(50%, 5%);
+    box-shadow: 5px 5px 10px grey;
+}
+
+.signUpNow {
+    transform: translate(50%, 50%);
+    height: 8%;
+    inset: 67% 30% auto auto;
+    padding: 1%;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.signUpNow a {
+    margin-left: 1%;
+}
+
+.heading {
+    margin-bottom: 2%;
+    font-family: 'Poppins';
+}
+
+.input-group {
+    justify-content: center;
+}
+
+.input-group .form-control {
+    flex: 0 0 95%;
+}
+
+.or {
+    font-family: cursive;
+    font-size: 18px;
+    position: relative;
+    color: grey;
+    margin-bottom: 4%;
+}
+
+.or::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    height: 1%;
+    width: 44%;
+    background-color: grey;
+}
+
+.or::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 61%;
+    height: 1%;
+    width: 44%;
+    background-color: grey;
+}
+
+.btn-primary {
+    font-size: 20px;
+    width: 76%;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+.input-group {
+    justify-content: center;
+}
+
+a {
+    font-size: 17px !important;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.moreInfo {
+    position: absolute;
+    inset: 100% 15% auto 15%;
+}
+
+.pages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pages .page {
+    color: rgb(114, 114, 114);
+    margin: 1%;
+}
+
+.pages a:hover {
+    cursor: pointer;
+}
+
+.downloadNow {
+    position: absolute;
+    top: 80%;
+    left: 60%;
+}
+
+.downloadNow .getNow {
+    margin: 2%;
+    margin-left: 16%;
+    font-size: 18px;
+}
+
+.downloadNow img {
+    width: 26%;
+    height: 8%;
+    border-radius: 5px;
+    margin-top: 1%;
+}
+
+.copyRights {
+    text-align: center;
+    margin-top: 2%;
+    color: rgb(114, 114, 114);
+    font-size: 16px;
+    margin-bottom: 7%;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+}
+
+.showPassword {
+    position: absolute;
+    top: 9%;
+    left: 82%;
+    width: 9%;
+}
+
+input:invalid {
+    color: red;
+}
+
+input:valid {
+    color: rgb(6, 215, 6);
+}

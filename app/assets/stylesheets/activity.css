@@ -1,0 +1,77 @@
+body {
+    background-color: rgb(255, 251, 245);
+}
+
+.container {
+    font-family: 'Poppins';
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px grey;
+}
+
+.container h1 {
+    position: relative;
+}
+
+.container h1::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -20%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    margin: 0 auto;
+}
+
+.activity-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.activity-container .user-img {
+    width: 5%;
+    height: 5%;
+}
+
+.activity-container .friend-requests {
+    display: flex;
+    align-items: center;
+    padding: 1%;
+    border-radius: 5px;
+    transition: 0.2s all;
+    cursor: default;
+}
+
+.activity-container .friend-requests:hover {
+    background-color: rgb(222, 221, 221);
+}
+
+.activity-container .user-img img {
+    width: 100%;
+}
+
+.activity-container .friend-requests .friend-requests-link,
+.user-name {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0% 1%;
+    transition: 0.2s all;
+}
+
+.activity-container .friend-requests .user-name:hover {
+    color: rgb(25, 140, 255);
+}
+
+.activity-container .friend-requests .friend-requests-link {
+    font-size: 20px;
+}
+
+.friend-requests .activity {
+    margin-left: 2%;
+    width: 100%;
+    font-size: 18px;
+}
