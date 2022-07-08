@@ -1,0 +1,9 @@
+<title>Search Results</title>
+<% if %>
+    <h1>Search Results</h1>
+    <% @search.each do |result| %>
+        <%= result.user_name %>
+    <% end %>
+<% else %>
+    <h1>No Search Results...</h1>
+<% end %>

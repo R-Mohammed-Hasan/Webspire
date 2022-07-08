@@ -10,11 +10,15 @@ Rails.application.routes.draw do
 
 
 
-  get "/activity", to: "profile#activity"
+  get "/message", to: "home#message"
 
 
 
-  get "/editProfile", to: "profile#edit_profile"
+  # =========================================================================
+
+
+
+  # Users controller
 
 
 
@@ -22,7 +26,27 @@ Rails.application.routes.draw do
 
 
 
-  get "/followRequests", to: "profile#follow_requests"
+  post "/users", to: "users#create"
+
+
+
+  get "/signOut", to: "sessions#destroy"
+
+
+
+  get "/users/login", to: "sessions#login"
+
+
+
+  post "/users/login", to: "sessions#create"
+
+
+
+  get "/users/forgotPassword", to: "users#forgot_password"
+
+
+
+  get "/profile/requests", to: "profile#follow_requests"
 
 
 
@@ -30,13 +54,15 @@ Rails.application.routes.draw do
 
 
 
-  get "/message", to: "home#message"
+  get "/search", to: "home#search"
 
 
 
-  # get "message", to: "message#index"
+  get "/profile/activity", to: "profile#activity"
 
 
+
+  get "/profile/edit", to: "profile#edit_profile"
 
 end
 

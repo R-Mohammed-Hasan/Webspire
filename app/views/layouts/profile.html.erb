@@ -9,21 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'slick', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'slick-theme', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <link rel="icon" href="./../assets/images/Webspire-logo.gif">
 
-    <%= javascript_include_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'jquery', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'slick.min', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+ 
     </head>
 
 <body>
-    <%= render "header"%>
+    <%= render "layouts/header"%>
     
     <%= yield %>
 

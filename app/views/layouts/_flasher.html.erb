@@ -1,0 +1,9 @@
+<% flash.each do |type, msg| %>
+        <div class="alert alert-<%= type %> flash-error alert-dismissible show fade" role="alert" >
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                <use xlink:href="#exclamation-triangle-fill"/>
+            </svg>
+            <%= msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+<% end %>

@@ -29,10 +29,10 @@
                 <div class="details-of-chatting">
 
                 </div>
-                <form action="./message.html">
+                <%= form_for @message, url: "", remote: true do |f| %>
                     <input type="text" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
                     <input type="submit" class="btn btn-primary" value="Send">
-                </form>
+                <% end %>
             </div>
 
 

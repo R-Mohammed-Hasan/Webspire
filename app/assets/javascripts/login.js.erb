@@ -6,23 +6,14 @@ function loginButton() {
     }
 }
 
-function onsubmitHandler() {
-    console.log("submitted");
-
-    let userName = $("#userName");
-    let password = $("#password");
-    console.log(password.val());
-}
-
 function showPassword(event) {
     let el = event.target;
-    input = $("#password")
+    input = $("#password");
     if (input.attr("type") == "password") {
-        el.src = "./../assets/images/hidePassword.png";
+        el.src = "<%= asset_path "hidePassword.png" %>";
         input.attr("type", "text");
     } else {
-        el.src = "./../assets/images/showPassword.png";
+        el.src = "<%= asset_path "showPassword.png" %>";
         input.attr("type", "password");
     }
-
 }

@@ -1,0 +1,27 @@
+function signUpButton() {
+    let userName = $("#userName");
+    let fullName = $("#email");
+    let mobileNumber = $("#mobileNumber");
+    let password = $("#password");
+    if (
+        userName.val() &&
+        fullName.val() &&
+        mobileNumber.val() &&
+        password.val()
+    ) {
+    console.log($("#submitBtn"));
+        $("#submitBtn").removeAttr("disabled");
+    }
+}
+
+function showPassword(event) {
+    let el = event.target;
+    input = $("#password");
+    if (input.attr("type") == "password") {
+        el.src = "<%= asset_path "hidePassword.png" %>";
+        input.attr("type", "text");
+    } else {
+        el.src = "<%= asset_path "showPassword.png" %>";
+        input.attr("type", "password");
+    }
+}
