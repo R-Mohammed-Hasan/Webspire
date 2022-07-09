@@ -76,3 +76,7 @@ function openFileDialog() {
 function openStoriesDialog() {
     $("#story-file").trigger("click");
 }
+
+function uploadStory() {
+    $("#story-form").submit();
+}

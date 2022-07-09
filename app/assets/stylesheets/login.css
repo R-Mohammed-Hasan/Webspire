@@ -13,7 +13,7 @@ form,
 }
 
 form {
-    inset: 11% auto auto 44%;
+    inset: 11% auto auto 24%;
     transform: translate(50%, 5%);
     box-shadow: 5px 5px 10px grey;
 }
@@ -21,7 +21,7 @@ form {
 .signUpNow {
     transform: translate(50%, 50%);
     height: 8%;
-    inset: 67% 30% auto auto;
+    inset: 62% 50% auto auto;
     padding: 1%;
     font-size: 17px;
     font-family: 'Poppins', sans-serif;
@@ -115,8 +115,9 @@ a:hover {
 
 .downloadNow {
     position: absolute;
+    width: 50%;
     top: 80%;
-    left: 60%;
+    left: 37%;
 }
 
 .downloadNow .getNow {

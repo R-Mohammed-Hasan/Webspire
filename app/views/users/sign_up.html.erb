@@ -12,7 +12,7 @@
         <div class="or">
             OR
         </div>
-      
+
         <div class="input-group my-3">
             <input class="form-control" type="text" name="user[user_name]" required onfocusout="signUpButton()" value="" pattern="[a-zA-Z_0-9]{5,}" id="userName" required placeholder="User Name">
         </div>
@@ -25,6 +25,7 @@
         <div class="input-group my-3">
             <input class="form-control" type="password" name="user[password]" onfocusout="signUpButton()" value="" id="password" title="Please enter more than 8 characters that include special characters like ., and numbers" pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[.,\-_]).{8,}" required
                 placeholder="Password">
+                <input type="file" name="user_profile" style="display:none;">
             <img src="<%= asset_path "showPassword.png" %>" class="showPassword" onclick="showPassword(event)" alt="">
         </div>
         <div class="input-group my-3">

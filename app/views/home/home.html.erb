@@ -5,7 +5,9 @@
     <div class="stories" >
         <div class="multiple-items">
             <div>
-            <input type="file" style="display:none" id="story-file" >
+            <form id="story-form" action="/profile" method="get">
+                <input type="file" style="display:none" onchange="uploadStory()" id="story-file">
+            </form>
                 <img class="story-image self" title="Add Story" onclick="openStoriesDialog()" src="<%= asset_path "add-story-icon.png" %>">
                 <p class="nameOfUser"></p>
             </div>
@@ -166,4 +168,3 @@
 </div>
 
 <%= javascript_include_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
-

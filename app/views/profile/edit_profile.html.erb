@@ -5,15 +5,16 @@
 <div class="container">
     <div class="user-profile-container">
         <div class="user-img mx-5">
-            <img src="./../assets/images/user-default-icon.png" alt="">
+            <%= image_tag @current_user.user_profile %>
         </div>
-
         <div class="user-details">
             <p class="user-name">
                 hasan_the_don007
             </p>
             <a onclick="showUploadDialogBox()" class="profile-photo">Change profile photo </a>
-            <input type="file" id="profile-photo-input">
+            <%= form_with model: @user , url: "/profile/editProfile", method: "put" do |f| %>
+                <input type="file" name="user[user_profile]" id="profile-photo-input" onchange="this.form.submit()">
+            <% end %>
         </div>
     </div>
 
@@ -70,7 +71,7 @@
                 </div>
                 <div class="col-auto description">
                     <span id="passwordHelpInline" class="form-text">
-                    
+
                     </span>
                 </div>
 
@@ -95,7 +96,7 @@
             <button type="submit" class="btn btn-primary my-4 ms-5" disabled>Submit</button>
         </form>
     </div>
-</div>  
+</div>
 
 <script>
     function showUploadDialogBox() {
