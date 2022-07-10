@@ -9,37 +9,23 @@
         </div>
         <div class="user-details">
             <p class="user-name">
-                hasan_the_don007
+                <%= @current_user.user_name %>
             </p>
             <a onclick="showUploadDialogBox()" class="profile-photo">Change profile photo </a>
-            <%= form_with model: @user , url: "/profile/editProfile", method: "put" do |f| %>
-                <input type="file" name="user[user_profile]" id="profile-photo-input" onchange="this.form.submit()">
+            <%= form_with model: @user, url: "/profile/editProfile", method: "put" do |f| %>
+                <input type="file" name="user_profile" id="profile-photo-input" onchange="this.form.submit()">
             <% end %>
         </div>
     </div>
 
     <div class="profile-edit-container">
-        <form action="" class="profile-edit-form">
-            <div class="row g-3 my-2 align-items-center">
-                <div class="col-auto label">
-                    <label for="username" class="col-form-label">Name</label>
-                </div>
-                <div class="col-auto input">
-                    <input onfocusin="showSubmitButton()" type="text" id="username" class="form-control">
-                </div>
-                <div class="col-auto description">
-                    <span id="passwordHelpInline" class="form-text">
-                        Help people discover your account by using the name you're known by: either your full name, nickname, or business name.
-                    </span>
-                </div>
-
-            </div>
+        <%= form_with model: @user,url:"/profile/edit", method: "post", class:"profile-edit-form" do |f|%>
             <div class="row g-3 my-2 align-items-center">
                 <div class="col-auto label">
                     <label for="username" class="col-form-label">User Name</label>
                 </div>
                 <div class="col-auto input">
-                    <input onfocusin="showSubmitButton()" type="text" id="username" class="form-control">
+                    <input onchange="showSubmitButton()" name="user[user_name]" value="<%= @current_user.user_name %>" type="text" id="username" class="form-control">
                 </div>
                 <div class="col-auto description">
                     <span id="passwordHelpInline" class="form-text">
@@ -53,7 +39,7 @@
                     <label for="username" class="col-form-label">Describe Yourself</label>
                 </div>
                 <div class="col-auto input">
-                    <textarea onfocusin="showSubmitButton()" type="text" id="username" class="form-control"></textarea>
+                    <textarea onchange="showSubmitButton()" name="user[description]" type="text" id="username" class="form-control"><%= @current_user.description %></textarea>
                 </div>
                 <div class="col-auto description">
                     <span id="passwordHelpInline" class="form-text">
@@ -67,11 +53,10 @@
                     <label for="username" class="col-form-label">E-mail</label>
                 </div>
                 <div class="col-auto input">
-                    <input onfocusin="showSubmitButton()" type="text" id="username" class="form-control">
+                    <input onchange="showSubmitButton()" name="user[email]" value="<%= @current_user.email %>" type="text" id="username" class="form-control">
                 </div>
                 <div class="col-auto description">
                     <span id="passwordHelpInline" class="form-text">
-
                     </span>
                 </div>
 
@@ -81,10 +66,10 @@
                     <label for="username" class="col-form-label">Gender</label>
                 </div>
                 <div class="col-auto input">
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Rather not say">Rather not say</option>
+                    <select class="form-select" onchange="showSubmitButton()" name="user[gender]" aria-label="Default select example">
+                        <option value="male" <%= @current_user.gender == "male" ? "selected" : "" %>>Male</option>
+                        <option value="female" <%= @current_user.gender == "female" ? "selected" : "" %>>Female</option>
+                        <option value="not say" <%= @current_user.gender == "not say" ? "selected" : "" %>>Rather not say</option>
                     </select>
                 </div>
                 <div class="col-auto description">
@@ -93,8 +78,8 @@
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-primary my-4 ms-5" disabled>Submit</button>
-        </form>
+            <button type="submit" class="btn btn-primary my-4 ms-5" disabled>Edit</button>
+        <% end %>
     </div>
 </div>
 

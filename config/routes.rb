@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 
   put "/profile/editProfile", to: "profile#edit_profile_image"
 
-  get "/profile/edit", to: "profile#edit_profile"
+  get "/profile/edit", to: "profile#new_edit"
+
+  post "/profile/edit", to: "profile#edit_profile"
 
   get "/search", to: "home#search"
 

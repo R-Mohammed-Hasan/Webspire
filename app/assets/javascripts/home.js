@@ -69,8 +69,27 @@ function hideMoreOption() {
     });
 }
 
-function openFileDialog() {
-    $("#post-file").trigger("click");
+function openPostDialog() {
+    $(".post-dialog-container").css({
+        backdropFilter: "brightness(50%)",
+        zIndex: "2",
+        transition: "all 0.3s",
+    });
+    $(".post-dialog-box").css({
+        transform: "scale(1)",
+        transition: "all 0.3s",
+    });
+}
+
+function closePostDialog() {
+    $(".post-dialog-box").css({
+        transform: "scale(0.001)",
+        backdropFilter: "blur(0)",
+    });
+    $(".post-dialog-container").css({
+        backdropFilter: "brightness(100%)",
+        zIndex: "-1",
+    });
 }
 
 function openStoriesDialog() {
