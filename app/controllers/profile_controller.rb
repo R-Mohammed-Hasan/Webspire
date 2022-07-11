@@ -18,9 +18,8 @@ class ProfileController < ApplicationController
 
   def edit_profile_image
     user = User.find_by_id(session[:current_user_id])
-    # user.user_profile.purge
-    p "params #{params[:user_profile]}"
-    user.user_profile.attach(params[:user_profile])
+    _params = params.require('user').permit(:user_profile)
+    user.user_profile.attach(io: _params.to_io,filename: _params.original_filename)
     user.save
     redirect_to profile_edit_path,success: "Profile photo updated...!"
   end

@@ -13,7 +13,7 @@
             </p>
             <a onclick="showUploadDialogBox()" class="profile-photo">Change profile photo </a>
             <%= form_with model: @user, url: "/profile/editProfile", method: "put" do |f| %>
-                <input type="file" name="user_profile" id="profile-photo-input" onchange="this.form.submit()">
+                <%= f.file_field :user_profile, id: "profile-photo-input", onchange: "this.form.submit()" %>
             <% end %>
         </div>
     </div>

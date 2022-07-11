@@ -135,6 +135,11 @@ input[type="file"].nav-link {
     width: 10%;
 }
 
+.nav-item.dropdown .user-profile {
+    border-radius: 50%;
+    width: 50%;
+}
+
 .dropdown-menu {
     min-width: 200px;
 }
