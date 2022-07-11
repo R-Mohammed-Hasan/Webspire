@@ -25,4 +25,12 @@ class ProfileController < ApplicationController
     redirect_to profile_edit_path,success: "Profile photo updated...!"
   end
 
+  def profile
+    if @current_user.id == params[:id]
+      @user = @current_user
+    else
+      @user = User.find(params[:id])
+    end
+  end
+
 end

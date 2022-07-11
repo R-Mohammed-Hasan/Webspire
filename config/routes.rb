@@ -7,14 +7,13 @@ Rails.application.routes.draw do
 
   get "/message", to: "home#message"
 
-  # =========================================================================
-  # Users controller
+  get "/signOut", to: "sessions#destroy"
 
-  get "/users/new", to: "users#sign_up"
+
 
   post "/users", to: "users#create"
 
-  get "/signOut", to: "sessions#destroy"
+  get "/users/new", to: "users#sign_up"
 
   get "/users/login", to: "sessions#login"
 
@@ -22,8 +21,8 @@ Rails.application.routes.draw do
 
   get "/users/forgotPassword", to: "users#forgot_password"
 
+  get "users/:id", to: "users#user"
 
-  get "/profile", to: "profile#profile"
 
   get "/profile/requests", to: "profile#follow_requests"
 
@@ -34,6 +33,8 @@ Rails.application.routes.draw do
   get "/profile/edit", to: "profile#new_edit"
 
   post "/profile/edit", to: "profile#edit_profile"
+
+  get "/profile/:id", to: "profile#profile"
 
   get "/search", to: "home#search"
 

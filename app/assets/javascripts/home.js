@@ -99,3 +99,11 @@ function openStoriesDialog() {
 function uploadStory() {
     $("#story-form").submit();
 }
+
+function showComments() {
+    $(".post-comments").show(200);
+}
+
+function hideComments() {
+    $(".post-comments").hide(100);
+}

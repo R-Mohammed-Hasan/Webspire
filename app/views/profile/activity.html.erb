@@ -1,13 +1,13 @@
     <title>Activity Page</title>
 <%= stylesheet_link_tag 'activity', media: 'all', 'data-turbolinks-track': 'reload' %>
- 
+
   <div class="container p-3 mt-1">
         <div class="activity-container">
             <h1 class="my-4">Activity</h1>
             <div class="activity-content">
                 <div class="friend-requests">
                     <div class="user-img">
-                        <img src="./../assets/images/multi-user-default-icon.png" alt="">
+                        <img src="<%= asset_path "multi-user-default-icon.png"%>" alt="">
                     </div>
                     <div class="activity">
                         <a href="followRequests.html" class="friend-requests-link">Show Friend Requests</a>
@@ -15,7 +15,7 @@
                 </div>
                 <div class="friend-requests">
                     <div class="user-img">
-                        <img src="./../assets/images/user-default-icon.png" alt="">
+                        <img src="<%= asset_path "user-default-icon.png"%>" alt="">
                     </div>
                     <div class="activity">
                         <a href="" class="user-name">mohammed_mohsin007</a>is now on Instagram
@@ -23,7 +23,7 @@
                 </div>
                 <div class="friend-requests">
                     <div class="user-img">
-                        <img src="./../assets/images/user-default-icon.png" alt="">
+                        <img src="<%= asset_path "user-default-icon.png"%>" alt="">
                     </div>
                     <div class="activity">
                         <a href="" class="user-name">kasi_anto</a>has started following you on Instagram. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi similique quo vero alias voluptatum beatae molestias temporibus consequuntur debitis
@@ -32,7 +32,7 @@
                 </div>
                 <div class="friend-requests">
                     <div class="user-img">
-                        <img src="./../assets/images/user-default-icon.png" alt="">
+                        <img src="<%= asset_path "user-default-icon.png"%>" alt="">
                     </div>
                     <div class="activity">
                         <a href="" class="user-name">chithraj_spideyboy</a>has liked you post.

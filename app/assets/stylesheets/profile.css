@@ -71,3 +71,9 @@ body {
 .user-posts .post img {
     width: 90%;
 }
+
+.user-details .follow-requests {
+    margin-top: 3%;
+    display: flex;
+    column-gap: 2%;
+}

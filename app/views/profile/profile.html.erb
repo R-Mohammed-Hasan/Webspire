@@ -4,15 +4,17 @@
 
     <div class="user-profile-container">
         <div class="user-img mx-5">
-            <%= image_tag @current_user.user_profile %>
+            <%= image_tag @user.user_profile %>
         </div>
 
         <div class="user-details">
             <div class="user-name">
-                <%= @current_user.user_name %>
+                <%= @user.user_name %>
+                <% if @user.id == @current_user.id %>
                 <a href="/profile/edit" class="edit-profile m-5">
                     <img src="<%= asset_path "edit-icon.png" %>" width="5%" alt="Edit Option">
                 </a>
+                <% end %>
             </div>
             <div class="user-description">
                 <div class="score">
@@ -32,6 +34,10 @@
                 <div class="user-info">
                     <strong>Mohammed Hasan</strong> <br> yjnef v Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi officiis impedit quaerat laborum? Laborum minima sequi nobis in excepturi incidunt nesciunt praesentium eius a alias!
                     Dolorem iste doloribus corporis labore!
+                </div>
+                <div class="follow-requests">
+                    <button class="btn btn-primary">Follow</button>
+                    <button class="btn btn-outline-danger">Unfollow</button>
                 </div>
             </div>
 
