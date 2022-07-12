@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get "/signOut", to: "sessions#destroy"
 
 
-
   post "/users", to: "users#create"
 
   get "/users/new", to: "users#sign_up"
@@ -20,8 +19,6 @@ Rails.application.routes.draw do
   post "/users/login", to: "sessions#create"
 
   get "/users/forgotPassword", to: "users#forgot_password"
-
-  get "users/:id", to: "users#user"
 
 
   get "/profile/requests", to: "profile#follow_requests"
@@ -33,6 +30,10 @@ Rails.application.routes.draw do
   get "/profile/edit", to: "profile#new_edit"
 
   post "/profile/edit", to: "profile#edit_profile"
+
+  put "/profile/story", to: "profile#story_create"
+
+  get "/profile/stories", to: "profile#story", as: "story"
 
   get "/profile/:id", to: "profile#profile"
 

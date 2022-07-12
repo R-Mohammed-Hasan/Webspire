@@ -32,13 +32,14 @@
                     </div>
                 </div>
                 <div class="user-info">
-                    <strong>Mohammed Hasan</strong> <br> yjnef v Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi officiis impedit quaerat laborum? Laborum minima sequi nobis in excepturi incidunt nesciunt praesentium eius a alias!
+                    <strong><%= @user.name %></strong> <br> yjnef v Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi officiis impedit quaerat laborum? Laborum minima sequi nobis in excepturi incidunt nesciunt praesentium eius a alias!
                     Dolorem iste doloribus corporis labore!
                 </div>
+                <% unless @current_user.id == @user.id %>
                 <div class="follow-requests">
                     <button class="btn btn-primary">Follow</button>
-                    <button class="btn btn-outline-danger">Unfollow</button>
                 </div>
+                <% end %>
             </div>
 
         </div>

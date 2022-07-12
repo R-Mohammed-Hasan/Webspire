@@ -12,7 +12,7 @@ class ProfileController < ApplicationController
 
   def edit_profile
     user = User.find(@current_user.id)
-    user.update(user_name: params[:user][:user_name], email: params[:user][:email],description: params[:user][:description],gender: params[:user][:gender])
+    user.update(user_name: params[:user][:user_name],name: params[:user][:name], email: params[:user][:email],description: params[:user][:description],gender: params[:user][:gender])
     redirect_to "/profile/edit"
   end
 
@@ -30,6 +30,17 @@ class ProfileController < ApplicationController
     else
       @user = User.find(params[:id])
     end
+  end
+
+  def story_create
+    user =  User.find(@current_user.id)
+    user.story.attach(params[:story_img])
+    redirect_to root_path,success: "Story have been created successfully"
+  end
+
+  def story
+    user = @current_user
+    render "story",locals: {user: user}
   end
 
 end

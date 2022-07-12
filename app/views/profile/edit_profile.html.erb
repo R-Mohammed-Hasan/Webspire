@@ -34,6 +34,20 @@
                 </div>
 
             </div>
+              <div class="row g-3 my-2 align-items-center">
+                <div class="col-auto label">
+                    <label for="username" class="col-form-label">Your Name :</label>
+                </div>
+                <div class="col-auto input">
+                    <input onchange="showSubmitButton()" name="user[name]" value="<%= @current_user.name %>" type="text" id="username" class="form-control">
+                </div>
+                <div class="col-auto description">
+                    <span id="passwordHelpInline" class="form-text">
+                            Help people discover your account by using the name you're known by: either your full name, nickname, or business name.
+                    </span>
+                </div>
+
+            </div>
             <div class="row g-3 my-2 align-items-center">
                 <div class="col-auto label">
                     <label for="username" class="col-form-label">Describe Yourself</label>

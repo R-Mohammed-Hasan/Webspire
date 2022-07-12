@@ -43,14 +43,7 @@ nav .moreOptions {
     height: 70%;
     border-radius: 100%;
     cursor: pointer;
-}
-
-.story-image {
     border: 2px solid aqua;
-}
-
-.story-image.self {
-    border: none;
 }
 
 .multiple-items>* {

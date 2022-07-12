@@ -1,0 +1,53 @@
+ <%= stylesheet_link_tag 'story', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <div class="stories-container">
+       <a href="/" class="close-icon">
+          <img src="<%= asset_path "close-icon.webp" %>" >
+       </a>
+<%
+=begin%>
+ <% users.each do |user| %>
+<%
+=end%>
+  <div class="story-container">
+
+      <div class="user-details">
+        <%= image_tag user.user_profile, class: "user-profile" %>
+        <p class="user-name">
+        <a href="/profile/<%= user.id %>">
+          <%= user.user_name %>
+        </a>
+        </p>
+      </div>
+      <%= image_tag user.story, class: "user-story" %>
+  </div>
+   <div class="story-container">
+
+      <div class="user-details">
+        <%= image_tag user.user_profile, class: "user-profile" %>
+        <p class="user-name">
+        <a href="/profile/<%= user.id %>">
+          <%= user.user_name %>
+        </a>
+        </p>
+      </div>
+      <%= image_tag user.story, class: "user-story" %>
+  </div>
+   <div class="story-container">
+
+      <div class="user-details">
+        <%= image_tag user.user_profile, class: "user-profile" %>
+        <p class="user-name">
+        <a href="/profile/<%= user.id %>">
+          <%= user.user_name %>
+        </a>
+        </p>
+      </div>
+      <%= image_tag user.story, class: "user-story" %>
+  </div>
+<%
+=begin%>
+ <% end %>
+<%
+=end%>
+</div>
