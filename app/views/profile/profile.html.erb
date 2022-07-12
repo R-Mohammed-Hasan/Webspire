@@ -12,7 +12,7 @@
                 <%= @user.user_name %>
                 <% if @user.id == @current_user.id %>
                 <a href="/profile/edit" class="edit-profile m-5">
-                    <img src="<%= asset_path "edit-icon.png" %>" width="5%" alt="Edit Option">
+                    <img src="<%= asset_path "edit-icon.png" %>" width="8%" alt="Edit Option">
                 </a>
                 <% end %>
             </div>
@@ -32,8 +32,8 @@
                     </div>
                 </div>
                 <div class="user-info">
-                    <strong><%= @user.name %></strong> <br> yjnef v Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi officiis impedit quaerat laborum? Laborum minima sequi nobis in excepturi incidunt nesciunt praesentium eius a alias!
-                    Dolorem iste doloribus corporis labore!
+                    <strong><%= @user.name %></strong> <br>
+                    <%= @user.description %>
                 </div>
                 <% unless @current_user.id == @user.id %>
                 <div class="follow-requests">
@@ -47,17 +47,18 @@
 </div>
 <h2 class="post-header">Your Posts</h2>
 <div class="user-posts">
-    <div class="post">
-        <img src="<%= asset_path "activity.png" %>" alt="">
-    </div>
-    <div class="post">
-        <img src="<%= asset_path "activity.png" %>" alt="">
-    </div>
-    <div class="post">
-        <img src="<%= asset_path "activity.png" %>" alt="">
-    </div>
-    <div class="post">
-        <img src="<%= asset_path "activity.png" %>" alt="">
-    </div>
-
+<% unless @user.posts.present? %>
+        <h2 class="nothing-posted"> No posts posted yet..!</h2>
+<% end %>
+<% @user.posts.each do |post| %>
+    <a class="post" href="/post/<%= post.id %>">
+    <% if @user.id == @current_user.id %>
+        <div class="delete-post">
+            <img src=" <%= asset_path "edit-icon.png" %>" title="Edit" alt="">
+            <img src="<%= asset_path "delete-icon.jpg" %>" title="Delete Post" alt="">
+        </div>
+    <% end %>
+        <%= image_tag post, class: "post-img" %>
+    </a>
+<% end %>
 </div>

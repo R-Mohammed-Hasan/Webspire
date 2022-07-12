@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
   get "/profile/:id", to: "profile#profile"
 
+  post "/post/create", to: "posts#post_create"
+
   get "/search", to: "home#search"
 
 end

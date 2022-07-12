@@ -34,7 +34,7 @@ body {
     font-size: 18px;
 }
 
-input[type="file"] {
+.user-details input[type="file"] {
     display: none;
 }
 

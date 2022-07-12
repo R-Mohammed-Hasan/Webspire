@@ -59,21 +59,21 @@
 
 <div class="post-dialog-container" onfocusout="hideMoreOption()">
     <div class="post-dialog-box">
-   <%= form_with model: @post,url:"/post/create", method: "post", class:"profile-edit-form" do |f|%>
+   <%= form_with model: @user,url:"/post/create", method: "post", class:"profile-edit-form" do |f|%>
             <div class="row g-3 my-2 align-items-center">
                 <div class="col-auto label">
                     <label for="username" class="col-form-label ms-4">Post : </label>
                 </div>
-                <div class="col-auto input ms-5">
-                    <input type="file" >
+                <div class="col-auto input">
+                    <%= f.file_field :user_post %>
                 </div>
             </div>
             <div class="row g-3 my-2 align-items-center">
                 <div class="col-auto label">
-                    <label for="username" class="col-form-label">Description : </label>
+                    <label for="username" class="col-form-label">Description:</label>
                 </div>
                 <div class="col-auto input">
-                    <textarea cols="40" rows="5" onchange="showSubmitButton()" name="user[description]" type="text" id="username" class="form-control"><%= %></textarea>
+                    <textarea cols="40" rows="5" onchange="showSubmitButton()" name="user[description]" type="text" id="username" class="form-control"></textarea>
                 </div>
             </div>
             <div class="post-options">

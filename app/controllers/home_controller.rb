@@ -2,7 +2,6 @@ class HomeController < ApplicationController
   layout "home"
 
   def home
-
   end
 
   def search

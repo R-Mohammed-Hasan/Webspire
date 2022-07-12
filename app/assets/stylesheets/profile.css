@@ -8,8 +8,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5%;
+    margin: 5%;
     column-gap: 5%;
+}
+
+.user-profile-container .user-img {
+    width: 470px;
+    height: 470px;
 }
 
 .user-profile-container .user-img img {
@@ -28,7 +33,7 @@ body {
 }
 
 .user-info {
-    width: 50%;
+    width: 70%;
 }
 
 .user-description .followers {
@@ -47,7 +52,7 @@ body {
 }
 
 .user-description .user-info {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .post-header {
@@ -67,14 +72,50 @@ body {
 .user-posts .post {
     padding: 2%;
     margin: 5% 0%;
+    position: relative;
 }
 
-.user-posts .post img {
+.post .delete-post {
+    position: absolute;
+    width: 87%;
+    height: 95%;
+    opacity: 0;
+    transition: 0.3s all;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.post .delete-post img {
+    width: 7%;
+    height: 12%;
+    margin: 3%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.post:hover>.delete-post {
+    opacity: 1;
+    backdrop-filter: brightness(50%);
+}
+
+.user-posts .post .post-img {
     width: 90%;
+    border-radius: 5px;
 }
 
 .user-details .follow-requests {
     margin-top: 3%;
     display: flex;
     column-gap: 2%;
+}
+
+.user-details .user-name .edit-profile {
+    width: 50px;
+}
+
+.nothing-posted {
+    text-align: center;
+    grid-column: span 3;
+    margin: 3% 4% 0 0;
 }
