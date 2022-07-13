@@ -18,4 +18,11 @@ class PostsController < ApplicationController
     redirect_to "/profile/#{current_user.id}"
   end
 
+  def like
+
+    respond_to do |format|
+
+    end
+  end
+
 end

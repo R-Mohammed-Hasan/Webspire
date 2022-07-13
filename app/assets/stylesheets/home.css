@@ -305,6 +305,10 @@ input[type="search"] {
     text-align: center;
 }
 
+.likes-container #likeCheckbox:checked~label>.like {
+    content: url('liked-icon.png');
+}
+
 .credits .likes-container .like {
     width: 88%;
     cursor: pointer;

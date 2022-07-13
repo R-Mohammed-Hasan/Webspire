@@ -94,61 +94,7 @@
     <!-- carousel to view post -->
 
     <div class="postsContainer">
-    <% @posts.each do |post| %>
-    <% user = User.find(post.user_id) %>
-        <div class="post-container">
-            <div class="post-info">
-                <div class="user-profile">
-                    <a href="profile/<%= user.id %>">
-                        <%= image_tag user.user_profile, width: "100%",style: "border-radius:50%;" %>
-                    </a>
-                </div>
-                <div class="username">
-                    <a href="profile/<%= user.id %>">
-                            <%= user.user_name %>
-                        </a>
-                </div>
-                <div class="more-option" onclick="showMoreOption()">
-                    <img src="<%= asset_path "more-icon.png" %>" width="100%" alt="">
-                </div>
-            </div>
-
-            <div class="post-content">
-                <% post.posts.each do|post| %>
-                    <div>
-                        <%= image_tag post %>
-                    </div>
-                <% end %>
-            </div>
-
-            <div class="post-credits">
-                <div class="credits">
-                    <div class="likes-container">
-                        <img class="like" title="Like this post" src="<%= asset_path "like-icon.png" %>" alt="">
-                        <p class="likes-count">2378</p>
-                    </div>
-                    <img class="comment" title="Comments" onclick="showComments()" src="<%= asset_path "comment-icon.png" %>" alt="">
-                    <img class="bookmark" title="Bookmark this" src="<%= asset_path "bookmark-icon.png" %>" alt="">
-                </div>
-
-                <div class="post-description-container">
-                    <p class="post-description">
-                        <strong> Description :</strong> <%= post.description %></p>
-                </div>
-
-                <p class="show-solutions">
-                    <span>
-                    Show Discussions....
-                    </span>
-                </p>
-
-                <form action="" class="comment-box">
-                    <div class="add-comment-button">Send</div>
-                    <input id="add-comment" class="form-control add-comment" type="text" placeholder="Add a comment...">
-                </form>
-            </div>
-        </div>
-    <% end %>
+        <%= render "posts" %>
     </div>
 </div>
 
