@@ -9,7 +9,11 @@
  <% users.each do |user| %>
 <%
 =end%>
-  <div class="story-container">
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+     <div class="story-container">
 
       <div class="user-details">
         <%= image_tag user.user_profile, class: "user-profile" %>
@@ -21,30 +25,20 @@
       </div>
       <%= image_tag user.story, class: "user-story" %>
   </div>
-   <div class="story-container">
-
-      <div class="user-details">
-        <%= image_tag user.user_profile, class: "user-profile" %>
-        <p class="user-name">
-        <a href="/profile/<%= user.id %>">
-          <%= user.user_name %>
-        </a>
-        </p>
-      </div>
-      <%= image_tag user.story, class: "user-story" %>
+    </div>
   </div>
-   <div class="story-container">
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only"> </span>
+  </a>
+</div>
 
-      <div class="user-details">
-        <%= image_tag user.user_profile, class: "user-profile" %>
-        <p class="user-name">
-        <a href="/profile/<%= user.id %>">
-          <%= user.user_name %>
-        </a>
-        </p>
-      </div>
-      <%= image_tag user.story, class: "user-story" %>
-  </div>
+
+
 <%
 =begin%>
  <% end %>

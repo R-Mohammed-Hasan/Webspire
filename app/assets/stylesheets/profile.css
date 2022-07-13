@@ -77,8 +77,10 @@ body {
 
 .post .delete-post {
     position: absolute;
+    top: 4%;
+    left: 2%;
     width: 87%;
-    height: 95%;
+    height: 93%;
     opacity: 0;
     transition: 0.3s all;
     display: flex;
@@ -86,7 +88,7 @@ body {
     justify-content: flex-end;
 }
 
-.post .delete-post img {
+.post .delete-post a {
     width: 7%;
     height: 12%;
     margin: 3%;
@@ -94,9 +96,13 @@ body {
     border-radius: 5px;
 }
 
+.post .delete-post a img {
+    width: 100%;
+    border-radius: 5px;
+}
+
 .post:hover>.delete-post {
     opacity: 1;
-    backdrop-filter: brightness(50%);
 }
 
 .user-posts .post .post-img {

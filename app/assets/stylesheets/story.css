@@ -68,3 +68,14 @@
       justify-self: right;
       width: 100%;
   }
+  
+  .carousel-control-next {
+      top: 12%;
+      left: 105%;
+      opacity: 1;
+  }
+  
+  .carousel-control-prev {
+      top: 12%;
+      left: -20%;
+  }

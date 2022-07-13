@@ -39,6 +39,10 @@ Rails.application.routes.draw do
 
   post "/post/create", to: "posts#post_create"
 
+  get "/post/:id", to: "posts#show"
+
+  get "/post/delete/:id", to: "posts#destroy"
+
   get "/search", to: "home#search"
 
 end

@@ -6,4 +6,14 @@ class PostsController < ApplicationController
     redirect_to "/profile/#{@current_user.id}"
   end
 
+  def show
+
+
+  end
+
+  def destroy
+    image = ActiveStorage::Attachment.find(params[:id])
+    image.purge
+    redirect_to "/profile/#{current_user.id}"
+  end
 end

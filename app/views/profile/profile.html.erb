@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'profile', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'profile', 'data-turbolinks-track': 'reload' %>
 <title>Profile Page</title>
 <div class="container">
 
@@ -12,7 +13,7 @@
                 <%= @user.user_name %>
                 <% if @user.id == @current_user.id %>
                 <a href="/profile/edit" class="edit-profile m-5">
-                    <img src="<%= asset_path "edit-icon.png" %>" width="8%" alt="Edit Option">
+                    <%= image_tag "edit-icon.png", width:"8%" %>
                 </a>
                 <% end %>
             </div>
@@ -51,14 +52,20 @@
         <h2 class="nothing-posted"> No posts posted yet..!</h2>
 <% end %>
 <% @user.posts.each do |post| %>
-    <a class="post" href="/post/<%= post.id %>">
-    <% if @user.id == @current_user.id %>
-        <div class="delete-post">
-            <img src=" <%= asset_path "edit-icon.png" %>" title="Edit" alt="">
-            <img src="<%= asset_path "delete-icon.jpg" %>" title="Delete Post" alt="">
-        </div>
-    <% end %>
+<div class="post">
+    <a href="/post/<%= post.id %>">
+        <% if @user.id == @current_user.id %>
+            <div class="delete-post">
+                <a href="/post/edit/<%= post.id %>">
+                    <img src=" <%= asset_path "edit-icon.png" %>" title="Edit" alt="">
+                </a href="/post/delete/<%= post.id %>">
+                <a onclick="deletePostConfirmation(<%=post.id %>)" >
+                    <%= image_tag "delete-icon.jpg", title: "Delete Post", data: {confirm: "are" } %>
+                </a>
+            </div>
+        <% end %>
         <%= image_tag post, class: "post-img" %>
     </a>
+</div>
 <% end %>
 </div>
