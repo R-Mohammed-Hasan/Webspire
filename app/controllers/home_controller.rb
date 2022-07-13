@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   layout "home"
 
   def home
+    @posts = Post.all
   end
 
   def search

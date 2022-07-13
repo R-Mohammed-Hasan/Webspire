@@ -48,10 +48,10 @@
 </div>
 <h2 class="post-header">Your Posts</h2>
 <div class="user-posts">
-<% unless @user.posts.present? %>
+<% unless @posts.present? %>
         <h2 class="nothing-posted"> No posts posted yet..!</h2>
 <% end %>
-<% @user.posts.each do |post| %>
+<% @posts.each do |post| %>
 <div class="post">
     <a href="/post/<%= post.id %>">
         <% if @user.id == @current_user.id %>
@@ -64,7 +64,7 @@
                 </a>
             </div>
         <% end %>
-        <%= image_tag post, class: "post-img" %>
+        <%= image_tag post.posts.first, class: "post-img" %>
     </a>
 </div>
 <% end %>

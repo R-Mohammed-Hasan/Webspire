@@ -46,6 +46,10 @@ nav .moreOptions {
     border: 2px solid aqua;
 }
 
+.story-image.default {
+    border: none;
+}
+
 .multiple-items>* {
     height: 120px;
 }
@@ -131,6 +135,10 @@ input[type="file"].nav-link {
 .nav-item.dropdown .user-profile {
     border-radius: 50%;
     width: 50%;
+}
+
+.username a {
+    color: black;
 }
 
 .dropdown-menu {

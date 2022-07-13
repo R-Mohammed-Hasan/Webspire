@@ -1,4 +1,4 @@
-class Post <ApplicationRecord
+class Post < ApplicationRecord
   belongs_to :user
-  has_one_attached :post
+  has_many_attached :posts
 end

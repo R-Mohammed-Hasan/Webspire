@@ -30,6 +30,7 @@ class ProfileController < ApplicationController
     else
       @user = User.find(params[:id])
     end
+    @posts = Post.where(user_id: params[:id])
   end
 
   def story_create
