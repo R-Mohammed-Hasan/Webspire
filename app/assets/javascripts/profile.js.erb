@@ -1,0 +1,31 @@
+function deletePostConfirmation(post_id) {
+    if (confirm("are you sure to delete this post ?")) {
+        window.location.href = `/post/delete/${post_id}`;
+    }
+}
+function editPost(post_id,description,image) {
+
+    document.getElementById(`postDescription`).innerHTML = description;
+    document.getElementById("postImage").innerHTML = `<%= image_tag ${image}, width: "80%",id: "postEditImage" %>`;
+      $(".edit-post-container").css({
+        backdropFilter: "brightness(50%)",
+        zIndex: "2",
+        transition: "all 0.3s",
+    });
+    $(".edit-post-dialog-box").css({
+        transform: "scale(1)",
+        transition: "all 0.3s",
+    });
+}
+
+function closeEditPost(){
+  $(".edit-post-dialog-box").css({
+        transform: "scale(0.001)",
+        backdropFilter: "blur(0)",
+    });
+    $(".edit-post-container").css({
+        backdropFilter: "brightness(100%)",
+        zIndex: "-1",
+    });
+
+}

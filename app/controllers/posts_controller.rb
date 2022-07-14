@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
   def show
-
+      post = Post.find(params[:id])
+      p post.id
   end
 
   def post_create
@@ -12,6 +13,15 @@ class PostsController < ApplicationController
     redirect_to "/profile/#{@current_user.id}"
   end
 
+  def edit
+    post = Post.find(params[:id])
+    respond_to do |format|
+      format.js { render :js => "editPost(#{post})" }
+      format.html{redirect_to "/profile/#{@current_user.id}"}
+     end
+    # redirect_to "/profile/#{params[:id]}"
+  end
+
   def destroy
     image = Post.find(params[:id])
     image.destroy
@@ -19,9 +29,9 @@ class PostsController < ApplicationController
   end
 
   def like
-
     respond_to do |format|
-
+      # format.html
+      format.js{render js: "console.log(hi)"}
     end
   end
 

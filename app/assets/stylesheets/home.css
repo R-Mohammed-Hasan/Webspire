@@ -85,6 +85,10 @@ nav .moreOptions {
     z-index: 2;
 }
 
+.alert {
+    z-index: 1000;
+}
+
 
 /* bootstrap editings */
 
@@ -384,7 +388,8 @@ input[type="search"] {
 }
 
 .more-option-box-container,
-.post-dialog-container {
+.post-dialog-container,
+.edit-post-container {
     position: fixed;
     left: 0;
     top: 0;
@@ -394,7 +399,8 @@ input[type="search"] {
 }
 
 .more-option-box,
-.post-dialog-box {
+.post-dialog-box,
+.edit-post-dialog-box {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -415,6 +421,20 @@ input[type="search"] {
     left: 40%;
     width: 300px;
     height: 240px;
+    z-index: 15;
+}
+
+.edit-post-dialog-box {
+    top: 15%;
+    left: 24%;
+    width: 700px;
+    height: 700px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.profile-edit-form {
+    z-index: 10;
 }
 
 .post-dialog-box {

@@ -18,7 +18,7 @@ class ProfileController < ApplicationController
 
   def edit_profile_image
     user = User.find(session[:current_user_id])
-    user.user_profile.purge
+    user.user_profile.purge_later
     user.user_profile.attach(io: params[:user][:user_profile].to_io,filename: params[:user][:user_profile].original_filename)
     user.save
     redirect_to profile_edit_path,success: "Profile photo updated...!"
@@ -35,7 +35,7 @@ class ProfileController < ApplicationController
 
   def story_create
     user =  User.find(@current_user.id)
-    user.story.purge
+    user.story.purge_later
     user.story.attach(params[:story_img])
     redirect_to root_path,success: "Story have been created successfully"
   end

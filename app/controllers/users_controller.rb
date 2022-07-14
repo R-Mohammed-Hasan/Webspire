@@ -7,6 +7,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    p User.find_by(email: params[:user][:email])
+    if User.find_by(email: params[:user][:email])
+      redirect_to "/users/new", warning: "E-mail already registered...!"
+      return
+    end
     user = User.create(user_params)
     session[:current_user_id] = user.id
     user.user_profile.attach(io: File.open("app/assets/images/user-default-icon.png"),filename: "user-default-icon.png",content_type: "image/png")

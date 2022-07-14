@@ -43,7 +43,9 @@ Rails.application.routes.draw do
 
   get "/post/delete/:id", to: "posts#destroy"
 
-  put "/post/like/:id", to: "posts#like"
+  patch "/post/like/:id", to: "posts#like"
+
+  get "/post/edit/:id", to: "posts#edit"
 
   get "/search", to: "home#search"
 
