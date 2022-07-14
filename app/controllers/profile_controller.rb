@@ -45,4 +45,10 @@ class ProfileController < ApplicationController
     render "story",locals: {users: user}
   end
 
+  def request_following
+      request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
+      request.save
+      redirect_to "/profile/#{params[:id]}"
+  end
+
 end

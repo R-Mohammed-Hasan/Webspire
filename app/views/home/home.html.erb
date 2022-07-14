@@ -17,11 +17,13 @@
                 <% end %>
             </div>
         <% @users.each do |user| %>
-        <% unless user.id == @current_user.id %>
-            <div>
-                <a href="/profile/stories"><%= image_tag user.story , class: "story-image"%></a>
-                <p class="nameOfUser"><%= user.user_name %></p>
-            </div>
+        <% if user.story.present? %>
+            <% unless user.id == @current_user.id %>
+                <div>
+                    <a href="/profile/stories"><%= image_tag user.story , class: "story-image"%></a>
+                    <p class="nameOfUser"><%= user.user_name %></p>
+                </div>
+            <% end %>
         <% end %>
         <% end %>
         </div>

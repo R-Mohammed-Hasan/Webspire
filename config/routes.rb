@@ -37,6 +37,9 @@ Rails.application.routes.draw do
 
   get "/profile/:id", to: "profile#profile"
 
+  get "/profile/request/:id", to: "profile#request_following"
+
+
   post "/post/create", to: "posts#post_create"
 
   get "/post/:id", to: "posts#show"
@@ -48,5 +51,7 @@ Rails.application.routes.draw do
   get "/post/edit/:id", to: "posts#edit"
 
   get "/search", to: "home#search"
+
+  get "/activity/requests", to: "activities#requests"
 
 end

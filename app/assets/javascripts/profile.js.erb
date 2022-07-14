@@ -6,7 +6,6 @@ function deletePostConfirmation(post_id) {
 function editPost(post_id,description,image) {
 
     document.getElementById(`postDescription`).innerHTML = description;
-    document.getElementById("postImage").innerHTML = `<%= image_tag ${image}, width: "80%",id: "postEditImage" %>`;
       $(".edit-post-container").css({
         backdropFilter: "brightness(50%)",
         zIndex: "2",

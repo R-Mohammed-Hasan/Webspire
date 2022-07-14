@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     stories = ActiveStorage::Attachment.where(name: "story")
     today = Time.now.strftime("%d")
     stories.each do |story|
-        if story.created_at < today
+        if story.created_at.strftime("%d") < today
           story.destroy
         end
     end

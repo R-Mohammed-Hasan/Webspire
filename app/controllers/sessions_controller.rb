@@ -17,19 +17,11 @@ class SessionsController < ApplicationController
 
 
   def create
-
     user = User.find_by(email: params[:user][:email])
-
     if user && user.authenticate(params[:user][:password])
-
       session[:current_user_id] = user.id
-
-
-
       redirect_to root_path, success: "You have been logged in successfully as #{user.user_name}"
-
     else
-
       redirect_to users_login_path, danger: "Invalid credentials..! Please try again"
 
     end

@@ -38,7 +38,9 @@
                 </div>
                 <% unless @current_user.id == @user.id %>
                 <div class="follow-requests">
-                    <button class="btn btn-primary">Follow</button>
+                    <a class="btn btn-primary" href="/profile/request/<%= @user.id %>">
+                        <%= @user.follower(@user.id) ? "Following" : "Follow" %>
+                    </a>
                 </div>
                 <% end %>
             </div>
