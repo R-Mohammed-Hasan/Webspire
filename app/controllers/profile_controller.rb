@@ -41,8 +41,8 @@ class ProfileController < ApplicationController
   end
 
   def story
-    user = @current_user
-    render "story",locals: {user: user}
+    user = User.all
+    render "story",locals: {users: user}
   end
 
 end

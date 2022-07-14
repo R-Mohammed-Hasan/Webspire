@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    p User.find_by(email: params[:user][:email])
     if User.find_by(email: params[:user][:email])
       redirect_to "/users/new", warning: "E-mail already registered...!"
       return

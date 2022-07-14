@@ -54,11 +54,12 @@ nav .moreOptions {
     height: 120px;
 }
 
-
-/* .multiple-items {
-    overflow-x: auto;
-    width: 100%;
-} */
+.multiple-items .nameOfUser {
+    text-align: center;
+    width: 60%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 
 .stories .multiple-items .slick-slide {
     width: 200px;
@@ -66,6 +67,7 @@ nav .moreOptions {
 
 .stories .multiple-items .slick-track {
     height: 100%;
+    margin-left: 0;
 }
 
 .stories .multiple-items .slick-arrow {

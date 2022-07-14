@@ -20,15 +20,13 @@ class SessionsController < ApplicationController
 
     user = User.find_by(email: params[:user][:email])
 
-
-
     if user && user.authenticate(params[:user][:password])
 
       session[:current_user_id] = user.id
 
 
 
-      redirect_to root_path, success: "You have been logged in successfully"
+      redirect_to root_path, success: "You have been logged in successfully as #{user.user_name}"
 
     else
 
@@ -55,4 +53,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
