@@ -52,6 +52,12 @@ Rails.application.routes.draw do
 
   get "/search", to: "home#search"
 
+
   get "/activity/requests", to: "activities#requests"
+
+  get "/activity/accept/:id", to: "activities#accept"
+
+  get "/activity/reject/:id", to: "activities#reject"
+
 
 end

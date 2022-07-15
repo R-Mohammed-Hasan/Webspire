@@ -4,16 +4,22 @@
         <div class="activity-container">
             <h1 class="my-4">Friend Requests</h1>
             <div class="activity-content">
+                <% unless requests.length > 0 %>
+                    <h2 class="mt-5">No friend requests</h2>
+                <% end %>
+              <% requests.each do |request| %>
+              <% user = User.find(request.sender_id) %>
                 <div class="friend-requests">
                     <div class="user-img">
-                        <img src="<%= asset_path "user-default-icon.png" %>" alt="">
+                        <%= image_tag user.user_profile %>
                     </div>
-                    <a href="" class="user-name">mohammed_mohsin007</a>
+                    <a href="" class="user-name"><%= user.user_name %></a>
                     <div class="options">
-                        <a class="btn btn-primary">Accept</a>
-                        <a class="btn btn-outline-danger">Cancel</a>
+                        <a href="/activity/accept/<%= request.sender_id %>" class="btn btn-primary">Accept</a>
+                        <a href="/activity/reject/<%= request.sender_id %>" class="btn btn-outline-danger">Cancel</a>
                     </div>
                 </div>
+                <% end %>
             </div>
         </div>
 

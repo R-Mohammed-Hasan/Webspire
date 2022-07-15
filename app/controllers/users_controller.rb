@@ -14,7 +14,11 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     session[:current_user_id] = user.id
     user.user_profile.attach(io: File.open("app/assets/images/user-default-icon.png"),filename: "user-default-icon.png",content_type: "image/png")
-    redirect_to root_path, success: "You have been successfully logged in"
+    if user.errors.full_messages.length > 0
+      redirect_to "/users/new", warning: user.errors.full_messages.join(",")
+    else
+      redirect_to root_path, success: "You have successfully registered"
+    end
   end
   def forgot_password
   end

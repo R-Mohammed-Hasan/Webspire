@@ -8,7 +8,7 @@
       <div class="carousel-inner">
           <% users.each do |user| %>
             <% if user.story.present? %>
-                <div class="carousel-item <%= users.first == user ? "active" : "" %>">
+                <div class="carousel-item <%= users.first ? "active" : "" %>">
                 <div class="story-container">
                   <div class="user-details">
                     <%= image_tag user.user_profile, class: "user-profile" %>

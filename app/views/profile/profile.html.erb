@@ -19,18 +19,17 @@
             </div>
             <div class="user-description">
                 <div class="score">
-                    <p class="user-score">200 points</p>
+                    <p class="user-score">0 points</p>
                 </div>
                 <div class="followers">
                     <div>
-                        <strong>100</strong> Posts
+                        <strong><%= @user.posts.length %></strong>
+                        <%= @user.posts.length > 1 ? "Posts" : "Post" %>
                     </div>
                     <div>
-                        <strong>100</strong> Followers
+                        <strong><%= @user.friends.length %></strong> Friends
                     </div>
-                    <div>
-                        <strong>100</strong> Following
-                    </div>
+
                 </div>
                 <div class="user-info">
                     <strong><%= @user.name %></strong> <br>
@@ -38,9 +37,24 @@
                 </div>
                 <% unless @current_user.id == @user.id %>
                 <div class="follow-requests">
-                    <a class="btn btn-primary" href="/profile/request/<%= @user.id %>">
-                        <%= @user.follower(@user.id) ? "Following" : "Follow" %>
-                    </a>
+                    <% if @current_user.friend(@user.id) %>
+                        <a class="btn btn-outline-primary">
+                           Already Friend<strong> ☑</strong>
+                        </a>
+                         <a class="btn btn-danger" href= "/profile/unfollow/<%= @user.id %>">
+                            Remove Friend
+                        </a>
+                        <% else %>
+                        <% if @request_sent.length == 0 %>
+                            <a class="btn btn-primary" href= "/profile/request/<%= @user.id %>">
+                                    Add Friend
+                            </a>
+                        <% else %>
+                          <a class="btn btn-primary" href= "/profile/request/<%= @user.id %>">
+                                    Request Sent
+                          </a>
+                        <% end %>
+                    <% end %>
                 </div>
                 <% end %>
             </div>

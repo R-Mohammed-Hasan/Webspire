@@ -13,31 +13,17 @@
                         <a href="/activity/requests" class="friend-requests-link">Show Friend Requests</a>
                     </div>
                 </div>
-                <div class="friend-requests">
-                    <div class="user-img">
-                        <img src="<%= asset_path "user-default-icon.png"%>" alt="">
+                <% @activities.each do |activity| %>
+                    <div class="friend-requests">
+                        <div class="user-img">
+                        <% user = User.find(activity.sender_id) %>
+                            <%= image_tag user.user_profile %>
+                        </div>
+                        <div class="activity">
+                            <a href="/profile/<%= user.id %>" class="user-name"><%= user.user_name %></a><%= activity.activity %>
+                        </div>
                     </div>
-                    <div class="activity">
-                        <a href="" class="user-name">mohammed_mohsin007</a>is now on Instagram
-                    </div>
-                </div>
-                <div class="friend-requests">
-                    <div class="user-img">
-                        <img src="<%= asset_path "user-default-icon.png"%>" alt="">
-                    </div>
-                    <div class="activity">
-                        <a href="" class="user-name">kasi_anto</a>has started following you on Instagram. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi similique quo vero alias voluptatum beatae molestias temporibus consequuntur debitis
-                        harum.
-                    </div>
-                </div>
-                <div class="friend-requests">
-                    <div class="user-img">
-                        <img src="<%= asset_path "user-default-icon.png"%>" alt="">
-                    </div>
-                    <div class="activity">
-                        <a href="" class="user-name">chithraj_spideyboy</a>has liked you post.
-                    </div>
-                </div>
+                <% end %>
             </div>
         </div>
 

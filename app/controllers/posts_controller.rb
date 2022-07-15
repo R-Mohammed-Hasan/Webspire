@@ -7,8 +7,8 @@ class PostsController < ApplicationController
 
   def post_create
     post = Post.new(user_id: @current_user.id )
-    post.posts.attach(io: params[:user][:user_post].to_io,filename: params[:user][:user_post].original_filename)
-    post.description = params[:user][:description]
+    post.posts.attach(io: params[:user_post].to_io,filename: params[:user_post].original_filename)
+    post.description = params[:description]
     post.save
     redirect_to "/profile/#{@current_user.id}"
   end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def like
     respond_to do |format|
-      # format.html
+      format.html { redirect_to root_path }
       format.js{render js: "console.log(hi)"}
     end
   end

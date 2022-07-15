@@ -5,24 +5,32 @@ class User < ApplicationRecord
 
   validates :user_name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
-  validates :mobile_number, presence: true
+  validates :mobile_number, presence: true, uniqueness: true
 
-  def followings
-   followings = Following.where(user_id: @current_user.id)
-   followings
+
+  def posts
+    posts = Post.where(user_id: self.id)
+    posts
   end
 
-  def followers
-    followers = Follower.where(user_id: self.id)
-    followers
+  def friends
+    friends = Follower.where("user_id = ? or follower_id = ? ", self.id, self.id)
+    p "========================================================================"
+    p friends
   end
 
-  def follower(user_id)
-    followers.include? user_id
-  end
-
-  def following(user_id)
-    followings.include? user_id
+  def friend(user_id)
+    if friends.length > 0
+     friends.each do |friend|
+      if  friend.user_id == user_id or friend.follower_id == user_id
+        return true
+      else
+        return false
+      end
+     end
+    else
+      return false
+    end
   end
 
 end

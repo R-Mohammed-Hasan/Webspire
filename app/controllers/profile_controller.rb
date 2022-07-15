@@ -2,7 +2,7 @@ class ProfileController < ApplicationController
   layout "profile"
 
   def activity
-
+    @activities = Activity.where(sender_id: @current_user.id)
   end
 
   def new_edit
@@ -31,18 +31,22 @@ class ProfileController < ApplicationController
       @user = User.find(params[:id])
     end
     @posts = Post.where(user_id: params[:id])
+    @request_sent = FollowRequest.where("sender_id = ? AND receiver_id = ? ",@current_user.id,@user.id)
+    p @request_sent
   end
 
   def story_create
     user =  User.find(@current_user.id)
     user.story.purge_later
-    user.story.attach(params[:story_img])
+    user.story.attach(io: params[:story_img].to_io,filename: params[:story_img].original_filename)
     redirect_to root_path,success: "Story have been created successfully"
   end
 
   def story
-    user = User.all
-    render "story",locals: {users: user}
+    users = User.all
+    p "=========================================================="
+    p users[0].story
+    render "story",locals: {users: users}
   end
 
   def request_following

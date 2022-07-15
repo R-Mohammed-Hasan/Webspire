@@ -2,7 +2,7 @@
 <div class="container">
     <div class="messages-container my-5">
         <div class="message-header">
-            <p class="name-of-user"><a href=""> hasan_the_don007</a></p>
+            <p class="name-of-user"><a href="/profile/<%= @current_user.id %>"><%= @current_user.user_name %></a></p>
             <div class="chatting-user">
                 <img src="<%= asset_path 'activity.png' %>" alt="">
                 <div class="user-info"> <a href="">   Mohammed Riyas</a>
@@ -11,25 +11,26 @@
             </div>
         </div>
         <div class="user-chattings">
-            <div class="chatting-names-of-user">
+          <div class="chatting-names-of-user">
+            <% @friends.each do |friend| %>
                 <div class="user-chatting active">
                     <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
                     <p class="user-name">
-                        Mohammed Mohsin
+                    <% if friend.user_id == @current_user.id %>
+                        <% user = User.find(friend.follower_id) %>
+                    <% else %>
+                        <% user = User.find(friend.user_id) %>
+                    <% end %>
+                    <%= user.user_name %>
                     </p>
                 </div>
-                <div class="user-chatting">
-                    <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
-                    <p class="user-name">
-                        Mohammed Mohsin
-                    </p>
-                </div>
+              <% end %>
             </div>
             <div class="chattings-details">
                 <div class="details-of-chatting">
 
                 </div>
-                <%= form_for @message, url: "", remote: true do |f| %>
+                <%= form_for @message, url: "/message", remote: true do |f| %>
                     <input type="text" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
                     <input type="submit" class="btn btn-primary" value="Send">
                 <% end %>

@@ -7,6 +7,7 @@ body {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 5px grey;
+    min-height: 20vh;
 }
 
 .container h1 {
@@ -33,6 +34,10 @@ body {
 .activity-container .user-img {
     width: 5%;
     height: 5%;
+}
+
+.activity-container .user-img img {
+    border-radius: 50%;
 }
 
 .activity-container .friend-requests {

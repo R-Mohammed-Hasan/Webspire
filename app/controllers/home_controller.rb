@@ -23,4 +23,9 @@ class HomeController < ApplicationController
     @search = User.where("user_name LIKE ?", "%#{params[:q]}%")
     # use description of a post to filter
   end
+
+  def message
+    @message = Chatting.new
+    @friends = @current_user.friends
+  end
 end

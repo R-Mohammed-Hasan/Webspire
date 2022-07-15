@@ -101,7 +101,7 @@ function uploadStory() {
 }
 
 function showComments() {
-    $(".post-comments").show(200);
+    $(".post-comments").show(300);
 }
 
 function hideComments() {
