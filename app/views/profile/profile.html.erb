@@ -68,29 +68,23 @@
         <h2 class="nothing-posted"> No posts posted yet..!</h2>
 <% end %>
 <% @posts.each do |post| %>
-<div class="post">
-    <a href="/post/<%= post.id %>">
-        <% if @user.id == @current_user.id %>
-            <div class="delete-post">
-                <a onclick="editPost('<%= post.id %>','<%= post.description %>','<%= post.posts.first %>')">
-                    <img src=" <%= asset_path "edit-icon.png" %>" title="Edit" alt="">
-                </a href="/post/delete/<%= post.id %>">
-                <a onclick="deletePostConfirmation(<%=post.id %>)" >
-                    <%= image_tag "delete-icon.jpg", title: "Delete Post", data: {confirm: "are" } %>
-                </a>
-            </div>
-        <% end %>
-        <%= image_tag post.posts.first, class: "post-img" %>
-
-
-
-    </a>
-</div>
+    <div class="post">
+      <a href="/post/<%= post.id %>" class="view-post-link">
+            <% if @user.id == @current_user.id %>
+                <div class="delete-post">
+                    <a onclick="editPost('<%= post.id %>','<%= post.description %>','<%= post.posts.first %>')">
+                        <img src=" <%= asset_path "edit-icon.png" %>" title="Edit" alt="">
+                    </a href="/post/delete/<%= post.id %>">
+                    <a onclick="deletePostConfirmation(<%=post.id %>)" >
+                        <%= image_tag "delete-icon.jpg", title: "Delete Post", data: {confirm: "are" } %>
+                    </a>
+                </div>
+            <% end %>
+            <%= image_tag post.posts.first, class: "post-img" %>
+      </a>
+    </div>
 <% end %>
-</div>
 
-
-</div>
  <div class="edit-post-container">
             <div class="edit-post-dialog-box">
                <%= form_with model: @user,url:"/post/create", method: "post", class:"profile-edit-form" do |f|%>

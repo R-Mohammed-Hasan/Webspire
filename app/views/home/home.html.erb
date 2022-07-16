@@ -9,9 +9,10 @@
                     <%= f.file_field :story_img, style: "display:none", onchange: "uploadStory()", id: "story-file" %>
                 <% end %>
                 <% if @current_user.story.present? %>
-                <a href="/profile/stories">
-                    <%= image_tag  @current_user.story,class: "story-image", title: "Your Story" %>
-                </a>
+                    <a href="/profile/stories">
+                        <%= image_tag  @current_user.story,class: "story-image", title: "Your Story" %>
+                    </a>
+                        <p class="nameOfUser"><%= @current_user.user_name %></p>
                 <% else %>
                     <%= image_tag "add-story-icon.png", onclick: "openStoriesDialog()", class: "story-image default" ,title: "Add Story" %>
                 <% end %>
@@ -32,7 +33,7 @@
     <!-- carousel to view post -->
 
     <div class="postsContainer">
-        <%= render "posts" %>
+        <%= render "post/posts" %>
     </div>
 </div>
 

@@ -111,9 +111,32 @@ a {
 
 .chattings-details .details-of-chatting {
     width: 100%;
-    background-color: rgb(202, 202, 202);
+    background-color: #f8f9fa;
     height: 90%;
     overflow-y: auto;
+    padding: 3%;
+}
+
+.details-of-chatting .message {
+    width: fit-content;
+    max-width: 75%;
+    padding: 8px;
+    margin-top: 20px;
+    font-size: 17px !important;
+}
+
+.message.response {
+    background-color: rgba(208, 208, 208, 0.797);
+    margin-right: auto !important;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: -3px 3px 5px grey;
+}
+
+.message.request {
+    background-color: rgb(120, 242, 118);
+    margin-left: auto !important;
+    border-radius: 10px 0px 10px 10px;
+    box-shadow: 3px 3px 5px grey;
 }
 
 .chattings-details form {

@@ -10,7 +10,7 @@
                         <img src="<%= asset_path "multi-user-default-icon.png"%>" alt="">
                     </div>
                     <div class="activity">
-                        <a href="/activity/requests" class="friend-requests-link">Show Friend Requests</a>
+                        <a href="/activity/requests" class="friend-requests-link">Show Friend Requests <button class="btn btn-danger requests-count"><%= @requests.length %></button></a>
                     </div>
                 </div>
                 <% @activities.each do |activity| %>

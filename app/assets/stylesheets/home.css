@@ -33,17 +33,21 @@ nav .moreOptions {
 }
 
 .stories {
-    margin: 6%;
+    margin: 4% 0%;
     width: 75%;
-    border-radius: 2px
+    border-radius: 9px;
+    background-color: #f8f9fa;
+    border: 1px solid rgba(219, 219, 219);
+    padding: 2% 0% 1% 2%;
 }
 
 .story-image {
     width: 58%;
-    height: 70%;
+    height: 74%;
     border-radius: 100%;
     cursor: pointer;
     border: 2px solid aqua;
+    padding: 3px;
 }
 
 .story-image.default {
@@ -59,6 +63,8 @@ nav .moreOptions {
     width: 60%;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-family: 'Poppins';
+    font-size: 18px;
 }
 
 .stories .multiple-items .slick-slide {
@@ -120,6 +126,8 @@ nav .moreOptions {
 
 .nav-link {
     margin: 1%;
+    height: 100%;
+    width: 100%;
 }
 
 input[type="file"].nav-link {
@@ -141,6 +149,7 @@ input[type="file"].nav-link {
 .nav-item.dropdown .user-profile {
     border-radius: 50%;
     width: 50%;
+    height: 100%;
 }
 
 .username a {
@@ -220,6 +229,7 @@ input[type="search"] {
 
 .post-info>.user-profile {
     width: 6%;
+    height: 80%;
     border: 2px solid rgb(62, 219, 219);
     border-radius: 100%;
     margin: 2%;
@@ -245,7 +255,7 @@ input[type="search"] {
 }
 
 .post-content {
-    background-color: rgba(152, 152, 152, 0.847);
+    background-color: #e1e1e1;
     width: 100%;
     height: 76%;
 }
@@ -412,10 +422,10 @@ input[type="search"] {
     z-index: 10;
     border-radius: 10px;
     padding: 5px;
-    background-color: white;
+    background-color: #e5e5e5;
     font-family: 'Poppins';
     font-size: 18px;
-    box-shadow: 0px 0px 10px white;
+    box-shadow: 5px 5px 5px grey, -5px -5px 10px grey inset, 10px 10px 10px white inset;
 }
 
 .more-option-box {

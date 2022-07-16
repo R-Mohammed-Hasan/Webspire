@@ -49,7 +49,8 @@ body {
 }
 
 .activity-container .user-img img {
-    width: 100%;
+    width: 57px;
+    height: 57px;
     border-radius: 50%;
 }
 
@@ -75,4 +76,8 @@ body {
     margin-left: 2%;
     width: 100%;
     font-size: 18px;
+}
+
+.requests-count {
+    background-color: rgb(255 50 50) !important;
 }

@@ -3,6 +3,7 @@ class ProfileController < ApplicationController
 
   def activity
     @activities = Activity.where(sender_id: @current_user.id)
+    @requests = FollowRequest.where(receiver_id: @current_user.id)
   end
 
   def new_edit
@@ -44,8 +45,6 @@ class ProfileController < ApplicationController
 
   def story
     users = User.all
-    p "=========================================================="
-    p users[0].story
     render "story",locals: {users: users}
   end
 

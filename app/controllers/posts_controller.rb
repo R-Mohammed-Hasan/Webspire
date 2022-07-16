@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
 
+  layout "home"
+
   def show
       post = Post.find(params[:id])
-      p post.id
+      render "post/show",locals: {post: post}
   end
 
   def post_create

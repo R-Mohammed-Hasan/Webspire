@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "showPost" %>
+<div class="container">
+    <div class="postsContainer">
+      <% user = User.find(post.user_id) %>
+        <div class="post-container">
+            <div class="post-info">
+                <div class="user-profile">
+                    <a href="profile/<%= user.id %>">
+                        <%= image_tag user.user_profile, width: "100%",height: "100%",style: "border-radius:50%;" %>
+                    </a>
+                </div>
+                <div class="username">
+                    <a href="profile/<%= user.id %>">
+                            <%= user.user_name %>
+                        </a>
+                </div>
+            </div>
+
+            <div class="post-content">
+                <% post.posts.each do|post| %>
+                    <div>
+                        <%= image_tag post %>
+                    </div>
+                <% end %>
+            </div>
+      </div>
+   </div>
+  </div>

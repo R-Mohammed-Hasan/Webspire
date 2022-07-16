@@ -1,0 +1,13 @@
+.post-content>div,
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.post-content {
+    height: 94%;
+}
+
+.postsContainer {
+    overflow: hidden;
+}
