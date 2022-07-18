@@ -28,11 +28,17 @@
             <div class="post-credits">
                 <div class="credits">
                     <div class="likes-container">
-                    <%= form_for post,url: "/post/like/#{post.id}",authenticity_token: true,remote: true do |f| %>
-                        <%= image_submit_tag "like-icon.png",class: "like", title: "Like this post" %>
-                    <% end %>
+                       <% if post.liked?(@current_user.id) %>
+                          <%= form_for post,url: "/post/dislike/#{post.id}",authenticity_token: true,remote: true,method: "put" do |f| %>
+                            <%= image_submit_tag "liked-icon.png",class: "like", title: "Disike this post" %>
+                          <% end %>
+                       <% else %>
+                          <%= form_for post,url: "/post/like/#{post.id}",authenticity_token: true,remote: true,method: "put" do |f| %>
+                            <%= image_submit_tag "like-icon.png",class: "like", title: "Like this post" %>
+                          <% end %>
+                       <% end %>
 
-                        <p class="likes-count">2378</p>
+                        <p class="likes-count"><%= post.likes %></p>
                     </div>
                         <img class="comment" title="Comments" onclick="showComments()" src="<%= asset_path "comment-icon.png" %>" alt="">
                         <img class="bookmark" title="Bookmark this" src="<%= asset_path "bookmark-icon.png" %>" alt="">

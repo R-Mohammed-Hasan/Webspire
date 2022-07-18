@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_one_attached :user_profile
   has_one_attached :story
+  has_many :likes
 
   validates :user_name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true

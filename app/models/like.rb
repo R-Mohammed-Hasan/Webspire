@@ -6,8 +6,5 @@ class Like < ApplicationRecord
 
   end
 
-  def liked?
-      @current_user
-  end
 
 end

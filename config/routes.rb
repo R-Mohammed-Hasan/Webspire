@@ -48,7 +48,9 @@ Rails.application.routes.draw do
 
   get "/post/delete/:id", to: "posts#destroy"
 
-  patch "/post/like/:id", to: "posts#like"
+  put "/post/like/:post_id", to: "posts#like"
+
+  put "/post/dislike/:post_id", to: "posts#dislike"
 
   get "/post/edit/:id", to: "posts#edit"
 
@@ -60,6 +62,13 @@ Rails.application.routes.draw do
   get "/activity/accept/:id", to: "activities#accept"
 
   get "/activity/reject/:id", to: "activities#reject"
+
+
+# ====================================================================
+
+  get "/api/v1/posts", to: "posts#posts_api"
+post "/api/v1/posts", to: "posts#new_post_api"
+
 
 
 end

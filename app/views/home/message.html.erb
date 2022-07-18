@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'message', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'message', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="container">
     <div class="messages-container my-5">
         <div class="message-header">
@@ -33,7 +34,7 @@
                         <div class="message response">Hello
                         </div>
                 </div>
-                <%= form_with model: @message, url: "message/new", remote: true,method: "put" do |f| %>
+                <%= form_with model: @message, url: "message/new",authenticity_token: true, remote: true,method: "put" do |f| %>
                     <input type="text" name="message[input]" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
                     <input type="submit" class="btn btn-primary" value="Send">
                 <% end %>

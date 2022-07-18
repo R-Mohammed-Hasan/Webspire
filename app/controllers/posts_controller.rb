@@ -31,10 +31,19 @@ class PostsController < ApplicationController
   end
 
   def like
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.js{render js: "console.log(hi)"}
-    end
+      Like.create!(user_id: @current_user.id,post_id: params[:post_id])
+      # format.json { render json: }
+
+  end
+
+  def dislike
+      Like.find_by(user_id: @current_user.id, post_id: params[:post_id]).destroy
+  end
+
+
+  def posts_api
+    @posts = Post.all.where(user_id: @current_user.id)
+  render json: @posts
   end
 
 end

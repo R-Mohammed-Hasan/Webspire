@@ -75,7 +75,7 @@
                     <a onclick="editPost('<%= post.id %>','<%= post.description %>','<%= post.posts.first %>')">
                         <img src=" <%= asset_path "edit-icon.png" %>" title="Edit" alt="">
                     </a href="/post/delete/<%= post.id %>">
-                    <a onclick="deletePostConfirmation(<%=post.id %>)" >
+                    <a onclick="deletePostConfirmation(<%= post.id %>)" >
                         <%= image_tag "delete-icon.jpg", title: "Delete Post", data: {confirm: "are" } %>
                     </a>
                 </div>
