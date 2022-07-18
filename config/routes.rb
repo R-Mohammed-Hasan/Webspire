@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get "/message", to: "home#message"
 
+  put "/message/new", to: "home#new_message"
+
   get "/signOut", to: "sessions#destroy"
 
 

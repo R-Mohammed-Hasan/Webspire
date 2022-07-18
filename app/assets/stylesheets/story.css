@@ -69,17 +69,41 @@
       width: 100%;
   }
   
-  .carousel-control-next {
-      top: 12%;
-      left: 105%;
-      opacity: 1;
+  .carousel-control-next-icon {
+      position: absolute;
+      top: 56%;
+      right: 20%;
+      padding: 27%;
+      background-color: black;
+      border-radius: 5px;
   }
   
-  .carousel-control-prev {
-      top: 12%;
-      left: -20%;
+  .carousel-control-prev-icon {
+      position: absolute;
+      top: 56%;
+      left: 5%;
+      padding: 27%;
+      background-color: black;
+      border-radius: 5px;
   }
   
   .carousel {
       width: 32%;
+  }
+  
+  .carousel-indicators [data-bs-target] {
+      height: 5px;
+  }
+  
+  .carousel-indicators {
+      top: 102%;
+  }
+  
+  .user-profile {
+      width: 15%;
+      height: 90%;
+  }
+  
+  .user-details {
+      height: 100px;
   }

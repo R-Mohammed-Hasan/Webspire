@@ -28,4 +28,13 @@ class HomeController < ApplicationController
     @message = Chatting.new
     @friends = @current_user.friends
   end
+
+  def new_message
+      p "==================================================================="
+      respond_to do |format|
+          format.html{}
+          format.js{}
+      end
+
+  end
 end

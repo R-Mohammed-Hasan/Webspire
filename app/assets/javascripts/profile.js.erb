@@ -4,8 +4,9 @@ function deletePostConfirmation(post_id) {
     }
 }
 function editPost(post_id,description,image) {
-
     document.getElementById(`postDescription`).innerHTML = description;
+    console.log(image);
+    document.getElementById("postImage").innerHTML = `<%= image_tag ${image} %>`;
       $(".edit-post-container").css({
         backdropFilter: "brightness(50%)",
         zIndex: "2",
