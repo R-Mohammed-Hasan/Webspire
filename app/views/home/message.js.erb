@@ -1,11 +1,13 @@
-alert("hi");
+function dum(){
+  alert("hi");
+}
 Rails.ajax({
   url: "/message/new",
   type: "put",
   data: "",
   success: function(data) {
   alert("hi");
-$('.details-of-chatting').html("<%= j (render partial: 'random') %>")
+$('.details-of-chatting').html("<%= j (render partial: 'message') %>")
   },
   error: function(data) {
   alert("hi");

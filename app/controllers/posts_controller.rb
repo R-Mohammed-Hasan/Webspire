@@ -32,18 +32,23 @@ class PostsController < ApplicationController
 
   def like
       Like.create!(user_id: @current_user.id,post_id: params[:post_id])
-      # format.json { render json: }
-
+      @posts = Post.where(user_id: @current_user.id)
+      respond_to do |format|
+        format.js
+        # format.json{ render json: @posts}
+      end
   end
 
   def dislike
       Like.find_by(user_id: @current_user.id, post_id: params[:post_id]).destroy
+      respond_to do |format|
+        format.js
+      end
   end
 
+  def comment
+      Comment.create!(user_id: @current_user.id, post_id: params[:post_id],comment: params[:comment])
 
-  def posts_api
-    @posts = Post.all.where(user_id: @current_user.id)
-  render json: @posts
   end
 
 end

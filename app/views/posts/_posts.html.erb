@@ -55,10 +55,10 @@
                     </span>
                 </p>
 
-                <form action="" class="comment-box">
+                <%= form_with url: "/comment/#{post.id}",class: "comment-box" do |form| %>
                     <div class="add-comment-button">Send</div>
                     <input id="add-comment" class="form-control add-comment" type="text" placeholder="Add a comment...">
-                </form>
+                <% end %>
             </div>
         </div>
     <% end %>
