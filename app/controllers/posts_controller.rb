@@ -48,7 +48,6 @@ class PostsController < ApplicationController
 
   def comment
       Comment.create!(user_id: @current_user.id, post_id: params[:post_id],comment: params[:comment])
-
   end
 
 end

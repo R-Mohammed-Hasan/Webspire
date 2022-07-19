@@ -63,7 +63,7 @@ Rails.application.routes.draw do
 
   get "/activity/reject/:id", to: "activities#reject"
 
-  post "/comment/:post_id", to: "posts#comment"
+  put "/comment/:post_id", to: "posts#comment"
 
 
 # ====================================================================
