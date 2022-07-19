@@ -350,7 +350,8 @@ input[type="search"] {
 }
 
 .post-credits>.post-description-container {
-    height: 37%;
+    min-height: 22%;
+    max-height: 37%;
 }
 
 .post-credits>.post-description-container>.post-description {
@@ -588,6 +589,11 @@ input[type="search"] {
     font-size: 20px;
     font-weight: bold;
     align-items: center;
+}
+
+.comment-details .commentor a {
+    color: black;
+    text-decoration: none;
 }
 
 .comment-details .commented-time {

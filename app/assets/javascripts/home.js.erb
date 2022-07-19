@@ -46,7 +46,10 @@ $(".post-content").slick({
     dots: true,
 });
 
-function showMoreOption() {
+function showMoreOption(post_id) {
+    document.getElementById(
+        "reportPost"
+    ).href = `mailto:mohammed.hasan@fwsa.freshworks.com?subject=Regarding inappropriateness of a Post&body=Post of id: ${post_id} is inappropriate. Kindly review it.`;
     $(".more-option-box").css({
         transform: "scale(1)",
         transition: "all 0.3s",
@@ -59,6 +62,7 @@ function showMoreOption() {
 }
 
 function hideMoreOption() {
+    document.getElementById("reportPost").href = "";
     $(".more-option-box").css({
         transform: "scale(0.001)",
         backdropFilter: "blur(0)",
@@ -100,8 +104,35 @@ function uploadStory() {
     $("#story-form").submit();
 }
 
-function showComments() {
-    $(".post-comments").show(300);
+function showComments(comments,users) {
+  $(".post-comments").show(300);
+  let output = "";
+
+  if (comments.length == 0) {
+    document.getElementsByClassName("comments-container")[0].innerHTML = `<h2 style="text-align:center;margin:5%">Be the first to add comment to this post...</h2>`;
+    return;
+  }
+
+  for(comment of comments){
+   for(user of users){
+   if(comment.user_id == user.id){
+        output += `
+            <div class="comment-container">
+            <div class="comment-details">
+                <div class="commentor-profile">
+                    <img src="<%= asset_path "user-default-icon.png"%>" alt="">
+                </div>
+                <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
+                <p class="commented-time">${comment.created_at.slice(0,10)}</p>
+            </div>
+            <div class="comment">
+                ${comment.comment}
+            </div>
+        </div>`
+     }
+     }
+    }
+    document.getElementsByClassName("comments-container")[0].innerHTML = output;
 }
 
 function hideComments() {

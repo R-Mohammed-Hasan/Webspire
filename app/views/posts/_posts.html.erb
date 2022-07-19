@@ -12,7 +12,7 @@
                             <%= user.user_name %>
                         </a>
                 </div>
-                <div class="more-option" onclick="showMoreOption()">
+                <div class="more-option" onclick="showMoreOption(<%= post.id %>)">
                     <img src="<%= asset_path "more-icon.png" %>" width="100%" alt="">
                 </div>
             </div>
@@ -40,7 +40,8 @@
 
                         <p class="likes-count"><%= post.likes %></p>
                     </div>
-                        <img class="comment" title="Comments" onclick="showComments()" src="<%= asset_path "comment-icon.png" %>" alt="">
+                    <% @comments = Comment.where(post_id: post.id) %>
+                        <img class="comment" title="Comments" onclick="showComments(<%= @comments.to_json %>,<%= User.where(id: @comments.map{ |comment| comment.user_id}).to_json %>)" src="<%= asset_path "comment-icon.png" %>" alt="">
                         <img class="bookmark" title="Bookmark this" src="<%= asset_path "bookmark-icon.png" %>" alt="">
                 </div>
 
@@ -55,7 +56,7 @@
                     </span>
                 </p>
 
-                <%= form_with url: "/comment/#{post.id}",class: "comment-box", method: "put" do |form| %>
+                <%= form_with url: "/comment/#{post.id}",class: "comment-box", method: "put",remote: true do |form| %>
                     <div class="add-comment-button">Send</div>
                     <input id="add-comment" name="comment" class="form-control add-comment" type="text" placeholder="Add a comment...">
                 <% end %>
