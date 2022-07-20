@@ -109,7 +109,7 @@ function showComments(comments,users) {
   let output = "";
 
   if (comments.length == 0) {
-    document.getElementsByClassName("comments-container")[0].innerHTML = `<h2 style="text-align:center;margin:5%">Be the first to add comment to this post...</h2>`;
+    document.getElementsByClassName("comments-container")[0].innerHTML = `<h2 style="text-align:center;margin:5%">Be the first to add comment to this post...🤩</h2>`;
     return;
   }
 
@@ -126,6 +126,9 @@ function showComments(comments,users) {
                 </div>
                 <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
                 <p class="commented-time">${comment.created_at.slice(0,10)}</p>
+                <a class="delete-comment" href="/comment/delete/${comment.id}">
+                    <img src="<%= asset_path 'delete-icon.jpg' %>"  width='50%'>
+                </a>
             </div>
             <div class="comment">
                 ${comment.comment}

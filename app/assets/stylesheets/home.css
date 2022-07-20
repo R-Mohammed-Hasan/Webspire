@@ -64,7 +64,7 @@ nav .moreOptions {
     text-overflow: ellipsis;
     overflow: hidden;
     font-family: 'Poppins';
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .stories .multiple-items .slick-slide {
@@ -556,11 +556,11 @@ input[type="search"] {
     display: flex;
     justify-content: right;
     font-size: 25px;
-    cursor: pointer;
 }
 
 .post-comments .close-button img:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
 .post-comments .comments-container {
@@ -607,4 +607,9 @@ input[type="search"] {
     color: grey;
     margin-left: 5%;
     align-items: center;
+}
+
+.delete-comment {
+    margin: 0 5% 4% auto;
+    width: 12%;
 }

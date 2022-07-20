@@ -11,20 +11,19 @@
 
 
     <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>  
+    <%= javascript_include_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="icon" href="<%= asset_path "Webspire-logo.gif" %>">
+    <link rel="icon" href="<%= asset_path 'spider-logo-title.jpg' %>">
 
- 
     <%# Need to add logo  %>
 
 </head>
 
 <body>
-    
+
     <%= render "layouts/flasher" %>
     <%= yield %>
- 
+
 </body>
 </html>

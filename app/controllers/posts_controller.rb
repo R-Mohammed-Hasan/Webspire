@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def show
       post = Post.find(params[:id])
-      render "post/show",locals: {post: post}
+      render "post/show",locals: { post: post }
   end
 
   def post_create
@@ -43,10 +43,14 @@ class PostsController < ApplicationController
       end
   end
 
-  def comment
+  def create_comment
       Comment.create!(user_id: @current_user.id, post_id: params[:post_id],comment: params[:comment])
   end
 
+  def delete_comment
+      Comment.find(params[:comment_id]).destroy
+      redirect_to root_path
+  end
 
   private
   def post_params

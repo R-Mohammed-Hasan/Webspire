@@ -63,9 +63,11 @@ Rails.application.routes.draw do
 
   get "/activity/reject/:id", to: "activities#reject"
 
-  put "/comment/:post_id", to: "posts#comment"
+  put "/comment/:post_id", to: "posts#create_comment"
 
   post "/post/edit/:post_id", to: "posts#edit"
+
+  get "/comment/delete/:comment_id",to: "posts#delete_comment"
 
 # ====================================================================
 
