@@ -439,11 +439,17 @@ input[type="search"] {
 
 .edit-post-dialog-box {
     top: 15%;
-    left: 24%;
+    left: 30%;
     width: 700px;
     height: 700px;
     font-size: 20px;
     text-align: center;
+    padding: 3%;
+}
+
+.col-auto.input .editPostImage {
+    width: 600px;
+    height: 400px;
 }
 
 .profile-edit-form {
@@ -533,7 +539,7 @@ input[type="search"] {
 
 .post-comments {
     position: fixed;
-    top: 8%;
+    top: 6%;
     right: 2%;
     height: 90%;
     width: 33%;

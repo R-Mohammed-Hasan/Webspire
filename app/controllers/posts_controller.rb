@@ -16,12 +16,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    post = Post.find(params[:id])
-    respond_to do |format|
-      format.js { render :js => "editPost(#{post})" }
-      format.html{redirect_to "/profile/#{@current_user.id}"}
-     end
-    # redirect_to "/profile/#{params[:id]}"
+    post = Post.find(params[:post_id])
+    post.update(post_params)
+    redirect_to "/profile/#{@current_user.id}"
   end
 
   def destroy
@@ -50,4 +47,9 @@ class PostsController < ApplicationController
       Comment.create!(user_id: @current_user.id, post_id: params[:post_id],comment: params[:comment])
   end
 
+
+  private
+  def post_params
+      params.require(:post).permit(:description)
+  end
 end

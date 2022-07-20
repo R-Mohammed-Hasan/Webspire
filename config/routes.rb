@@ -65,6 +65,7 @@ Rails.application.routes.draw do
 
   put "/comment/:post_id", to: "posts#comment"
 
+  post "/post/edit/:post_id", to: "posts#edit"
 
 # ====================================================================
 

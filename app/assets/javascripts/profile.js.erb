@@ -3,18 +3,19 @@ function deletePostConfirmation(post_id) {
         window.location.href = `/post/delete/${post_id}`;
     }
 }
-function editPost(post_id,description,image) {
+function editPost(post_id,description,images) {
     document.getElementById(`postDescription`).innerHTML = description;
-    console.log(image);
-    document.getElementById("postImage").innerHTML = `<%= image_tag "image" %>`;
+    document.getElementById("postImage").src = images;
+    console.log(document.getElementById("editForm"));
+    document.getElementById("editForm").action = `/post/edit/${post_id}`;
       $(".edit-post-container").css({
         backdropFilter: "brightness(50%)",
         zIndex: "2",
-        transition: "all 0.3s",
+        transition: "all 0.3s"
     });
     $(".edit-post-dialog-box").css({
         transform: "scale(1)",
-        transition: "all 0.3s",
+        transition: "all 0.3s"
     });
 }
 

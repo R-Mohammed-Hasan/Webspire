@@ -72,11 +72,11 @@
       <a href="/post/<%= post.id %>" class="view-post-link">
             <% if @user.id == @current_user.id %>
                 <div class="delete-post">
-                    <a onclick="editPost('<%= post.id %>','<%= post.description %>','<%= post.posts.first %>')">
+                    <a onclick="editPost('<%= post.id %>','<%= post.description %>','<%= url_for(post.posts.first) %>')">
                         <img src=" <%= asset_path "edit-icon.png" %>" title="Edit" alt="">
                     </a href="/post/delete/<%= post.id %>">
                     <a onclick="deletePostConfirmation(<%= post.id %>)" >
-                        <%= image_tag "delete-icon.jpg", title: "Delete Post", data: {confirm: "are" } %>
+                        <%= image_tag "delete-icon.jpg", title: "Delete Post" %>
                     </a>
                 </div>
             <% end %>
@@ -87,21 +87,19 @@
 
  <div class="edit-post-container">
             <div class="edit-post-dialog-box">
-               <%= form_with model: @user,url:"/post/create", method: "post", class:"profile-edit-form" do |f|%>
+               <%= form_with model: @post,url: "", method: "post", class:"profile-edit-form",authenticity_token: false, id:"editForm" do |f|%>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
                 <div class="row g-3 my-2 align-items-center">
-                    <div class="col-auto label">
-                        <label for="username" class="col-form-label ms-4">Post : </label>
-                    </div>
-                    <div class="col-auto input" id="postImage">
-
+                    <div class="col-auto input">
+                        <img id="postImage" class="editPostImage">
                     </div>
                 </div>
-                <div class="row g-3 my-2 align-items-center">
+                <div class="row g-3 my-2 ">
                     <div class="col-auto label">
                         <label for="username" class="col-form-label">Description:</label>
                     </div>
                     <div class="col-auto input">
-                        <textarea cols="40" rows="5"  id="postDescription" class="form-control" ></textarea>
+                        <textarea cols="40" rows="5" name="post[description]" id="postDescription" class="form-control" ></textarea>
                     </div>
                 </div>
                 <div class="post-options">

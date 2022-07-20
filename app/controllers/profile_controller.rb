@@ -33,7 +33,7 @@ class ProfileController < ApplicationController
     end
     @posts = Post.where(user_id: params[:id])
     @request_sent = FollowRequest.where("sender_id = ? AND receiver_id = ? ",@current_user.id,@user.id)
-    p @request_sent
+    @post = Post.new
   end
 
   def story_create

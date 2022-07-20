@@ -120,7 +120,9 @@ function showComments(comments,users) {
             <div class="comment-container">
             <div class="comment-details">
                 <div class="commentor-profile">
-                    <img src="<%= asset_path "user-default-icon.png"%>" alt="">
+                   <a href="/profile/${user.id}">
+                     <img src="<%= asset_path "user-default-icon.png"%>" alt="">
+                    </a>
                 </div>
                 <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
                 <p class="commented-time">${comment.created_at.slice(0,10)}</p>
