@@ -1,3 +1,3 @@
 $(document).ready(() => {
-    $(".loading").hide(200);
+    $(".loading").hide();
 });

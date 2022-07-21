@@ -29,8 +29,6 @@ class PostsController < ApplicationController
 
   def like
       liked = Like.find_by(user_id: @current_user.id,post_id: params[:post_id])
-      p "======================================================================="
-      p liked
       if liked
         liked.destroy
       else

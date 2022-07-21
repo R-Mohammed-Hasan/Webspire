@@ -105,7 +105,7 @@ nav .moreOptions {
 }
 
 .navbar-brand {
-    height: 91px;
+    height: 97px;
     width: 244px;
 }
 
@@ -322,20 +322,21 @@ input[type="search"] {
     text-align: center;
 }
 
-.labelForLikes input[type="checkbox"]:checked~img {
-    content: url("liked-icon.png");
-}
-
 .credits .likes-container .like {
     width: 88%;
     cursor: pointer;
-    margin-bottom: 15%;
 }
 
 .credits .likes-count {
     font-size: 17px;
     font-weight: bold;
     margin: 0;
+}
+
+@keyframes animateLike {
+    50% {
+        transform: scale(1.4);
+    }
 }
 
 .credits>.comment,
@@ -579,7 +580,9 @@ input[type="search"] {
 }
 
 .comment-container {
-    margin-bottom: 5%;
+    padding: 3%;
+    transition: 0.2s all;
+    border-radius: 5px;
 }
 
 .comment-container .comment {
@@ -624,6 +627,10 @@ input[type="search"] {
 .delete-comment .delete-comment-icon {
     display: none;
     cursor: pointer;
+}
+
+.comment-container:hover {
+    background-color: rgb(222 222 222 / 87%);
 }
 
 .comment-container:hover .delete-comment .delete-comment-icon {

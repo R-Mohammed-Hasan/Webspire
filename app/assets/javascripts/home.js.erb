@@ -153,22 +153,6 @@ function deleteComment(event,comment_id) {
     });
 }
 
-function addLike(post_id,event){
-    console.log(event.target);
-    let likesCount = document.getElementById(`likesCountForPost${post_id}`);
-    likesCount.innerHTML = JSON.parse(likesCount.innerHTML) + 1;
-    event.target.src = "<%= asset_path 'liked-icon.png'%>";
-    event.target.onclick = removeLike(post_id,event);
-}
-
-function removeLike(post_id,event){
-    let likesCount = document.getElementById(`likesCountForPost${post_id}`);
-    likesCount.innerHTML = JSON.parse(likesCount.innerHTML) - 1;
-    event.target.src = "<%= asset_path 'liked-icon.png'%>";
-    event.target.removeEventListener("click",removeLike);
-    event.target.onclick = addLike(post_id,event);
-}
-
 function addComment(user,user_profile,post_id){
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -192,4 +176,21 @@ function addComment(user,user_profile,post_id){
                         ${comment}
                     </div>
                 </div>`
+}
+
+function updateLike(post_id,event){
+    let el = event.target;
+    if(el.getAttribute("liked") == "false"){
+        let likesCount = document.getElementById(`likesCountForPost${post_id}`);
+        likesCount.innerHTML = JSON.parse(likesCount.innerHTML) + 1;
+        event.target.src = "<%= asset_path 'liked-icon.png'%>";
+        event.target.style.animation = "animateLike 0.3s 1";
+        el.setAttribute("liked","true");
+    }else{
+        let likesCount = document.getElementById(`likesCountForPost${post_id}`);
+        likesCount.innerHTML = JSON.parse(likesCount.innerHTML) - 1;
+        event.target.src = "<%= asset_path 'like-icon.png'%>";
+        event.target.style.animation = "";
+        el.setAttribute("liked","false");
+    }
 }

@@ -29,15 +29,11 @@
                 <div class="credits">
                     <div class="likes-container">
                         <%= form_for post,url: "/post/like/#{post.id}",authenticity_token: true,remote: true,method: "put" do |f| %>
-                            <label for="post<%= post.id %>" class="labelForLikes">
                                 <% if post.liked?(@current_user.id) %>
-                                    <input type="checkbox" checked id="post<%= post.id %>">
-                                    <%= image_tag "liked-icon.png",class: "like",onclick: "removeLike(#{post.id},event)", title: "Disike this post" %>
+                                    <%= image_submit_tag "liked-icon.png",class: "like", "liked" => "true",onclick: "updateLike(#{post.id},event)", title: "Disike this post" %>
                                 <% else %>
-                                    <input type="checkbox" id="post<%= post.id %>">
-                                        <%= image_tag "like-icon.png",class: "like",onclick: "addLike(#{post.id},event)", title: "Like this post" %>
+                                    <%= image_submit_tag "like-icon.png",class: "like", "liked" => "false",onclick: "updateLike(#{post.id},event)", title: "Like this post" %>
                                 <% end %>
-                            </label>
                         <% end %>
 
                         <p class="likes-count" id="likesCountForPost<%= post.id %>"><%= post.likes %></p>
