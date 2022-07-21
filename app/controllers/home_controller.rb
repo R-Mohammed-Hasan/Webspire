@@ -29,12 +29,4 @@ class HomeController < ApplicationController
     @friends = @current_user.friends
   end
 
-  def new_message
-      p "=================================================================== new message"
-      respond_to do |format|
-          format.html{ redirect_to root_path}
-          format.js
-      end
-
-  end
 end

@@ -20,7 +20,7 @@
                         <% user = User.find(friend.user_id) %>
                 <% end %>
                <a href="/message/<%= user.id %>">
-                <div class="user-chatting active">
+                <div class="user-chatting <%= is_messaging(friend.user_id) %>">
                     <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
                     <p class="user-name">
                         <%= user.user_name %>

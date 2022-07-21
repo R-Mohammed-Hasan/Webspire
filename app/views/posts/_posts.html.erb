@@ -28,20 +28,24 @@
             <div class="post-credits">
                 <div class="credits">
                     <div class="likes-container">
-                       <% if post.liked?(@current_user.id) %>
-                          <%= form_for post,url: "/post/dislike/#{post.id}",authenticity_token: true,remote: true,method: "put" do |f| %>
-                            <%= image_submit_tag "liked-icon.png",class: "like", title: "Disike this post" %>
-                          <% end %>
-                       <% else %>
-                          <%= form_for post,url: "/post/like/#{post.id}",authenticity_token: true,remote: true,method: "put" do |f| %>
-                            <%= image_submit_tag "like-icon.png",class: "like", title: "Like this post" %>
-                          <% end %>
-                       <% end %>
+                        <%= form_for post,url: "/post/like/#{post.id}",authenticity_token: true,remote: true,method: "put" do |f| %>
+                            <label for="post<%= post.id %>" class="labelForLikes">
+                                <% if post.liked?(@current_user.id) %>
+                                    <input type="checkbox" checked id="post<%= post.id %>">
+                                    <%= image_tag "liked-icon.png",class: "like",onclick: "removeLike(#{post.id},event)", title: "Disike this post" %>
+                                <% else %>
+                                    <input type="checkbox" id="post<%= post.id %>">
+                                        <%= image_tag "like-icon.png",class: "like",onclick: "addLike(#{post.id},event)", title: "Like this post" %>
+                                <% end %>
+                            </label>
+                        <% end %>
 
-                        <p class="likes-count"><%= post.likes %></p>
+                        <p class="likes-count" id="likesCountForPost<%= post.id %>"><%= post.likes %></p>
                     </div>
                     <% @comments = Comment.where(post_id: post.id) %>
-                        <img class="comment" title="Comments" onclick="showComments(<%= @comments.to_json %>,<%= User.where(id: @comments.map{ |comment| comment.user_id}).to_json %>)" src="<%= asset_path "comment-icon.png" %>" alt="">
+                    <% @all_users= User.where(id: @comments.map{ |comment| comment.user_id}) %>
+                    <%= %>
+                        <img class="comment" title="Comments" onclick="showComments(<%= @comments.to_json %>,<%= @all_users.to_json %>,<%= @current_user.id %>,<%= @all_users.map{ |user| url_for(user.user_profile)}%>)" src="<%= asset_path "comment-icon.png" %>" alt="">
                         <img class="bookmark" title="Bookmark this" src="<%= asset_path "bookmark-icon.png" %>" alt="">
                 </div>
 
@@ -56,9 +60,9 @@
                     </span>
                 </p>
 
-                <%= form_with url: "/comment/#{post.id}",class: "comment-box", method: "put",remote: true do |form| %>
-                    <div class="add-comment-button">Send</div>
-                    <input id="add-comment" name="comment" class="form-control add-comment" type="text" placeholder="Add a comment...">
+                <%= form_with url: "/comment/#{post.id}",class: "comment-box", method: "put",remote: true,:html => { :onsubmit => "addComment(#{@current_user.to_json},'#{url_for(@current_user.user_profile)}',#{post.id})"}  do |form| %>
+                    <input type="submit" value="Send"class="add-comment-button">
+                    <input id="add-comment-<%= post.id %>" name="comment" class="form-control add-comment" type="text" placeholder="Add a comment...">
                 <% end %>
             </div>
         </div>

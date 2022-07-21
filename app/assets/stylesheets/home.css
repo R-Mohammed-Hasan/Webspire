@@ -321,8 +321,8 @@ input[type="search"] {
     text-align: center;
 }
 
-.likes-container #likeCheckbox:checked~label>.like {
-    content: url('liked-icon.png');
+.labelForLikes input[type="checkbox"]:checked~img {
+    content: url("liked-icon.png");
 }
 
 .credits .likes-container .like {
@@ -394,7 +394,7 @@ input[type="search"] {
     right: 0%;
     top: 3%;
     background-color: #62d3ff;
-    padding: 7px 10px;
+    padding: 4px 10px;
     font-family: 'Poppins';
     border-radius: 0px 5px 5px 0px;
     cursor: pointer;
@@ -558,9 +558,15 @@ input[type="search"] {
     font-size: 25px;
 }
 
+.post-comments .close-button img {
+    transition: 0.3s all;
+}
+
 .post-comments .close-button img:hover {
-    opacity: 0.6;
+    background-color: lightgrey;
     cursor: pointer;
+    padding: 1%;
+    border-radius: 5px;
 }
 
 .post-comments .comments-container {
@@ -610,6 +616,15 @@ input[type="search"] {
 }
 
 .delete-comment {
-    margin: 0 5% 4% auto;
+    margin: 0 5% 0% auto;
     width: 12%;
+}
+
+.delete-comment .delete-comment-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.comment-container:hover .delete-comment .delete-comment-icon {
+    display: inline-block;
 }

@@ -28,28 +28,27 @@ class PostsController < ApplicationController
   end
 
   def like
-      Like.create!(user_id: @current_user.id,post_id: params[:post_id])
-      @posts = Post.where(user_id: @current_user.id)
-      respond_to do |format|
-        format.js
-        # format.json{ render json: @posts}
+      liked = Like.find_by(user_id: @current_user.id,post_id: params[:post_id])
+      p "======================================================================="
+      p liked
+      if liked
+        liked.destroy
+      else
+        _like = Like.create!(user_id: @current_user.id,post_id: params[:post_id])
+        @posts = Post.where(user_id: @current_user.id)
       end
   end
 
-  def dislike
-      Like.find_by(user_id: @current_user.id, post_id: params[:post_id]).destroy
-      respond_to do |format|
-        format.js
-      end
-  end
 
   def create_comment
-      Comment.create!(user_id: @current_user.id, post_id: params[:post_id],comment: params[:comment])
+     @new_comment = Comment.create!(user_id: @current_user.id, post_id: params[:post_id],comment: params[:comment])
   end
-
   def delete_comment
-      Comment.find(params[:comment_id]).destroy
-      redirect_to root_path
+    p "===================================================================="
+    p "===================================================================="
+    p "===================================================================="
+      # Comment.find(params[:comment_id]).destroy
+      # redirect_to root_path
   end
 
   private

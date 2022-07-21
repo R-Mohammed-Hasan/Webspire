@@ -104,7 +104,7 @@ function uploadStory() {
     $("#story-form").submit();
 }
 
-function showComments(comments,users) {
+function showComments(comments,users,current_user_id,user_images) {
   $(".post-comments").show(300);
   let output = "";
 
@@ -114,32 +114,86 @@ function showComments(comments,users) {
   }
 
   for(comment of comments){
-   for(user of users){
-   if(comment.user_id == user.id){
-        output += `
-            <div class="comment-container">
-            <div class="comment-details">
-                <div class="commentor-profile">
-                   <a href="/profile/${user.id}">
-                     <img src="<%= asset_path "user-default-icon.png"%>" alt="">
-                    </a>
-                </div>
-                <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
-                <p class="commented-time">${comment.created_at.slice(0,10)}</p>
-                <a class="delete-comment" href="/comment/delete/${comment.id}">
-                    <img src="<%= asset_path 'delete-icon.jpg' %>"  width='50%'>
-                </a>
-            </div>
-            <div class="comment">
-                ${comment.comment}
-            </div>
-        </div>`
-     }
-     }
+    for(user of users){
+      for(user_image of user_images){
+        if(comment.user_id == user.id){
+        let deleteIcon = `<a class="delete-comment" data-index="${comment.id}" onclick="deleteComment(event,${comment.id})" >
+                                <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon'   width='45%'>
+                         </a>`;
+            output += `<div class="comment-container">
+                        <div class="comment-details">
+                        <div class="commentor-profile">
+                        <a href="/profile/${user.id}" target="_blank">
+                            <img src="${user_image}" alt="">
+                        </a>
+                        </div>
+                        <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
+                        <p class="commented-time">${comment.created_at.slice(0,10)}</p>
+                        ${current_user_id == comment.user_id ? deleteIcon : ""}
+                    </div>
+                    <div class="comment">
+                        ${comment.comment}
+                    </div>
+                </div>`
+                }
+            }
+         }
     }
     document.getElementsByClassName("comments-container")[0].innerHTML = output;
 }
 
 function hideComments() {
     $(".post-comments").hide(100);
+}
+
+function deleteComment(event,comment_id) {
+    $(event.target.parentNode.parentNode.parentNode).hide(200);
+
+    $.ajax({
+        type: "put",
+        url: `http://localhost:3000/comment/delete/${comment_id}`,
+        data:"",
+        beforeSend: $.rails.CSRFProtection,
+    });
+}
+
+function addLike(post_id,event){
+    console.log(event.target);
+    let likesCount = document.getElementById(`likesCountForPost${post_id}`);
+    likesCount.innerHTML = JSON.parse(likesCount.innerHTML) + 1;
+    event.target.src = "<%= asset_path 'liked-icon.png'%>";
+    event.target.onclick = removeLike(post_id,event);
+}
+
+function removeLike(post_id,event){
+    let likesCount = document.getElementById(`likesCountForPost${post_id}`);
+    likesCount.innerHTML = JSON.parse(likesCount.innerHTML) - 1;
+    event.target.src = "<%= asset_path 'liked-icon.png'%>";
+    event.target.removeEventListener("click",removeLike);
+    event.target.onclick = addLike(post_id,event);
+}
+
+function addComment(user,user_profile,post_id){
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let comment = document.getElementById(`add-comment-${post_id}`).value;
+     document.getElementsByClassName("comments-container")[0].innerHTML  +=
+      `<div class="comment-container">
+                        <div class="comment-details">
+                        <div class="commentor-profile">
+                        <a href="/profile/${user.id}">
+                            <img src="${user_profile}" alt="">
+                            </a>
+                        </div>
+                        <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
+                        <p class="commented-time">${date}</p>
+                        <a class="delete-comment" href="#">
+                            <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon' alt=""  width='45%'>
+                        </a>
+
+                    </div>
+                    <div class="comment">
+                        ${comment}
+                    </div>
+                </div>`
 }

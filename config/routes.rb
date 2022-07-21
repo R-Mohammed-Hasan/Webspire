@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+
   root "home#home"
 
   get "/message", to: "home#message"
+
+  get "message/:id",to: "messages#new"
+
+  get "message/id",to: "messages#create"
 
   put "/message/new", to: "home#new_message"
 
@@ -67,7 +71,7 @@ Rails.application.routes.draw do
 
   post "/post/edit/:post_id", to: "posts#edit"
 
-  get "/comment/delete/:comment_id",to: "posts#delete_comment"
+  put "/comment/delete/:comment_id",to: "posts#delete_comment"
 
 # ====================================================================
 
