@@ -102,14 +102,15 @@ nav .moreOptions {
 
 .navbar {
     align-items: center;
-    /* position: fixed; */
-    /* inset: 0 0 0 0; */
 }
 
 .navbar-brand {
-    height: 150px;
-    width: 250px;
-    border-radius: 20px;
+    height: 91px;
+    width: 244px;
+}
+
+.navbar-brand img {
+    border-radius: 25%;
 }
 
 .btn-outline-success:hover {

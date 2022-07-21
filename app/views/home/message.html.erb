@@ -7,7 +7,7 @@
             <div class="chatting-user">
                 <img src="<%= asset_path 'activity.png' %>" alt="">
                 <div class="user-info"> <a href="">   Mohammed Riyas</a>
-                    <p class="status-of-user">Active 1 hour before</p>
+                    <p class="status-of-user">Active Now</p>
                 </div>
             </div>
         </div>
@@ -19,14 +19,14 @@
                 <% else %>
                         <% user = User.find(friend.user_id) %>
                 <% end %>
-               <a href="/message/<%= user.id %>">
+               <%= link_to "/message/#{user.id}",remote:true,method: "put",authenticity_token: true do %>
                 <div class="user-chatting <%= is_messaging(friend.user_id) %>">
                     <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
                     <p class="user-name">
                         <%= user.user_name %>
                     </p>
                 </div>
-                </a>
+                <% end %>
               <% end %>
             </div>
             <div class="chattings-details">
