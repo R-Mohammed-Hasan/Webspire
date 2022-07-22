@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def show
       post = Post.find(params[:id])
-      render "post/show",locals: { post: post }
+      render "posts/show",locals: { post: post }
   end
 
   def post_create

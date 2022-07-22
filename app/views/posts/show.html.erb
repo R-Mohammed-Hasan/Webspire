@@ -14,6 +14,9 @@
                             <%= user.user_name %>
                         </a>
                 </div>
+                  <div class="more-option" onclick="showMoreOption(<%= post.id %>)">
+                    <img src="<%= asset_path "more-icon.png" %>" width="100%" alt="">
+                </div>
             </div>
 
             <div class="post-content">
@@ -23,6 +26,77 @@
                     </div>
                 <% end %>
             </div>
+
+               <div class="post-credits">
+                <div class="credits">
+                    <div class="likes-container">
+                        <%= form_for post,url: "/post/like/#{post.id}",authenticity_token: true,remote: true,method: "put" do |f| %>
+                                <% if post.liked?(@current_user.id) %>
+                                    <%= image_submit_tag "liked-icon.png",class: "like", "liked" => "true",onclick: "updateLike(#{post.id},event)", title: "Disike this post" %>
+                                <% else %>
+                                    <%= image_submit_tag "like-icon.png",class: "like", "liked" => "false",onclick: "updateLike(#{post.id},event)", title: "Like this post" %>
+                                <% end %>
+                        <% end %>
+
+                        <p class="likes-count" id="likesCountForPost<%= post.id %>"><%= post.likes %></p>
+                    </div>
+                    <% @comments = Comment.where(post_id: post.id) %>
+                    <% @all_users= User.where(id: @comments.map{ |comment| comment.user_id}) %>
+                    <%= %>
+                        <img class="comment" title="Comments" onclick="showComments(<%= @comments.to_json %>,<%= @all_users.to_json %>,<%= @current_user.id %>,<%= @all_users.map{ |user| url_for(user.user_profile)}%>)" src="<%= asset_path "comment-icon.png" %>" alt="">
+                        <img class="bookmark" title="Bookmark this" src="<%= asset_path "bookmark-icon.png" %>" alt="">
+                </div>
+
+                <div class="post-description-container">
+                    <p class="post-description">
+                        <strong> Description :</strong> <%= post.description %></p>
+                </div>
+
+                <p class="show-solutions">
+                    <span>
+                    Show Discussions....
+                    </span>
+                </p>
+
+                <%= form_with url: "/comment/#{post.id}",class: "comment-box", method: "put",remote: true,:html => { :onsubmit => "addComment(#{@current_user.to_json},'#{url_for(@current_user.user_profile)}',#{post.id})"}  do |form| %>
+                    <input type="submit" value="Send"class="add-comment-button">
+                    <input id="add-comment-<%= post.id %>" name="comment" class="form-control add-comment" type="text" placeholder="Add a comment...">
+                <% end %>
+            </div>
       </div>
    </div>
   </div>
+
+  <div class="post-comments">
+    <div class="close-button">
+        <h2 style="margin:0 32% 0 0;">Comments</h2>
+        <img src="<%= asset_path "close-icon.webp" %>" width="7%" onclick="hideComments()">
+    </div>
+    <div class="comments-container">
+
+    </div>
+</div>
+
+<div class="more-option-box-container" onfocusout="hideMoreOption()">
+    <div class="more-option-box">
+        <div class="option cancel">
+            <p>
+                <a href="" id="reportPost">Report this Post</a>
+            </p>
+
+        </div>
+        <div class="option ">
+         <a href="" id="goToPost">
+            <p>Go to Post</p>
+        </a>
+        </div>
+        <div class="option ">
+            <p>Copy Link</p>
+
+        </div>
+        <div onclick="hideMoreOption() " class="option last ">
+            <p>Cancel</p>
+
+        </div>
+    </div>
+</div>

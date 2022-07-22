@@ -46,6 +46,7 @@ function showMoreOption(post_id) {
     document.getElementById(
         "reportPost"
     ).href = `mailto:mohammed.hasan@fwsa.freshworks.com?subject=Regarding inappropriateness of a Post&body=Post of id: ${post_id} is inappropriate. Kindly review it.`;
+    document.getElementById("goToPost").href="/post/"+post_id;
     $(".more-option-box").css({
         transform: "scale(1)",
         transition: "all 0.3s",
@@ -115,7 +116,7 @@ function showComments(comments,users,current_user_id,user_images) {
         if(comment.user_id == user.id){
         let deleteIcon = `<a class="delete-comment" data-index="${comment.id}" onclick="deleteComment(event,${comment.id})" >
                                 <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon'   width='45%'>
-                         </a>`;
+                          </a>`;
             output += `<div class="comment-container">
                         <div class="comment-details">
                         <div class="commentor-profile">
@@ -143,8 +144,7 @@ function hideComments() {
 }
 
 function deleteComment(event,comment_id) {
-    $(event.target.parentNode.parentNode.parentNode).hide(200);
-
+    $(event.target.parentNode.parentNode.parentNode).hide(150);
     $.ajax({
         type: "put",
         url: `http://localhost:3000/comment/delete/${comment_id}`,

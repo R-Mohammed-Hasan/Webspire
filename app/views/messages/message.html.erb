@@ -19,23 +19,24 @@
                 <% else %>
                         <% user = User.find(friend.user_id) %>
                 <% end %>
-               <%= link_to "/message/#{user.id}",remote:true,method: "put",authenticity_token: true do %>
-                <div class="user-chatting <%= is_messaging(friend.user_id) %>">
+               <a href="/message/<%= user.id %>">
+                <div class="user-chatting <%= is_messaging(user.id.to_s) %>">
                     <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
                     <p class="user-name">
                         <%= user.user_name %>
                     </p>
                 </div>
-                <% end %>
+                </a>
               <% end %>
             </div>
             <div class="chattings-details">
                 <div class="details-of-chatting">
-                        <div class="message response">Hello
-                        </div>
+                    <% @messages.each do |message| %>
+                            <div class="message <%= message.sender_id == @current_user.id ? "request" : "response" %>"><%= message.message %></div>
+                    <% end %>
                 </div>
-                <%= form_with model: @message, url: "message/new",authenticity_token: true, remote: true,method: "put" do |f| %>
-                    <input type="text" name="message[input]" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
+                <%= form_with  url: "/message/new/#{params[:id]}",authenticity_token: true, remote: true,method: "put" do |f| %>
+                    <input type="text" name="input" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
                     <input type="submit" class="btn btn-primary" value="Send">
                 <% end %>
             </div>

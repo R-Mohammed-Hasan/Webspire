@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_one_attached :story
   has_many :likes
   has_many :comments
+  has_many :chattings
 
   validates :user_name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true

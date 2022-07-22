@@ -5,13 +5,10 @@ Rails.application.routes.draw do
 
   root "home#home"
 
-  get "/message", to: "home#message"
 
-  put "message/:id",to: "messages#new"
+  get "message/:id",to: "messages#message"
 
-  # get "message/id",to: "messages#create"
-
-  put "/message/new", to: "home#new_message"
+  put "/message/new/:id", to: "messages#create"
 
   get "/signOut", to: "sessions#destroy"
 

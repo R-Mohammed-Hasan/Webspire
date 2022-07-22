@@ -24,9 +24,5 @@ class HomeController < ApplicationController
     # use description of a post to filter
   end
 
-  def message
-    @message = Chatting.new
-    @friends = @current_user.friends
-  end
 
 end

@@ -1,13 +1,15 @@
 .post-content>div,
-img {
+.post-content img {
     width: 100%;
     height: 100%;
-}
-
-.post-content {
-    height: 94%;
+    object-fit: contain;
 }
 
 .postsContainer {
     overflow: hidden;
+    margin-top: 5%;
+}
+
+.post-credits>.post-description-container {
+    height: 40%;
 }
