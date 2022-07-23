@@ -145,11 +145,12 @@ function hideComments() {
 
 function deleteComment(event,comment_id) {
     $(event.target.parentNode.parentNode.parentNode).hide(150);
-    $.ajax({
+    jQuery.ajax({
         type: "put",
         url: `http://localhost:3000/comment/delete/${comment_id}`,
-        data:"",
-        beforeSend: $.rails.CSRFProtection,
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+        }
     });
 }
 
@@ -157,6 +158,9 @@ function addComment(user,user_profile,post_id){
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     let comment = document.getElementById(`add-comment-${post_id}`).value;
+
+    document.getElementsByClassName("comments-container")[0].innerHTML = "";
+
      document.getElementsByClassName("comments-container")[0].innerHTML  +=
       `<div class="comment-container">
                         <div class="comment-details">

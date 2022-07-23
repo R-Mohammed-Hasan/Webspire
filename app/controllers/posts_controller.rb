@@ -41,12 +41,9 @@ class PostsController < ApplicationController
   def create_comment
      @new_comment = Comment.create!(user_id: @current_user.id, post_id: params[:post_id],comment: params[:comment])
   end
+
   def delete_comment
-    p "===================================================================="
-    p "===================================================================="
-    p "===================================================================="
-      # Comment.find(params[:comment_id]).destroy
-      # redirect_to root_path
+      Comment.find(params[:comment_id]).destroy
   end
 
   private

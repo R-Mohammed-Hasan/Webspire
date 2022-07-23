@@ -125,7 +125,8 @@ a {
     font-size: 17px !important;
 }
 
-.message.response {
+
+/* .message.response {
     background-color: rgba(208, 208, 208, 0.797);
     margin-right: auto !important;
     border-radius: 0px 10px 10px 10px;
@@ -137,7 +138,7 @@ a {
     margin-left: auto !important;
     border-radius: 10px 0px 10px 10px;
     box-shadow: 3px 3px 5px grey;
-}
+} */
 
 .chattings-details form {
     height: 8%;

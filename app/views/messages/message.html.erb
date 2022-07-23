@@ -1,29 +1,30 @@
 <%= stylesheet_link_tag 'message', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'message', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div id="currentUserId" data-user_id="<%= @current_user.id %>">
 <div class="container">
     <div class="messages-container my-5">
         <div class="message-header">
             <p class="name-of-user"><a href="/profile/<%= @current_user.id %>"><%= @current_user.user_name %></a></p>
             <div class="chatting-user">
                 <img src="<%= asset_path 'activity.png' %>" alt="">
-                <div class="user-info"> <a href="">   Mohammed Riyas</a>
+                <div class="user-info"> <a id="userNameInMessage">Mohammed Riyas</a>
                     <p class="status-of-user">Active Now</p>
                 </div>
             </div>
         </div>
         <div class="user-chattings">
           <div class="chatting-names-of-user">
-            <% @friends.each do |friend| %>
+            <% friends.each do |friend| %>
                 <% if friend.user_id == @current_user.id %>
-                        <% user = User.find(friend.follower_id) %>
+                        <% @user = User.find(friend.follower_id) %>
                 <% else %>
-                        <% user = User.find(friend.user_id) %>
+                        <% @user = User.find(friend.user_id) %>
                 <% end %>
-               <a href="/message/<%= user.id %>">
-                <div class="user-chatting <%= is_messaging(user.id.to_s) %>">
+               <a href="/message/<%= @user.id %>">
+                <div class="user-chatting <%= is_messaging(@user.id.to_s) %>" onclick="userProfileInMessage(<%= @user.to_json %>)">
                     <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
                     <p class="user-name">
-                        <%= user.user_name %>
+                        <%= @user.user_name %>
                     </p>
                 </div>
                 </a>
@@ -31,8 +32,8 @@
             </div>
             <div class="chattings-details">
                 <div class="details-of-chatting">
-                    <% @messages.each do |message| %>
-                            <div class="message <%= message.sender_id == @current_user.id ? "request" : "response" %>"><%= message.message %></div>
+                    <% messages.each do |message| %>
+                           <%= render "messages/message", message: message, current_user_id: @current_user.id %>
                     <% end %>
                 </div>
                 <%= form_with  url: "/message/new/#{params[:id]}",authenticity_token: true, remote: true,method: "put" do |f| %>
