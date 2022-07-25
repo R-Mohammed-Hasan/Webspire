@@ -61,6 +61,7 @@ body {
 
 .activity-container .user-img img {
     width: 100%;
+    height: 60px;
 }
 
 .activity-container .friend-requests .friend-requests-link,

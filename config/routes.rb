@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   get "/profile/request/:id", to: "profile#request_following"
 
+  get "/profile/unfollow/:id", to: "profile#unfollow"
+
 
   post "/post/create", to: "posts#post_create"
 
@@ -69,11 +71,6 @@ Rails.application.routes.draw do
   post "/post/edit/:post_id", to: "posts#edit"
 
   put "/comment/delete/:comment_id",to: "posts#delete_comment"
-
-# ====================================================================
-
-  get "/api/v1/posts", to: "posts#posts_api"
-post "/api/v1/posts", to: "posts#new_post_api"
 
 
 

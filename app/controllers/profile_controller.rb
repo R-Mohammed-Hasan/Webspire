@@ -4,6 +4,10 @@ class ProfileController < ApplicationController
   def activity
     @activities = Activity.where(sender_id: @current_user.id)
     @requests = FollowRequest.where(receiver_id: @current_user.id)
+    notifications = Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" )
+    p "================================================="
+    p notifications
+    notifications.each { |notfication| notfication.update(status: "seen")}
   end
 
   def new_edit
@@ -51,7 +55,12 @@ class ProfileController < ApplicationController
   def request_following
       request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
       request.save
-      redirect_to "/profile/#{params[:id]}"
+  end
+
+  def unfollow
+      friend = Follower.where("(user_id = ? and follower_id = ?) or (user_id = ? and follower_id = ?)", @current_user.id, params[:id], params[:id], @current_user.id)
+      friend[0].destroy
+      redirect_to "/profile/#{params[:id]}", success: "Friend removed from Friend List"
   end
 
 end

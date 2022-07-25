@@ -21,7 +21,14 @@
                     <a class="nav-link <%= is_active("explore") %>" href="/" tabindex="-1"><img title="Explore" src="<%= asset_path"explore.png" %>" width="90%" alt=""></a>
                 </li>
                 <li class="nav-item ms-5">
-                    <a class="nav-link <%= is_active("activity") %>" href="/profile/activity" tabindex="-1"><img title="Activity" src="<%= asset_path "activity.png" %>" width="90%" alt=""></a>
+                    <a class="nav-link <%= is_active("activity") %>" href="/profile/activity" tabindex="-1">
+                        <img title="Activity" src="<%= asset_path "activity.png" %>" width="90%" alt="">
+                        <% if Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" ).length > 0 %>
+                            <button class="btn btn-danger notification-count">
+                                <%= Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" ).length %>
+                            </button>
+                        <% end %>
+                    </a>
                 </li>
                     <li class="nav-item ms-5">
                     <a class="nav-link" aria-current="page"><img title="Add Post" src="<%= asset_path'add-post-icon.png' %>" onclick="openPostDialog()" width="90%" alt=""></a>

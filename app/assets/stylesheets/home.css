@@ -660,3 +660,16 @@ input[type="search"] {
 .comment-container:hover .delete-comment .delete-comment-icon {
     display: inline-block;
 }
+
+.notification-count {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 56%;
+    top: 55%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255 50 50) !important;
+}
