@@ -20,10 +20,3 @@
 //             console.log(response.data);
 //         });
 // }
-
-function userProfileInMessage(user) {
-    $(document).ready(() => {
-        document.getElementById("userNameInMessage").href = "/profile/" + user.id;
-        document.getElementById("userNameInMessage").innerHTML = user.user_name;
-    });
-}
