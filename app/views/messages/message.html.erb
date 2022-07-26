@@ -6,11 +6,13 @@
         <div class="message-header">
             <p class="name-of-user"><a href="/profile/<%= @current_user.id %>"><%= @current_user.user_name %></a></p>
             <div class="chatting-user">
-                <% chatting_user= User.find(params[:id]) %>
-                    <img src="<%= asset_path 'activity.png' %>" alt="">
-                    <div class="user-info"> <a id="userNameInMessage" href="/profile/<%= chatting_user.id %>"><%= chatting_user.user_name %></a>
-                        <p class="status-of-user">Active Now</p>
-                    </div>
+                <%  if params[:id] %>
+                    <% chatting_user= User.find(params[:id]) %>
+                        <img src="<%= asset_path 'activity.png' %>" alt="">
+                        <div class="user-info"> <a id="userNameInMessage" href="/profile/<%= chatting_user.id %>"><%= chatting_user.user_name %></a>
+                            <p class="status-of-user">Active Now</p>
+                        </div>
+                <% end %>
             </div>
         </div>
         <div class="user-chattings">
@@ -31,18 +33,19 @@
                 </a>
               <% end %>
             </div>
-            <div class="chattings-details">
-                <div class="details-of-chatting">
-                    <% messages.each do |message| %>
-                           <%= render "messages/message", message: message, current_user_id: @current_user.id %>
+            <% if params[:id] %>
+                <div class="chattings-details">
+                    <div class="details-of-chatting">
+                        <% messages.each do |message| %>
+                            <%= render "messages/message", message: message, current_user_id: @current_user.id %>
+                        <% end %>
+                    </div>
+                    <%= form_with  url: "/message/new/#{params[:id]}",authenticity_token: true, remote: true,method: "put" do |f| %>
+                        <input type="text" name="input" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
+                        <input type="submit" class="btn btn-primary" value="Send">
                     <% end %>
                 </div>
-                <%= form_with  url: "/message/new/#{params[:id]}",authenticity_token: true, remote: true,method: "put" do |f| %>
-                    <input type="text" name="input" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
-                    <input type="submit" class="btn btn-primary" value="Send">
-                <% end %>
-            </div>
-
+            <% end %>
 
         </div>
 

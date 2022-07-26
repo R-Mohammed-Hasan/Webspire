@@ -2,6 +2,11 @@ class MessagesController < ApplicationController
 
   layout "home"
 
+  def show
+    friends = @current_user.friends
+    render "messages/message",locals: {friends: friends}
+  end
+
   def message
     messages = Chatting.where("(sender_id = ? or sender_id = ?) and (receiver_id = ? or receiver_id = ?)",@current_user.id , params[:id],params[:id], @current_user.id)
     friends = @current_user.friends

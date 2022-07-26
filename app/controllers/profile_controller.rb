@@ -51,8 +51,12 @@ class ProfileController < ApplicationController
   end
 
   def request_following
-      request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
-      request.save
+    p "=========================================="
+    p "=========================================="
+    p "=========================================="
+    request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
+    request.save
+    p request
   end
 
   def unfollow

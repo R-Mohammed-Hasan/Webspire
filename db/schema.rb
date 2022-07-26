@@ -65,6 +65,11 @@ ActiveRecord::Schema.define(version: 2022_07_25_053035) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "dummies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "follow_requests", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "sender_id"
     t.bigint "receiver_id"
@@ -80,12 +85,18 @@ ActiveRecord::Schema.define(version: 2022_07_25_053035) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "followings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "following_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id", "post_id"], name: "likes_of_post", unique: true
   end
 
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -103,7 +114,7 @@ ActiveRecord::Schema.define(version: 2022_07_25_053035) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
-    t.column "gender", "enum('male','female','not say')"
+    t.string "gender"
     t.string "name"
   end
 
