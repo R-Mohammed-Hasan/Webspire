@@ -11,7 +11,6 @@ consumer.subscriptions.create({ channel: "RoomChannel", id: 6 }, {
     },
 
     received(data) {
-        console.log("data");
         console.log(data);
         // Called when there's incoming data on the websocket for this channel
     },
