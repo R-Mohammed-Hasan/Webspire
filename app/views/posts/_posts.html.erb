@@ -18,7 +18,7 @@
             </div>
 
             <div class="post-content">
-                <% post.posts.each do|post| %>
+                <% post.posts.reverse.each do|post| %>
                     <div>
                         <%= image_tag post %>
                     </div>
@@ -41,7 +41,7 @@
                     <% @comments = Comment.where(post_id: post.id) %>
                     <% @all_users= User.where(id: @comments.map{ |comment| comment.user_id}) %>
                     <%= %>
-                        <img class="comment" title="Comments" onclick="showComments(<%= @comments.to_json %>,<%= @all_users.to_json %>,<%= @current_user.id %>,<%= @all_users.map{ |user| url_for(user.user_profile)}%>)" src="<%= asset_path "comment-icon.png" %>" alt="">
+                        <img class="comment" title="Comments" onclick="showComments(<%= @comments.to_json %>,<%= @all_users.to_json %>,<%= @current_user.id %>,<%= @all_users.to_h {|user| [user.id, url_for(user.user_profile)]}.to_json%>)" src="<%= asset_path "comment-icon.png" %>" alt="">
                         <img class="bookmark" title="Bookmark this" src="<%= asset_path "bookmark-icon.png" %>" alt="">
                 </div>
 

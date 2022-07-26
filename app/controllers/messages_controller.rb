@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
     friends = @current_user.friends
     message = Chatting.create(sender_id: @current_user.id, receiver_id: params[:id], message: params[:input])
     SendMessageJob.perform_later({message: message, current_user_id: @current_user.id})
+    # ActionCable.server.broadcast "room_channel_#{message.receiver_id}", html: "hi"
   end
 
 end

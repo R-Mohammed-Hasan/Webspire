@@ -102,6 +102,7 @@ function uploadStory() {
 }
 
 function showComments(comments,users,current_user_id,user_images) {
+
   $(".post-comments").show(300);
   let output = "";
 
@@ -112,7 +113,6 @@ function showComments(comments,users,current_user_id,user_images) {
 
   for(comment of comments){
     for(user of users){
-      for(user_image of user_images){
         if(comment.user_id == user.id){
         let deleteIcon = `<a class="delete-comment" data-index="${comment.id}" onclick="deleteComment(event,${comment.id})" >
                                 <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon'   width='45%'>
@@ -121,7 +121,7 @@ function showComments(comments,users,current_user_id,user_images) {
                         <div class="comment-details">
                         <div class="commentor-profile">
                         <a href="/profile/${user.id}" target="_blank">
-                            <img src="${user_image}" alt="">
+                            <img src="${user_images[user.id]}" alt="">
                         </a>
                         </div>
                         <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
@@ -133,7 +133,6 @@ function showComments(comments,users,current_user_id,user_images) {
                     </div>
                 </div>`
                 }
-            }
          }
     }
     document.getElementsByClassName("comments-container")[0].innerHTML = output;
@@ -154,12 +153,11 @@ function deleteComment(event,comment_id) {
     });
 }
 
+
 function addComment(user,user_profile,post_id){
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     let comment = document.getElementById(`add-comment-${post_id}`).value;
-
-    document.getElementsByClassName("comments-container")[0].innerHTML = "";
 
      document.getElementsByClassName("comments-container")[0].innerHTML  +=
       `<div class="comment-container">
@@ -167,11 +165,11 @@ function addComment(user,user_profile,post_id){
                         <div class="commentor-profile">
                         <a href="/profile/${user.id}">
                             <img src="${user_profile}" alt="">
-                            </a>
+                        </a>
                         </div>
                         <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
                         <p class="commented-time">${date}</p>
-                        <a class="delete-comment" href="#">
+                        <a class="delete-comment" href="">
                             <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon' alt=""  width='45%'>
                         </a>
 

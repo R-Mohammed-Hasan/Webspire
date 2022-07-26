@@ -5,9 +5,7 @@ class ProfileController < ApplicationController
     @activities = Activity.where(sender_id: @current_user.id)
     @requests = FollowRequest.where(receiver_id: @current_user.id)
     notifications = Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" )
-    p "================================================="
-    p notifications
-    notifications.each { |notfication| notfication.update(status: "seen")}
+    notifications.each { |notification| notification.update(status: "seen")}
   end
 
   def new_edit

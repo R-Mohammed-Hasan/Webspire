@@ -81,11 +81,16 @@ nav .moreOptions {
     top: 37%;
 }
 
-.stories .multiple-items .slick-arrow::before {
+.stories .multiple-items .slick-arrow::before,
+.post-container>.post-content .slick-arrow::before {
     border-radius: 100%;
     font-size: 28px;
     color: black;
     background-color: rgb(199, 199, 199);
+}
+
+.post-container>.post-content .slick-arrow::before {
+    font-size: 35px;
 }
 
 .stories .multiple-items .slick-prev {
@@ -151,6 +156,7 @@ input[type="file"].nav-link {
     border-radius: 50%;
     width: 50%;
     height: 100%;
+    clip-path: circle(45%);
 }
 
 .username a {
@@ -262,7 +268,7 @@ input[type="search"] {
 }
 
 .post-content .slick-arrow {
-    margin-right: 5%;
+    margin-right: 6%;
 }
 
 .post-content .slick-prev::before {
@@ -621,6 +627,7 @@ input[type="search"] {
 .comment-details .commentor-profile img {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     margin-bottom: 13px;
     margin-right: 10px;
 }
@@ -671,5 +678,5 @@ input[type="search"] {
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    background-color: rgb(255 50 50) !important;
+    background-color: rgb(234, 71, 71) !important;
 }
