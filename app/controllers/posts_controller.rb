@@ -9,8 +9,10 @@ class PostsController < ApplicationController
 
   def post_create
     post = Post.new(user_id: @current_user.id )
-    post.posts.attach(io: params[:user_post].to_io,filename: params[:user_post].original_filename)
-    post.description = params[:description]
+    # params[:user_post].each do |post|
+      post.posts.attach(params[:user_post])
+    # end
+    # post.description = params[:description]
     post.save
     redirect_to "/profile/#{@current_user.id}"
   end

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   root "home#home"
 
+  get "/message",to: "messages#show"
 
-  get "message/:id",to: "messages#message"
+  get "/message/:id",to: "messages#message"
 
   put "/message/new/:id", to: "messages#create"
 
