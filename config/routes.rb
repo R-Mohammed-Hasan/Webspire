@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   get "/users/forgotPassword", to: "users#forgot_password"
 
+  get "/profile/request/:id", to: "profile#request_following"
 
   get "/profile/requests", to: "profile#follow_requests"
 
@@ -41,7 +42,6 @@ Rails.application.routes.draw do
 
   get "/profile/:id", to: "profile#profile"
 
-  get "/profile/request/:id", to: "profile#request_following"
 
   get "/profile/unfollow/:id", to: "profile#unfollow"
 
