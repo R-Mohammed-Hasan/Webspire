@@ -41,11 +41,14 @@ p {
     font-size: 21px;
     font-weight: bold;
     display: flex;
+    height: 100%;
+    width: 65%;
+    align-items: center;
 }
 
 .chatting-user img {
-    width: 7%;
-    height: 7%;
+    width: 9%;
+    height: 80%;
     border-radius: 100%;
     margin: 0% 4%;
 }
@@ -126,17 +129,17 @@ a {
 }
 
 .message.response {
-    /* background-color: rgba(208, 208, 208, 0.797); */
+    background-color: rgba(208, 208, 208, 0.797);
     margin-right: auto !important;
-    /* border-radius: 0px 10px 10px 10px;
-    box-shadow: -3px 3px 5px grey; */
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: -3px 3px 5px grey;
 }
 
 .message.request {
-    /* background-color: rgb(120, 242, 118); */
+    background-color: rgb(120, 242, 118);
     margin-left: auto !important;
-    /* border-radius: 10px 0px 10px 10px;
-    box-shadow: 3px 3px 5px grey; */
+    border-radius: 10px 0px 10px 10px;
+    box-shadow: 3px 3px 5px grey;
 }
 
 .chattings-details form {

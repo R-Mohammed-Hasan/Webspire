@@ -1,14 +1,24 @@
 class SendMessageJob < ApplicationJob
   queue_as :default
 
-  def perform(object)
-    p "================================================="
-    p "================================================="
-    p "================================================="
-    p object[:message].receiver_id
-    html = ApplicationController.render partial: "messages/message",
-    locals: { message: object[:message], current_user_id: object[:current_user_id] }
-    ActionCable.server.broadcast "room_channel_#{object[:message].receiver_id}}", html: html
+  def perform(message)
 
+    request = ApplicationController.render partial: "messages/request",
+    locals: { message: message }
+    p "============================="
+    p "============================="
+    p "============================="
+    p request
+    response = ApplicationController.render partial: "messages/response",
+    locals: { message: message }
+    p "============================="
+    p "============================="
+    p "============================="
+    p response
+    ActionCable.server.broadcast "room_channel_#{message.receiver_id}",
+    request: request,
+    response: response,
+    message: message
   end
+
 end

@@ -11,8 +11,21 @@ consumer.subscriptions.create({ channel: "RoomChannel", id: 6 }, {
     },
 
     received(data) {
-        console.log("data");
-        console.log(data);
-        // Called when there's incoming data on the websocket for this channel
+        console.log(data.response);
+        const container = document.getElementsByClassName(
+            "details-of-chatting"
+        )[0];
+        const current_user_id = document
+            .getElementById("currentUserId")
+            .getAttribute("data-user-id");
+        console.log(current_user_id);
+        let html;
+        html =
+            data.message.receiver_id == current_user_id ?
+            data.response :
+            data.request;
+        container.innerHTML += html;
+        document.getElementById("inputsm").value = "";
+        container.scrollTop = container.scrollHeight + 100;
     },
 });
