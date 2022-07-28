@@ -1,33 +1,30 @@
 import consumer from "./consumer";
 
-$(document).ready(() => {
+document.addEventListener("turbolinks:load", () => {
     const room_id = Number(
         document.getElementById("currentRoomId").getAttribute("data-room-id")
     );
+
     consumer.subscriptions.create({ channel: "RoomChannel", id: room_id }, {
         connected() {
             console.log("connected to " + room_id);
-            // Called when the subscription is ready for use on the server
         },
-
         disconnected() {
-            // Called when the subscription has been terminated by the server
+            console.log("disconnected from " + room_id);
         },
-
         received(data) {
             console.log(data);
             const container = document.getElementsByClassName(
                 "details-of-chatting"
             )[0];
-            const current_user_id = Number(
-                document.getElementById("currentUserId").getAttribute("data-user-id")
-            );
+            const current_user_id = document
+                .getElementById("currentUserId")
+                .getAttribute("data-user-id");
             let html;
-
             html =
-                data.message.sender_id == current_user_id ?
-                data.request :
-                data.response;
+                current_user_id == data.message.receiver_id ?
+                data.response :
+                data.request;
             container.innerHTML += html;
             document.getElementById("inputsm").value = "";
             container.scrollTop = container.scrollHeight + 100;

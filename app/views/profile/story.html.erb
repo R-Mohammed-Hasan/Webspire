@@ -1,6 +1,9 @@
  <%= stylesheet_link_tag 'story', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <div class="stories-container">
+  <%= link_to "/story/delete/#{@current_user.id}",method: "delete",title: "Delete your story",data: {confirm: 'Are you sure ?'} , class:"delete-story-icon" do %>
+    <%= image_tag 'delete-icon.jpg', width: "5%" %>
+ <% end %>
     <a href="/" class="close-icon">
       <img src="<%= asset_path "close-icon.webp" %>" >
     </a>
@@ -15,7 +18,7 @@
          <div class="carousel-inner">
           <% users.each do |user| %>
             <% if user.story.present? %>
-                <div class="carousel-item <%= (users.first === user) ? "active" : "" %>">
+                <div class="carousel-item <%= (users.first == user) ? "active" : "" %>">
                 <div class="story-container">
                   <div class="user-details">
                     <%= image_tag user.user_profile, class: "user-profile" %>

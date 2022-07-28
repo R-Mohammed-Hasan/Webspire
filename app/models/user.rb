@@ -20,7 +20,6 @@ class User < ApplicationRecord
 
   def friends
     friends = Follower.where("user_id = ? or follower_id = ? ", self.id, self.id)
-
   end
 
   def friend(user_id)

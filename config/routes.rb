@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   get "/profile/stories", to: "profile#story", as: "story"
 
+  delete "/story/delete/:id", to: "profile#delete_story"
+
   get "/profile/:id", to: "profile#profile"
 
 
