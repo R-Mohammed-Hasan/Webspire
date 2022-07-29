@@ -24,6 +24,13 @@ Rails.application.routes.draw do
 
   get "/users/forgotPassword", to: "users#forgot_password"
 
+  post "/users/forgotPassword",to: "users#send_mail"
+
+  get "/users/resetPassword", to: "users#reset_password"
+
+  post "/users/resetPassword", to: "users#update_password"
+
+
   get "/profile/request/:id", to: "profile#request_following"
 
   get "/profile/requests", to: "profile#follow_requests"
@@ -39,6 +46,8 @@ Rails.application.routes.draw do
   put "/profile/story", to: "profile#story_create"
 
   get "/profile/stories", to: "profile#story", as: "story"
+
+  delete "/story/delete/:id", to: "profile#delete_story"
 
   get "/profile/:id", to: "profile#profile"
 
