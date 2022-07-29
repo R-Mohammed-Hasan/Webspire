@@ -24,6 +24,13 @@ Rails.application.routes.draw do
 
   get "/users/forgotPassword", to: "users#forgot_password"
 
+  post "/users/forgotPassword",to: "users#send_mail"
+
+  get "/users/resetPassword", to: "users#reset_password"
+
+  post "/users/resetPassword", to: "users#update_password"
+
+
   get "/profile/request/:id", to: "profile#request_following"
 
   get "/profile/requests", to: "profile#follow_requests"

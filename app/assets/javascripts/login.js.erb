@@ -17,3 +17,46 @@ function showPassword(event) {
         input.attr("type", "password");
     }
 }
+
+function showConfirmPassword(event){
+  let el = event.target;
+    input = $("#confirm_password");
+    if (input.attr("type") == "password") {
+        el.src = "<%= asset_path "hidePassword.png" %>";
+        input.attr("type", "text");
+    } else {
+        el.src = "<%= asset_path "showPassword.png" %>";
+        input.attr("type", "password");
+    }
+}
+
+function resetPasswordButton() {
+    let email = $("#email");
+    if (email.val()) {
+        $(".btn.btn-primary.my-4.ms-5").removeAttr("disabled");
+    }
+}
+
+function openMailSentBox(){
+ $(".mail-pop-up-container").css({
+        backdropFilter: "brightness(50%)",
+        zIndex: "2",
+        transition: "all 0.3s",
+    });
+    $(".mail-pop-up-box").css({
+        transform: "scale(1)",
+        transition: "all 0.3s",
+    });
+}
+
+
+function closeMailSentBox() {
+    $(".mail-pop-up-box").css({
+        transform: "scale(0.001)",
+        backdropFilter: "blur(0)",
+    });
+    $(".mail-pop-up-container").css({
+        backdropFilter: "brightness(100%)",
+        zIndex: "-1",
+    });
+}

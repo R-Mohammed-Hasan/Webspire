@@ -585,7 +585,7 @@ input[type="search"] {
 }
 
 .post-comments::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
 }
 
 .post-comments::-webkit-scrollbar-track {

@@ -15,11 +15,16 @@
                         <div class="user-info"> <a id="userNameInMessage" href="/profile/<%= chatting_user.id %>"><%= chatting_user.user_name %></a>
                             <p class="status-of-user">Active Now</p>
                         </div>
+                <% else %>
+                        <div class="user-info ms-5"> <a id="userNameInMessage">Chatting user</a>
+                            <p class="status-of-user">Status of user</p>
+                        </div>
                 <% end %>
             </div>
         </div>
         <div class="user-chattings">
           <div class="chatting-names-of-user">
+          <% if friends.length > 0 %>
             <% friends.each do |friend| %>
                 <% if friend.user_id == @current_user.id %>
                         <% @user = User.find(friend.follower_id) %>
@@ -35,6 +40,18 @@
                 </div>
                 </a>
               <% end %>
+            <% else%>
+                <a>
+                    <div class="user-chatting">
+                        <p class="user-name no-chat m-5">
+                            No friends available <br> to chat...😞
+                        </h2>
+                    </div>
+                </a>
+            <% end %>
+
+
+
             </div>
             <% if params[:id] %>
                 <div class="chattings-details">
@@ -48,6 +65,13 @@
                         <input type="submit" class="btn btn-primary" value="Send">
                     <% end %>
                 </div>
+            <% else %>
+             <div class="chattings-details">
+                    <div class="details-of-chatting no-chattings">
+                    Select a user to show the chattings of you both
+
+                    </div>
+            </div>
             <% end %>
 
         </div>

@@ -1,4 +1,4 @@
- <% @posts.each do |post| %>
+ <% @posts.reverse.each do |post| %>
     <% user = User.find(post.user_id) %>
         <div class="post-container">
             <div class="post-info">
@@ -18,7 +18,7 @@
             </div>
 
             <div class="post-content">
-                <% post.posts.reverse.each do|post| %>
+                <% post.posts.each do|post| %>
                     <div>
                         <%= image_tag post %>
                     </div>
