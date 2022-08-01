@@ -164,7 +164,7 @@ a {
     margin-right: auto !important;
     border-radius: 0px 12px 12px 12px;
     padding-left: 10px;
-    box-shadow: 5px -3px 6px rgb(160 160 160) inset, 2px 2px 3px rgb(160 160 160), -7px 7px 3px #d8d8d8, 2px 2px 4px white inset;
+    box-shadow: 5px -3px 6px rgb(160 160 160) inset, 2px 2px 3px rgb(160 160 160), -7px 7px 3px #d8d8d8, -3px 3px 6px white inset;
 }
 
 .message.request {
@@ -172,10 +172,6 @@ a {
     margin-left: auto !important;
     border-radius: 12px 0px 12px 12px;
     box-shadow: -2px -2px 5px #00b725 inset, 2px 2px 3px #00b725, 8px 8px 3px #cfcfcf, 2px 2px 4px white inset;
-    background-color: #63ff82;
-    margin-left: auto !important;
-    border-radius: 10px 0px 10px 10px;
-    box-shadow: 3px 3px 5px grey;
 }
 
 .message.beginning {
