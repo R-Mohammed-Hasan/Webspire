@@ -15,14 +15,14 @@ class ProfileController < ApplicationController
 
   def edit_profile
     user = User.find(@current_user.id)
-    user.update(user_name: params[:user][:user_name],name: params[:user][:name], email: params[:user][:email],description: params[:user][:description],gender: params[:user][:gender])
+    user.update_columns(name: params[:user][:name], email: params[:user][:email],description: params[:user][:description],gender: params[:user][:gender])
     redirect_to "/profile/edit"
   end
 
   def edit_profile_image
-    user = User.find(session[:current_user_id])
+    user = User.find(@current_user.id)
     user.user_profile.purge_later
-    user.user_profile.attach(io: params[:user][:user_profile].to_io,filename: params[:user][:user_profile].original_filename)
+    user.user_profile.attach(io: params[:user_profile].to_io,filename: params[:user_profile].original_filename)
     user.save
     redirect_to profile_edit_path,success: "Profile photo updated...!"
   end

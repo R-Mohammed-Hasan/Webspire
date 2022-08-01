@@ -12,7 +12,7 @@
                 <%= @current_user.user_name %>
             </p>
             <a onclick="showUploadDialogBox()" class="profile-photo">Change profile photo </a>
-            <%= form_with model: @user, url: "/profile/editProfile", method: "put" do |f| %>
+            <%= form_with url: "/profile/editProfile", method: "put" do |f| %>
                 <%= f.file_field :user_profile, id: "profile-photo-input", onchange: "this.form.submit()" %>
             <% end %>
         </div>
@@ -25,7 +25,7 @@
                     <label for="username" class="col-form-label">User Name</label>
                 </div>
                 <div class="col-auto input">
-                    <input onchange="showSubmitButton()" name="user[user_name]" value="<%= @current_user.user_name %>" type="text" id="username" class="form-control">
+                    <input onchange="showSubmitButton()" name="user[user_name]" value="<%= @current_user.user_name %>" type="text" disabled id="username" class="form-control">
                 </div>
                 <div class="col-auto description">
                     <span id="passwordHelpInline" class="form-text">

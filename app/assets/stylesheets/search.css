@@ -1,0 +1,129 @@
+.search-users {
+    width: 100%;
+    padding: 2%;
+    margin: 2%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: 33vh;
+}
+
+.friend-requests {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    row-gap: 12%;
+    padding: 8%;
+    border-radius: 5px;
+    transition: 0.2s all;
+    flex-direction: column;
+    cursor: default;
+    position: relative;
+}
+
+.friend-requests:hover {
+    background-color: rgb(237, 237, 237);
+}
+
+.user-img {
+    width: 48%;
+    height: 60%;
+}
+
+.user-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-name {
+    text-decoration: none;
+    color: grey;
+    font-size: 20px;
+    transition: 0.2s all;
+    font-weight: 400;
+}
+
+.user-name:hover {
+    color: black;
+}
+
+.user-name.head {
+    font-size: 22px;
+    color: black;
+    font-weight: 600;
+}
+
+.friend-requests .user-detail {
+    margin-left: 2%;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+}
+
+.friend-requests .user-gender {
+    position: absolute;
+    top: 7%;
+    right: 7%;
+    width: 10%;
+    border-radius: 50%;
+}
+
+.search-icon {
+    width: 5%;
+    margin: 0 2%;
+}
+
+.search-posts {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: 33vh;
+    column-gap: 2%;
+    row-gap: 3%;
+}
+
+.post {
+    padding: 2%;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #f8f9fa;
+    border: 1px solid rgba(219, 219, 219);
+    border-radius: 5px;
+}
+
+.post .user-post {
+    height: 78%;
+}
+
+.post-img {
+    width: 100%;
+    height: 95%;
+    object-fit: fill;
+}
+
+.search-posts .user-details {
+    font-size: 20px;
+    width: 100%;
+    height: 20%;
+    margin: 2%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.search-posts .user-details .user-profile {
+    width: 15%;
+    height: 90%;
+    border-radius: 50%;
+    margin-right: 5%;
+    padding: 2px;
+    border: 1px solid aqua;
+}
