@@ -69,7 +69,6 @@ host = 'webspire.instagram007@gmail.com' #replace with your own url
 config.action_mailer.default_url_options = { host: host }
 
 # SMTP settings for gmail
-<<<<<<< HEAD
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 
@@ -80,15 +79,7 @@ config.action_mailer.smtp_settings = {
   :user_name            => "Webspire - Freshworks",
   :password             => ENV['MAIL_PASSWORD'],
   :authentication       => "plain",
-=======
-config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :user_name            => "FWSA Webspire",
-  :password             => <%= ENV['MAIL_PASSWORD'] %> ,
-  :authentication       => "plain",
   :enable_starttls_auto => true
->>>>>>> bb13e75147763f67ff7f29a8817fa78b2f414971
 }
 
   # Ignore bad email addresses and do not raise email delivery errors.

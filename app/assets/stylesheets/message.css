@@ -168,31 +168,25 @@ a {
 }
 
 .message.request {
-<<<<<<< HEAD
     background-color: #8bfda2;
     margin-left: auto !important;
     border-radius: 12px 0px 12px 12px;
     box-shadow: -2px -2px 5px #00b725 inset, 2px 2px 3px #00b725, 8px 8px 3px #cfcfcf, 2px 2px 4px white inset;
-=======
     background-color: #63ff82;
     margin-left: auto !important;
     border-radius: 10px 0px 10px 10px;
     box-shadow: 3px 3px 5px grey;
->>>>>>> bb13e75147763f67ff7f29a8817fa78b2f414971
 }
 
 .message.beginning {
     min-width: 100%;
     font-size: 22px;
     text-align: center;
-<<<<<<< HEAD
     margin-top: 0;
     margin-bottom: 3%;
     background-color: rgb(235, 233, 233);
     border-radius: 7px;
     box-shadow: 0px 1px 5px rgb(160 160 160), -3px -3px 8px rgb(147 147 147) inset, 4px 10px 10px white inset, -1px -1px 7px rgb(160 160 160);
-=======
->>>>>>> bb13e75147763f67ff7f29a8817fa78b2f414971
 }
 
 .chattings-details form {
