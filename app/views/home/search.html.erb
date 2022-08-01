@@ -1,9 +1,90 @@
-<title>Search Results</title>
-<% if %>
-    <h1>Search Results</h1>
-    <% @search.each do |result| %>
-        <%= result.user_name %>
-    <% end %>
-<% else %>
-    <h1>No Search Results...</h1>
-<% end %>
+<title>Search Results for <%= params[:q] %></title>
+<%= stylesheet_link_tag 'search' %>
+
+<div class="container p-5">
+        <h1 class="text-center">
+            <%= image_tag "search-icon.png",class: "search-icon" %>Search Results for : <%= params[:q] %>
+        </h1>
+        <h2 class="ms-5 mt-4">Users :</h2>
+         <% if @users.length <= 0 %>
+            <h3 class="m-5 ps-5">No users found...😔</h3>
+        <% else %>
+            <div class="search-users">
+                <% @users.each do |user| %>
+                    <div class="friend-requests">
+                    <% unless user.gender == "not say" or user.gender == nil %>
+                        <%= image_tag user.gender == "male" ? "male-icon.png" : "female-icon.jpg", class: "user-gender"%>
+                    <% else %>
+                        <%= image_tag "unknown-gender.png", class: "user-gender"%>
+                    <% end %>
+                        <a href="/profile/<%= user.id %>" class="user-img">
+                            <%= image_tag user.user_profile %>
+                        </a>
+                        <div class="user-detail">
+                            <a href="/profile/<%= user.id %>" title="User name" class="user-name head">
+                                <%= user.user_name %>
+                            </a><br>
+                                <a href="/profile/<%= user.id %>" title="Name" class="user-name">
+                                    Name : <%= user.name ? user.name : "Not mentioned" %>
+                                </a>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+        <h2 class="ms-5 my-5 ">Posts :</h2>
+         <% if @posts.length <= 0 %>
+            <h3 class="m-5 ps-5">No posts found...😔</h3>
+        <% else %>
+            <div class="search-posts">
+                <% @posts.each do |post| %>
+                <% user = User.find(post.user_id) %>
+                    <div class="post">
+                        <div class="user-details">
+                            <a href="profile/<%= user.id %>">
+                                <%= image_tag user.user_profile, class: "user-profile" %>
+                            </a>
+                            <a href="profile/<%= user.id %>">
+                                <%= user.user_name %>
+                            </a>
+                        </div>
+                        <div class="user-post">
+                            <a href="/post/<%= post.id %>" class="view-post-link">
+                                <%= image_tag post.posts.first, class: "post-img" %>
+                            </a>
+                        </div>
+                    </div>
+                     <div class="post">
+                        <div class="user-details">
+                            <a href="profile/<%= user.id %>">
+                                <%= image_tag user.user_profile, class: "user-profile" %>
+                            </a>
+                            <a href="profile/<%= user.id %>">
+                                <%= user.user_name %>
+                            </a>
+                        </div>
+                        <div class="user-post">
+                            <a href="/post/<%= post.id %>" class="view-post-link">
+                                <%= image_tag post.posts.first, class: "post-img" %>
+                            </a>
+                        </div>
+                    </div> <div class="post">
+                        <div class="user-details">
+                            <a href="profile/<%= user.id %>">
+                                <%= image_tag user.user_profile, class: "user-profile" %>
+                            </a>
+                            <a href="profile/<%= user.id %>">
+                                <%= user.user_name %>
+                            </a>
+                        </div>
+                        <div class="user-post">
+                            <a href="/post/<%= post.id %>" class="view-post-link">
+                                <%= image_tag post.posts.first, class: "post-img" %>
+                            </a>
+                        </div>
+                    </div>
+
+                <% end %>
+            </div>
+        <% end %>
+</div>

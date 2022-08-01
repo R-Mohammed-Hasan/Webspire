@@ -67,6 +67,7 @@ Rails.application.routes.draw do
 
   get "/post/edit/:id", to: "posts#edit"
 
+
   get "/search", to: "home#search"
 
 

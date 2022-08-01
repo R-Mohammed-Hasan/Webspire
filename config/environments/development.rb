@@ -84,7 +84,7 @@ Rails.application.configure do
     :address              => "smtp.gmail.com",
     :domain               => 'localhost:3000',
     :port                 => 587,
-    :user_name            => "webspire.instagram007@gmail.com",
+    :user_name            => "Webspire - Freshworks",
     :password             => ENV['MAIL_PASSWORD'],
     :authentication       => "plain",
   }

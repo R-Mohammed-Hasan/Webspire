@@ -102,12 +102,11 @@ function uploadStory() {
 }
 
 function showComments(comments,users,current_user_id,user_images) {
-
   $(".post-comments").show(300);
   let output = "";
 
   if (comments.length == 0) {
-    document.getElementsByClassName("comments-container")[0].innerHTML = `<h2 style="text-align:center;margin:5%">Be the first to add comment to this post...🤩</h2>`;
+    document.getElementsByClassName("comments-container")[0].innerHTML = `<h2 style="text-align:center;margin:5%" id="no-comments-tool-tip">Be the first to add comment to this post...🤩</h2>`;
     return;
   }
 
@@ -153,13 +152,17 @@ function deleteComment(event,comment_id) {
     });
 }
 
-
 function addComment(user,user_profile,post_id){
+
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     let comment = document.getElementById(`add-comment-${post_id}`).value;
 
-     document.getElementsByClassName("comments-container")[0].innerHTML  +=
+    let be_first_container = document.getElementById("no-comments-tool-tip");
+    if(be_first_container){
+       be_first_container.innerHTML = be_first_container.innerText == "Be the first to add comment to this post...🤩" ? "" : be_first_container.innerText;
+}
+    document.getElementsByClassName("comments-container")[0].innerHTML  +=
       `<div class="comment-container">
                         <div class="comment-details">
                         <div class="commentor-profile">
@@ -178,6 +181,12 @@ function addComment(user,user_profile,post_id){
                         ${comment}
                     </div>
                 </div>`
+                let post_container = document.getElementsByClassName('post-comments')[0];
+                    post_container.scrollTop = post_container.scrollHeight + 100;
+                setTimeout(() => {
+                console.log("running")
+                    document.getElementById(`add-comment-${post_id}`).value = "";
+                },500);
 }
 
 function updateLike(post_id,event){

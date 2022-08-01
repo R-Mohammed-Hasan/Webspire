@@ -19,9 +19,8 @@ class HomeController < ApplicationController
   end
 
   def search
-    # get user_id from db and display in url like 'users/:id'
-    @search = User.where("user_name LIKE ?", "%#{params[:q]}%")
-    # use description of a post to filter
+    @users = User.where("user_name LIKE ? OR name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+    @posts = Post.where("description LIKE ?", "%#{params[:q]}%")
   end
 
 
