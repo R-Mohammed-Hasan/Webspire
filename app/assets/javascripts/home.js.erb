@@ -155,7 +155,7 @@ function deleteComment(event,comment_id) {
 function addComment(user,user_profile,post_id){
 
     var today = new Date();
-    var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
+    var date = today.getFullYear() + '-0' + (today.getMonth()+1) + '-0' + today.getDate();
     let comment = document.getElementById(`add-comment-${post_id}`).value;
 
     let be_first_container = document.getElementById("no-comments-tool-tip");
