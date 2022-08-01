@@ -33,7 +33,7 @@
     <!-- carousel to view post -->
 
     <div class="postsContainer">
-        <%= render "posts/posts" %>
+        <%= render "posts/posts",locals: {posts: @posts} %>
     </div>
 </div>
 

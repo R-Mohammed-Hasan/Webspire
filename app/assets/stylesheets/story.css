@@ -107,3 +107,19 @@
   .user-details {
       height: 100px;
   }
+  
+  .delete-story-icon {
+      position: absolute;
+      top: 5%;
+      right: 35%;
+      text-align: right;
+  }
+  
+  .delete-story-icon img {
+      border-radius: 10px;
+  }
+  
+  .carousel-control-next,
+  .carousel-control-prev {
+      top: 14px;
+  }

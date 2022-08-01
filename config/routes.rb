@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   root "home#home"
 
+  get "/message",to: "messages#show"
 
-  get "message/:id",to: "messages#message"
+  get "/message/:id",to: "messages#message"
 
   put "/message/new/:id", to: "messages#create"
 
@@ -23,6 +24,14 @@ Rails.application.routes.draw do
 
   get "/users/forgotPassword", to: "users#forgot_password"
 
+  post "/users/forgotPassword",to: "users#send_mail"
+
+  get "/users/resetPassword", to: "users#reset_password"
+
+  post "/users/resetPassword", to: "users#update_password"
+
+
+  get "/profile/request/:id", to: "profile#request_following"
 
   get "/profile/requests", to: "profile#follow_requests"
 
@@ -38,9 +47,10 @@ Rails.application.routes.draw do
 
   get "/profile/stories", to: "profile#story", as: "story"
 
+  delete "/story/delete/:id", to: "profile#delete_story"
+
   get "/profile/:id", to: "profile#profile"
 
-  get "/profile/request/:id", to: "profile#request_following"
 
   get "/profile/unfollow/:id", to: "profile#unfollow"
 
@@ -56,6 +66,7 @@ Rails.application.routes.draw do
   put "/post/dislike/:post_id", to: "posts#dislike"
 
   get "/post/edit/:id", to: "posts#edit"
+
 
   get "/search", to: "home#search"
 

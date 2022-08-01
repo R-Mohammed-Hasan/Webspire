@@ -12,6 +12,7 @@
 
     <meta content="<%= form_authenticity_token %>" name="csrf-token" />
 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -21,14 +22,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <%# Need to add logo  %>
-
 
 </head>
 
 <body>
-    <%= render "layouts/flasher" %>
     <%= render "layouts/header"%>
+    <%= render "layouts/flasher" %>
     <%= yield %>
 
 

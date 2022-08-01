@@ -5,9 +5,7 @@ class ProfileController < ApplicationController
     @activities = Activity.where(sender_id: @current_user.id)
     @requests = FollowRequest.where(receiver_id: @current_user.id)
     notifications = Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" )
-    p "================================================="
-    p notifications
-    notifications.each { |notfication| notfication.update(status: "seen")}
+    notifications.each { |notification| notification.update(status: "seen")}
   end
 
   def new_edit
@@ -17,14 +15,14 @@ class ProfileController < ApplicationController
 
   def edit_profile
     user = User.find(@current_user.id)
-    user.update(user_name: params[:user][:user_name],name: params[:user][:name], email: params[:user][:email],description: params[:user][:description],gender: params[:user][:gender])
+    user.update_columns(name: params[:user][:name], email: params[:user][:email],description: params[:user][:description],gender: params[:user][:gender])
     redirect_to "/profile/edit"
   end
 
   def edit_profile_image
-    user = User.find(session[:current_user_id])
+    user = User.find(@current_user.id)
     user.user_profile.purge_later
-    user.user_profile.attach(io: params[:user][:user_profile].to_io,filename: params[:user][:user_profile].original_filename)
+    user.user_profile.attach(io: params[:user_profile].to_io,filename: params[:user_profile].original_filename)
     user.save
     redirect_to profile_edit_path,success: "Profile photo updated...!"
   end
@@ -48,13 +46,24 @@ class ProfileController < ApplicationController
   end
 
   def story
-    users = User.all
+    friends_id = @current_user.friends.map {|user| @current_user.id == user.user_id ? user.follower_id : user.user_id  }
+    users = friends_id.map{ |friend_id| User.find(friend_id) }
+    users.unshift(@current_user) if @current_user.story.present?
     render "story",locals: {users: users}
   end
 
+  def delete_story
+    if @current_user.id.to_s == params[:id]
+      attachment = ActiveStorage::Attachment.find_by(name: "story", record_id: params[:id])
+      attachment.destroy if attachment
+      redirect_to "profile/stories"
+    end
+  end
+
   def request_following
-      request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
-      request.save
+   request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
+   request.save
+   redirect_to "/profile/#{params[:id]}"
   end
 
   def unfollow

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :info, :warning, :danger, :success
 
   def ensure_user_logged_in
-    users_login_path unless current_user
+    redirect_to users_login_path unless current_user
   end
 
   def current_user

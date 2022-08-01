@@ -20,10 +20,45 @@ class UsersController < ApplicationController
       redirect_to root_path, success: "You have successfully registered"
     end
   end
+
   def forgot_password
+    @user = User.new
   end
+
+  def send_mail
+    @user = User.find_by(email: params[:user][:email])
+    p "=================================="
+    p "=================================="
+    p "=================================="
+p @user
+    if @user.present?
+      PasswordMailer.with(user: @user).reset.deliver_now
+      # This send @user as "params" to password_mailer
+    end
+  end
+
+  def reset_password
+      @user = User.find_signed!(params[:token],purpose: "password_reset")
+      rescue ActiveSupport::MessageVerifier::InvalidSignature
+          redirect_to "/users/forgotPassword", warning: "Your token has expired. Please try again..."
+  end
+
+  def update_password
+    @user = User.find_signed!(params[:token],purpose: "password_reset")
+    p @user
+    if params[:user][:password] == params[:user][:confirm_password]
+      if @user.update(password: params[:user][:password])
+        redirect_to "/users/login", success: "Password has been updated successfully"
+      end
+    else
+        redirect_to "/users/forgotPassword", warning: "Passwords does'nt match"
+    end
+  end
+
+  private
 
   def user_params
     params.require(:user).permit(:user_name, :email, :password, :mobile_number)
   end
+
 end

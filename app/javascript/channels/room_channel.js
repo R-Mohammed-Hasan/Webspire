@@ -1,16 +1,31 @@
 import consumer from "./consumer";
 
-consumer.subscriptions.create({ channel: "RoomChannel", id: 6 }, {
-    connected() {
-        console.log("connected");
-        // Called when the subscription is ready for use on the server
-    },
+document.addEventListener("turbolinks:load", () => {
+    const room_element = document.getElementById("currentRoomId");
+    const room_id = room_element.getAttribute("data-room-id");
 
-    disconnected() {
-        // Called when the subscription has been terminated by the server
-    },
+    consumer.subscriptions.subscriptions.forEach((subscription) => {
+        consumer.subscriptions.remove(subscription);
+    });
 
-    received(data) {
-        // Called when there's incoming data on the websocket for this channel
-    },
+    consumer.subscriptions.create({ channel: "RoomChannel", id: room_id }, {
+        connected() {},
+        disconnected() {},
+
+        received(data) {
+            const container = document.getElementsByClassName(
+                "details-of-chatting"
+            )[0];
+            const current_user_id = document
+                .getElementById("currentUserId")
+                .getAttribute("data-user-id");
+            let html =
+                current_user_id == data.message.sender_id ?
+                data.request :
+                data.response;
+            container.innerHTML += html;
+            document.getElementById("inputsm").value = "";
+            container.scrollTop = container.scrollHeight + 100;
+        },
+    });
 });

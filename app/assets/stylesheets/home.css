@@ -81,11 +81,16 @@ nav .moreOptions {
     top: 37%;
 }
 
-.stories .multiple-items .slick-arrow::before {
+.stories .multiple-items .slick-arrow::before,
+.post-container>.post-content .slick-arrow::before {
     border-radius: 100%;
     font-size: 28px;
     color: black;
     background-color: rgb(199, 199, 199);
+}
+
+.post-container>.post-content .slick-arrow::before {
+    font-size: 35px;
 }
 
 .stories .multiple-items .slick-prev {
@@ -151,6 +156,7 @@ input[type="file"].nav-link {
     border-radius: 50%;
     width: 50%;
     height: 100%;
+    clip-path: circle(45%);
 }
 
 .username a {
@@ -262,7 +268,7 @@ input[type="search"] {
 }
 
 .post-content .slick-arrow {
-    margin-right: 5%;
+    margin-right: 6%;
 }
 
 .post-content .slick-prev::before {
@@ -352,8 +358,8 @@ input[type="search"] {
 }
 
 .post-credits>.post-description-container {
-    min-height: 22%;
-    max-height: 37%;
+    min-height: 40%;
+    max-height: 60%;
 }
 
 .post-credits>.post-description-container>.post-description {
@@ -367,6 +373,7 @@ input[type="search"] {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     display: -webkit-box;
+    margin: 0;
 }
 
 .post-credits>.show-solutions {
@@ -382,8 +389,10 @@ input[type="search"] {
 }
 
 .post-credits>.comment-box {
-    width: 100%;
-    position: relative;
+    width: 98%;
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
 }
 
 .post-credits>.comment-box>.add-comment:focus {
@@ -579,7 +588,7 @@ input[type="search"] {
 }
 
 .post-comments::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
 }
 
 .post-comments::-webkit-scrollbar-track {
@@ -621,6 +630,7 @@ input[type="search"] {
 .comment-details .commentor-profile img {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     margin-bottom: 13px;
     margin-right: 10px;
 }
@@ -671,5 +681,5 @@ input[type="search"] {
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    background-color: rgb(255 50 50) !important;
+    background-color: rgb(234, 71, 71) !important;
 }

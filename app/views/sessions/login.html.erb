@@ -7,11 +7,11 @@
         <h1 class="heading">Login</h1>
 
         <div class="input-group my-3">
-            <input class="form-control" type="text" title="Please enter more than 5 characters" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="user[email]" onfocusout="loginButton()" required value="" id="userName" placeholder="E-mail Id">
+            <input class="form-control" type="text" title="Please enter a proper Mail-id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="user[email]" onfocusout="loginButton()" required value="" id="userName" placeholder="E-mail Id">
         </div>
         <div class="input-group my-3">
             <input class="form-control" id="password" type="password" title="Please enter more than 8 characters that include special characters like ., and numbers" pattern="(?=.*\d)(?=.*[A-Za-z]).(?=.*[.,\-_]).{8,}" name="user[password]" onfocusout="loginButton()" required
-                value="" id="password" placeholder="Password">
+                value="" placeholder="Password">
             <img src="<%= asset_path "showPassword.png" %>" class="showPassword" onclick="showPassword(event)" alt="">
         </div>
         <button type="submit" class="btn btn-primary my-4 ms-5" disabled>Login</button>

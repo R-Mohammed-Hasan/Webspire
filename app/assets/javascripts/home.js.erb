@@ -106,13 +106,12 @@ function showComments(comments,users,current_user_id,user_images) {
   let output = "";
 
   if (comments.length == 0) {
-    document.getElementsByClassName("comments-container")[0].innerHTML = `<h2 style="text-align:center;margin:5%">Be the first to add comment to this post...🤩</h2>`;
+    document.getElementsByClassName("comments-container")[0].innerHTML = `<h2 style="text-align:center;margin:5%" id="no-comments-tool-tip">Be the first to add comment to this post...🤩</h2>`;
     return;
   }
 
   for(comment of comments){
     for(user of users){
-      for(user_image of user_images){
         if(comment.user_id == user.id){
         let deleteIcon = `<a class="delete-comment" data-index="${comment.id}" onclick="deleteComment(event,${comment.id})" >
                                 <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon'   width='45%'>
@@ -121,7 +120,7 @@ function showComments(comments,users,current_user_id,user_images) {
                         <div class="comment-details">
                         <div class="commentor-profile">
                         <a href="/profile/${user.id}" target="_blank">
-                            <img src="${user_image}" alt="">
+                            <img src="${user_images[user.id]}" alt="">
                         </a>
                         </div>
                         <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
@@ -133,7 +132,6 @@ function showComments(comments,users,current_user_id,user_images) {
                     </div>
                 </div>`
                 }
-            }
          }
     }
     document.getElementsByClassName("comments-container")[0].innerHTML = output;
@@ -155,23 +153,26 @@ function deleteComment(event,comment_id) {
 }
 
 function addComment(user,user_profile,post_id){
+
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     let comment = document.getElementById(`add-comment-${post_id}`).value;
 
-    document.getElementsByClassName("comments-container")[0].innerHTML = "";
-
-     document.getElementsByClassName("comments-container")[0].innerHTML  +=
+    let be_first_container = document.getElementById("no-comments-tool-tip");
+    if(be_first_container){
+       be_first_container.innerHTML = be_first_container.innerText == "Be the first to add comment to this post...🤩" ? "" : be_first_container.innerText;
+}
+    document.getElementsByClassName("comments-container")[0].innerHTML  +=
       `<div class="comment-container">
                         <div class="comment-details">
                         <div class="commentor-profile">
                         <a href="/profile/${user.id}">
                             <img src="${user_profile}" alt="">
-                            </a>
+                        </a>
                         </div>
                         <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
                         <p class="commented-time">${date}</p>
-                        <a class="delete-comment" href="#">
+                        <a class="delete-comment" href="">
                             <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon' alt=""  width='45%'>
                         </a>
 
@@ -180,6 +181,12 @@ function addComment(user,user_profile,post_id){
                         ${comment}
                     </div>
                 </div>`
+                let post_container = document.getElementsByClassName('post-comments')[0];
+                    post_container.scrollTop = post_container.scrollHeight + 100;
+                setTimeout(() => {
+                console.log("running")
+                    document.getElementById(`add-comment-${post_id}`).value = "";
+                },500);
 }
 
 function updateLike(post_id,event){

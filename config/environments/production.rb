@@ -64,6 +64,23 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.delivery_method = :smtp
+host = 'webspire.instagram007@gmail.com' #replace with your own url
+config.action_mailer.default_url_options = { host: host }
+
+# SMTP settings for gmail
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.perform_deliveries = true
+
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :domain               => 'localhost:3000',
+  :port                 => 587,
+  :user_name            => "Webspire - Freshworks",
+  :password             => ENV['MAIL_PASSWORD'],
+  :authentication       => "plain",
+}
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

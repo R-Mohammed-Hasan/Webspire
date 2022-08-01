@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_25_053035) do
+ActiveRecord::Schema.define(version: 2022_07_30_131122) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_07_25_053035) do
 
   create_table "chattings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "sender_id"
-    t.bigint "receiver_id"
+    t.string "room_id"
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

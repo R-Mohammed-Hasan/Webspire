@@ -46,7 +46,7 @@
                         </a>
                         <% else %>
                         <% if @request_sent.length == 0 %>
-                            <a class="btn btn-primary" href= "/profile/request/<%= @user.id %>" data-remote="true" onclick="this.innerHTML = 'Request Sent'; this.href=''">
+                            <a class="btn btn-primary" href= "/profile/request/<%= @user.id %>" data-remote="true" onclick="setTimeout">
                                     Add Friend
                             </a>
                         <% else %>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="post-options">
                     <button type="button" class="btn btn-outline-danger" onclick="closeEditPost()">Cancel</button>
-                    <button type="submit" class="btn btn-primary my-4 ms-5" id="submit-post">Post</button>
+                    <button type="submit" class="btn btn-primary my-4 ms-5" id="submit-post">Edit</button>
                 </div>
         <% end %>
     </div>
