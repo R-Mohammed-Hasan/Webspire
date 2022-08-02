@@ -135,12 +135,12 @@ a {
 }
 
 .details-of-chatting::-webkit-scrollbar-thumb {
-    background: #0d6efd;
+    background: #0dfdb9;
     border-radius: 10px;
 }
 
 .details-of-chatting::-webkit-scrollbar-thumb:hover {
-    background: #005eea;
+    background: #00da9c;
 }
 
 .chattings-details .details-of-chatting.no-chattings {

@@ -5,7 +5,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: minmax(33%, 43%);
     grid-template-rows: 33vh;
 }
 
