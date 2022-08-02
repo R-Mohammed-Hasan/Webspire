@@ -41,7 +41,7 @@ class ProfileController < ApplicationController
   def story_create
     user =  User.find(@current_user.id)
     user.story.purge_later
-    user.story.attach(io: params[:story_img].to_io,filename: params[:story_img].original_filename)
+    user.story.attach(io: params[:story_img].to_io,filename: params[:story_img].original_filename, content_type: "jpg/png")
     redirect_to root_path,success: "Story have been created successfully"
   end
 

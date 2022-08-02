@@ -7,7 +7,7 @@
         </h1>
         <h2 class="ms-5 mt-4">Users :</h2>
          <% if @users.length <= 0 %>
-            <h3 class="m-5 ps-5">No users found...😔</h3>
+            <h3 class="m-5 ps-5">No users found...☹️</h3>
         <% else %>
             <div class="search-users">
                 <% @users.each do |user| %>
@@ -34,7 +34,7 @@
         <% end %>
         <h2 class="ms-5 my-5 ">Posts :</h2>
          <% if @posts.length <= 0 %>
-            <h3 class="m-5 ps-5">No posts found...😔</h3>
+            <h3 class="m-5 ps-5">No posts found...☹️</h3>
         <% else %>
             <div class="search-posts">
                 <% @posts.each do |post| %>
@@ -47,34 +47,8 @@
                             <a href="profile/<%= user.id %>">
                                 <%= user.user_name %>
                             </a>
-                        </div>
-                        <div class="user-post">
-                            <a href="/post/<%= post.id %>" class="view-post-link">
-                                <%= image_tag post.posts.first, class: "post-img" %>
-                            </a>
-                        </div>
-                    </div>
-                     <div class="post">
-                        <div class="user-details">
-                            <a href="profile/<%= user.id %>">
-                                <%= image_tag user.user_profile, class: "user-profile" %>
-                            </a>
-                            <a href="profile/<%= user.id %>">
-                                <%= user.user_name %>
-                            </a>
-                        </div>
-                        <div class="user-post">
-                            <a href="/post/<%= post.id %>" class="view-post-link">
-                                <%= image_tag post.posts.first, class: "post-img" %>
-                            </a>
-                        </div>
-                    </div> <div class="post">
-                        <div class="user-details">
-                            <a href="profile/<%= user.id %>">
-                                <%= image_tag user.user_profile, class: "user-profile" %>
-                            </a>
-                            <a href="profile/<%= user.id %>">
-                                <%= user.user_name %>
+                            <a class="posted-date">
+                               <%= post.created_at.strftime("%d-%B %Y") %>
                             </a>
                         </div>
                         <div class="user-post">

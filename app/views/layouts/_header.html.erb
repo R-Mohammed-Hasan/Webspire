@@ -38,7 +38,7 @@
                 </li>
             </ul>
             <form class="d-flex search-form" action="/search">
-                <input class="form-control me-2" type="search" name="q" placeholder="Search a person or post..?" aria-label="Search">
+                <input class="form-control me-2" type="search" name="q" value="<%= params[:q] %>" placeholder="Search a person or post..?" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <li class="nav-item ms-3 dropdown">

@@ -17,7 +17,17 @@
                     <%= image_tag "add-story-icon.png", onclick: "openStoriesDialog()", class: "story-image default" ,title: "Add Story" %>
                 <% end %>
             </div>
-        <% @users.each do |user| %>
+            <% if @users.length < 10 %>
+               <% for i in 13...23 %>
+                    <% user = User.find() %>
+                 <% end %>
+                <div>
+                    <a href="/profile/stories"><%= image_tag user.story , class: "story-image"%></a>
+                    <p class="nameOfUser"><%= user.user_name %></p>
+                </div>
+            <% end %>
+        <% @users_id.each do |user_id| %>
+        <% user = User.find(user_id) %>
         <% if user.story.present? %>
             <% unless user.id == @current_user.id %>
                 <div>

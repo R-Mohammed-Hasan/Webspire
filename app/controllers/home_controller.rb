@@ -15,7 +15,13 @@ class HomeController < ApplicationController
 
   def home
     @posts = Post.all
-    @users = User.all
+    p "====================================================="
+    p "====================================================="
+    p "====================================================="
+    p "====================================================="
+    p @current_user.friends
+    friends_id = @current_user.friends.map {|user| @current_user.id == user.user_id ? user.follower_id : user.user_id  }
+    @users_id =
   end
 
   def search

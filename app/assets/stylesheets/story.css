@@ -12,6 +12,7 @@
       color: white;
       font-family: Poppins;
       overflow-y: auto;
+      background-image: url("<%= aasset_path Webspire_Logo-removebg-preview.png %>");
   }
   
   .stories-container .story-container {

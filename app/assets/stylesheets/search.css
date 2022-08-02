@@ -5,7 +5,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: minmax(33%, 43%);
+    grid-template-columns: repeat(3, 33%);
     grid-template-rows: 33vh;
 }
 
@@ -104,6 +104,11 @@
     width: 100%;
     height: 95%;
     object-fit: fill;
+    transition: 0.3s all;
+}
+
+.post-img:hover {
+    transform: scale(1.24);
 }
 
 .search-posts .user-details {
@@ -111,6 +116,12 @@
     width: 100%;
     height: 20%;
     margin: 2%;
+}
+
+.user-details .posted-date {
+    color: grey;
+    font-size: 17px;
+    margin-left: 15%;
 }
 
 a {

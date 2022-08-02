@@ -61,6 +61,7 @@ nav .moreOptions {
 .multiple-items .nameOfUser {
     text-align: center;
     width: 60%;
+    height: 25px;
     text-overflow: ellipsis;
     overflow: hidden;
     font-family: 'Poppins';
@@ -76,9 +77,13 @@ nav .moreOptions {
     margin-left: 0;
 }
 
+.stories .slick-list {
+    padding-left: 3%;
+}
+
 .stories .multiple-items .slick-arrow {
-    margin-right: 12%;
-    top: 37%;
+    margin-right: 5%;
+    top: 45%;
 }
 
 .stories .multiple-items .slick-arrow::before,
