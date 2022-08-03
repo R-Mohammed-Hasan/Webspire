@@ -5,9 +5,8 @@ class HomeController < ApplicationController
 
   def delete_expired_stories
     stories = ActiveStorage::Attachment.where(name: "story")
-    today = Time.now.strftime("%d")
     stories.each do |story|
-        if story.created_at.strftime("%d") < today
+        if Date.parse(story.created_at.strftime("%Y-%m-%d")) < Date.today
           story.destroy
         end
     end
