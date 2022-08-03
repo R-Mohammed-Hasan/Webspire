@@ -20,17 +20,16 @@ class User < ApplicationRecord
 
   def friends
     friends = Follower.where("user_id = ? or follower_id = ? ", self.id, self.id)
+    friends.map {|friend| self.id == friend.user_id ? friend.follower_id : friend.user_id  }
   end
 
   def friend(user_id)
-    if friends.length > 0
-      friends.each do |friend|
-            if  friend.user_id == user_id || friend.follower_id == user_id
-              return true
-            end
-        end
-    end
-    return false
+    self.friends.each do |friend_id|
+          if  friend_id == user_id
+            return true
+          end
+      end
+      return false
   end
 
 end

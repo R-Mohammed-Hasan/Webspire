@@ -8,17 +8,16 @@
       <img src="<%= asset_path "close-icon.webp" %>" >
     </a>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
- <div class="carousel-indicators">
-    <% users.each_with_index do |user,index| %>
-        <% if user.story.present? %>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= (users.first === user) ? "active" : "" %>" aria-current="true" aria-label="Slide 1"></button>
-        <% end %>
-    <% end %>
-  </div>
+      <div class="carousel-indicators">
+          <% for i in 0..users.length-1 %>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i==0 %>" aria-current="true" aria-label="Slide "></button>
+          <% end %>
+      </div>
          <div class="carousel-inner">
+
           <% users.each do |user| %>
             <% if user.story.present? %>
-                <div class="carousel-item <%= (users.first == user) ? "active" : "" %>">
+                <div class="carousel-item <%= user.id %>">
                 <div class="story-container">
                   <div class="user-details">
                     <%= image_tag user.user_profile, class: "user-profile" %>
@@ -44,8 +43,12 @@
         </button>
       </div>
 
-
-
-
     </div>
 </div>
+
+<script>
+$(document).ready(() => {
+  document.getElementsByClassName("carousel-item")[0].classList.add("active");
+  });
+
+</script>

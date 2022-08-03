@@ -25,12 +25,8 @@
         <div class="user-chattings">
           <div class="chatting-names-of-user">
           <% if friends.length > 0 %>
-            <% friends.each do |friend| %>
-                <% if friend.user_id == @current_user.id %>
-                        <% @user = User.find(friend.follower_id) %>
-                <% else %>
-                        <% @user = User.find(friend.user_id) %>
-                <% end %>
+            <% friends.each do |friend_id| %>
+                <% @user = User.find(friend_id) %>
                 <% room_id = @current_user.id.to_i < @user.id.to_i ? "#{@current_user.id}_#{@user.id}" : "#{@user.id}_#{@current_user.id}" %>
                <a href="/message/<%= room_id %>">
                 <div class="user-chatting <%= is_messaging(room_id) %>">

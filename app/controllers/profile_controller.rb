@@ -46,9 +46,11 @@ class ProfileController < ApplicationController
   end
 
   def story
-    friends_id = @current_user.friends.map {|user| @current_user.id == user.user_id ? user.follower_id : user.user_id  }
+    friends_id = @current_user.friends
     users = friends_id.map{ |friend_id| User.find(friend_id) }
     users.unshift(@current_user) if @current_user.story.present?
+    users += User.where(id: 13...23)
+    users = users.select{|user| user.story.present?}
     render "story",locals: {users: users}
   end
 
@@ -61,9 +63,16 @@ class ProfileController < ApplicationController
   end
 
   def request_following
-   request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
-   request.save
-   redirect_to "/profile/#{params[:id]}"
+    p "==========================================="
+    p "==========================================="
+    p "==========================================="
+    p "==========================================="
+    p "==========================================="
+    p "==========================================="
+    request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
+    p request
+    request.save!
+  #  redirect_to "/profile/#{params[:id]}"
   end
 
   def unfollow

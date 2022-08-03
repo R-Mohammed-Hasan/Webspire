@@ -46,7 +46,11 @@
                         </a>
                         <% else %>
                         <% if @request_sent.length == 0 %>
-                            <a class="btn btn-primary" href= "/profile/request/<%= @user.id %>" data-remote="true" onclick="setTimeout">
+                            <a class="btn btn-primary" href= "/profile/request/<%= @user.id %>" data-remote="true"
+                             onclick="setTimeout(() => {
+                                    this.href='';
+                                    this.innerHTML='Request Sent';
+                            },500)">
                                     Add Friend
                             </a>
                         <% else %>
