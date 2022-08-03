@@ -2,6 +2,7 @@ import consumer from "./consumer";
 
 document.addEventListener("turbolinks:load", () => {
     const room_element = document.getElementById("currentRoomId");
+    let notification = document.getElementById("tingAudio");
     if (room_element) {
         const room_id = room_element.getAttribute("data-room-id");
         consumer.subscriptions.subscriptions.forEach((subscription) => {
@@ -11,8 +12,8 @@ document.addEventListener("turbolinks:load", () => {
         consumer.subscriptions.create({ channel: "RoomChannel", id: room_id }, {
             connected() {},
             disconnected() {},
-
             received(data) {
+                notification.play();
                 const container = document.getElementsByClassName(
                     "details-of-chatting"
                 )[0];
