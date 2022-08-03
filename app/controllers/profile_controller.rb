@@ -63,16 +63,7 @@ class ProfileController < ApplicationController
   end
 
   def request_following
-    p "==========================================="
-    p "==========================================="
-    p "==========================================="
-    p "==========================================="
-    p "==========================================="
-    p "==========================================="
-    request = FollowRequest.new(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
-    p request
-    request.save!
-  #  redirect_to "/profile/#{params[:id]}"
+    request = FollowRequest.create!(sender_id: @current_user.id,receiver_id: params[:id],status: "requested")
   end
 
   def unfollow
