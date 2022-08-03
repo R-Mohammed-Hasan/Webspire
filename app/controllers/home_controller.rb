@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def home
-    @posts = Post.all
+    @posts = Post.where(user_id: @current_user.friends)
     @users_id = @current_user.friends
   end
 

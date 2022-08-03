@@ -99,7 +99,7 @@ nav .moreOptions {
 }
 
 .stories .multiple-items .slick-prev {
-    left: 10px;
+    left: 0px;
     z-index: 2;
 }
 
@@ -151,6 +151,7 @@ input[type="file"].nav-link {
     height: 70px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .nav-item.dropdown {
@@ -239,12 +240,19 @@ input[type="search"] {
     border-bottom: 1px solid grey;
 }
 
+.post-info .posted-time {
+    font-weight: 600;
+    color: grey;
+    margin-left: 2%;
+    font-size: 14px;
+}
+
 .post-info>.user-profile {
     width: 6%;
     height: 80%;
     border: 2px solid rgb(62, 219, 219);
     border-radius: 100%;
-    margin: 2%;
+    margin: 3%;
 }
 
 .post-info>.username {
