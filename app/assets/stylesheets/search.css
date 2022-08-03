@@ -108,7 +108,8 @@
 }
 
 .post-img:hover {
-    transform: scale(1.24);
+    transform: scale(1.2);
+    border-radius: 5%;
 }
 
 .search-posts .user-details {
