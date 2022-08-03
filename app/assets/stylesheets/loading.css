@@ -19,12 +19,12 @@
 
 @keyframes loading {
     25% {
-        box-shadow: -10px 10px rgb(58, 58, 58);
+        box-shadow: -10px 10px #3a3a3a;
     }
     60% {
-        box-shadow: -10px -10px rgb(58, 58, 58);
+        box-shadow: -10px -10px #3a3a3a;
     }
     90% {
-        box-shadow: 10px -10px rgb(58, 58, 58);
+        box-shadow: 10px -10px #3a3a3a;
     }
 }

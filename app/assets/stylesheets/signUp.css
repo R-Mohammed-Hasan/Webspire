@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(237, 237, 237);
+    background-color: #ededed;
     overflow-y: scroll;
 }
 
@@ -25,7 +25,7 @@ form {
 }
 
 h4 {
-    color: rgb(144, 144, 144);
+    color: #909090;
     margin-top: 8% !important;
     font-family: 'Poppins';
 }
@@ -90,5 +90,5 @@ input:invalid {
 }
 
 input:valid {
-    color: rgb(6, 215, 6);
+    color: #06d706;
 }

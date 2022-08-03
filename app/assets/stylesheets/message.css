@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins';
-    background-color: rgb(239, 239, 239);
+    background-color: #efefef;
     box-sizing: border-box;
 }
 
@@ -20,7 +20,7 @@ p {
 
 .message-header {
     display: flex;
-    border: 1px solid rgb(198, 194, 194);
+    border: 1px solid #c6c2c2;
     border-radius: 5px;
     align-items: center;
     height: 80px;
@@ -34,7 +34,7 @@ p {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    border-right: 1px solid rgb(198, 194, 194);
+    border-right: 1px solid #c6c2c2;
 }
 
 .chatting-user {
@@ -73,9 +73,9 @@ a {
 .chatting-names-of-user {
     width: 35%;
     overflow-y: auto;
-    border-left: 1px solid rgb(202, 199, 199);
-    border-bottom: 1px solid rgb(202, 199, 199);
-    border-right: 1px solid rgb(202, 199, 199);
+    border-left: 1px solid #cac7c7;
+    border-bottom: 1px solid #cac7c7;
+    border-right: 1px solid #cac7c7;
 }
 
 .user-chatting {
@@ -86,13 +86,13 @@ a {
 }
 
 .user-chatting.active {
-    background-color: rgb(235, 233, 233);
-    border-left: 3px solid rgb(181, 180, 180);
+    background-color: #ebe9e9;
+    border-left: 3px solid #b5b4b4;
 }
 
 .user-chatting:hover {
-    background-color: rgb(235, 233, 233);
-    border-left: 3px solid rgb(181, 180, 180);
+    background-color: #ebe9e9;
+    border-left: 3px solid #b5b4b4;
     cursor: pointer;
 }
 
@@ -113,8 +113,8 @@ a {
 
 .chattings-details {
     width: 65%;
-    border-right: 1px solid rgb(180, 180, 180);
-    border-bottom: 1px solid rgb(180, 180, 180);
+    border-right: 1px solid #b4b4b4;
+    border-bottom: 1px solid #b4b4b4;
 }
 
 .chattings-details .details-of-chatting {
@@ -160,11 +160,11 @@ a {
 }
 
 .message.response {
-    background-color: rgba(208, 208, 208, 0.797);
+    background-color: #d0d0d0cb;
     margin-right: auto !important;
     border-radius: 0px 12px 12px 12px;
     padding-left: 10px;
-    box-shadow: 5px -3px 6px rgb(160 160 160) inset, 2px 2px 3px rgb(160 160 160), -7px 7px 3px #d8d8d8, -3px 3px 6px white inset;
+    box-shadow: 5px -3px 6px #a0a0a0 inset, 2px 2px 3px #a0a0a0, -7px 7px 3px #d8d8d8, -3px 3px 6px white inset;
 }
 
 .message.request {
@@ -180,9 +180,9 @@ a {
     text-align: center;
     margin-top: 0;
     margin-bottom: 3%;
-    background-color: rgb(235, 233, 233);
+    background-color: #ebe9e9;
     border-radius: 7px;
-    box-shadow: 0px 1px 5px rgb(160 160 160), -3px -3px 8px rgb(147 147 147) inset, 4px 10px 10px white inset, -1px -1px 7px rgb(160 160 160);
+    box-shadow: 0px 1px 5px #a0a0a0, -3px -3px 8px #939393 inset, 4px 10px 10px white inset, -1px -1px 7px #a0a0a0;
 }
 
 .chattings-details form {

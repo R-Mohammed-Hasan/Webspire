@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(255, 251, 245);
+    background-color: #fffbf5;
 }
 
 .container {
@@ -45,7 +45,7 @@ body {
 }
 
 .activity-container .friend-requests:hover {
-    background-color: rgb(222, 221, 221);
+    background-color: #dedddd;
 }
 
 .activity-container .user-img img {
@@ -65,7 +65,7 @@ body {
 }
 
 .activity-container .friend-requests .user-name:hover {
-    color: rgb(25, 140, 255);
+    color: #198cff;
 }
 
 .activity-container .friend-requests .friend-requests-link {

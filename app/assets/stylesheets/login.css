@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(243, 241, 241);
+    background-color: #f3f1f1;
 }
 
 form,
@@ -9,7 +9,7 @@ form,
     height: auto;
     text-align: center;
     background-color: aliceblue;
-    border: 1px solid rgb(164, 164, 164);
+    border: 1px solid #a4a4a4;
 }
 
 form {
@@ -105,7 +105,7 @@ a:hover {
 }
 
 .pages .page {
-    color: rgb(114, 114, 114);
+    color: #727272;
     margin: 1%;
 }
 
@@ -136,7 +136,7 @@ a:hover {
 .copyRights {
     text-align: center;
     margin-top: 2%;
-    color: rgb(114, 114, 114);
+    color: #727272;
     font-size: 16px;
     margin-bottom: 7%;
 }
@@ -157,7 +157,7 @@ input:invalid {
 }
 
 input:valid {
-    color: rgb(6, 215, 6);
+    color: #06d706;
 }
 
 .mail-pop-up-container {
