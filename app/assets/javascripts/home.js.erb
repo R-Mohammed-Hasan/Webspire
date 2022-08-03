@@ -184,7 +184,6 @@ function addComment(user,user_profile,post_id){
                 let post_container = document.getElementsByClassName('post-comments')[0];
                     post_container.scrollTop = post_container.scrollHeight + 100;
                 setTimeout(() => {
-                console.log("running")
                     document.getElementById(`add-comment-${post_id}`).value = "";
                 },500);
 }
