@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if user.errors.full_messages.length > 0
       redirect_to "/users/new", warning: user.errors.full_messages.join(",")
     else
-      redirect_to root_path, success: "You have successfully registered"
+      redirect_to root_path, success: "You have been successfully registered as #{user.user_name}"
     end
   end
 
@@ -27,10 +27,6 @@ class UsersController < ApplicationController
 
   def send_mail
     @user = User.find_by(email: params[:user][:email])
-    p "=================================="
-    p "=================================="
-    p "=================================="
-p @user
     if @user.present?
       PasswordMailer.with(user: @user).reset.deliver_now
       # This send @user as "params" to password_mailer

@@ -1,7 +1,7 @@
  <%= stylesheet_link_tag 'story', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <div class="stories-container">
-  <%= link_to "/story/delete/#{@current_user.id}",method: "delete",title: "Delete your story",data: {confirm: 'Are you sure ?'} , class:"delete-story-icon" do %>
+  <%= link_to "/story/delete/#{@current_user.id}",method: "delete",title: "Delete your story",data: {confirm: 'Are you sure to delete your story ?'} , class:"delete-story-icon" do %>
     <%= image_tag 'delete-icon.jpg', width: "5%" %>
  <% end %>
     <a href="/" class="close-icon">

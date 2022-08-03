@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <%= form_with( model: @user, url: "/users/login", method: 'POST' ) do |form|%>
 
     <div class="row m-5">

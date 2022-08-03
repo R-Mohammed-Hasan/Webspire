@@ -1,3 +1,6 @@
+ <% if @posts.length == 0 %>
+    <h2 class="text-center mt-5">No Posts has been posted by your friends...☹️☹️</h2>
+ <% end %>
  <% @posts.reverse.each do |post| %>
     <% user = User.find(post.user_id) %>
         <div class="post-container">

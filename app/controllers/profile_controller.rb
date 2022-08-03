@@ -52,7 +52,7 @@ class ProfileController < ApplicationController
     if users.length < 10
       from_webspire = User.where(id: 13...23)
       from_webspire = from_webspire.each_with_index{ |user,i| from_webspire[i].user_name = "From Webspire" }
-      users+=from_webspire
+      users += from_webspire
     end
     users = users.select{ |user| user.story.present? }
     render "story",locals: {users: users}
