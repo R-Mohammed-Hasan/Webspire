@@ -50,7 +50,7 @@ class ProfileController < ApplicationController
     users = friends_id.map{ |friend_id| User.find(friend_id) }
     users.unshift(@current_user) if @current_user.story.present?
     if users.length < 10
-      from_webspire = User.where(id: 13...23)
+      from_webspire = User.where(id: 2...12)
       from_webspire = from_webspire.each_with_index{ |user,i| from_webspire[i].user_name = "From Webspire" }
       users += from_webspire
     end

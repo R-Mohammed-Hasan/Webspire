@@ -23,5 +23,14 @@
     <%= render "layouts/flasher" %>
     <%= yield %>
 
+<script>
+    $(document).ready(() => {
+        setInterval(()=> {
+            document.getElementsByClassName("alert")[0].style.display = "none";
+        },6000);
+
+    })
+</script>
 </body>
+
 </html>

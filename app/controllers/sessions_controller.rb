@@ -22,4 +22,28 @@ class SessionsController < ApplicationController
     session.delete(:current_user_id)
     redirect_to users_login_path, success: "You have been logged out successfully"
   end
+
+  # ===============================================================================================
+
+  def google_login
+
+  end
+
+  def google_login_create
+    if user = authenticate_with_google
+      session[:current_user_id] = user.id
+      redirect_to root_path, success: "You have been logged in successfully as #{user.user_name}"
+    else
+      redirect_to users_login_path, danger: "Google Authentication error......."
+    end
+  end
+
+  private
+  def authenticate_with_google
+    if id_token = flash[:google_sign_in]["id_token"]
+      user = User.find_by(email: GoogleSignIn::Identity.new(id_token).email_address)
+      user
+    end
+  end
+
 end

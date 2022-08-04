@@ -10,28 +10,7 @@
 }
 </script>
 
-<script>
-
-    function init() {
-        gapi.load('auth2', function() {
-            {
-            client_id: '829821209241-4qoi3rf5g5se146huseuumo6qs5j9egn.apps.googleusercontent.com'
-        }
-        });
-    }
-</script>
-<meta name="google-signin-client_id" content="829821209241-4qoi3rf5g5se146huseuumo6qs5j9egn.apps.googleusercontent.com">
-
-<script>
-    function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    }
-
-</script>
+<meta name="google-signin-client_id" content="829821209241-ifumfipv89knk98sffoma32btnjb3lda.apps.googleusercontent.com">
 
 <script>
   function signOut() {
@@ -42,14 +21,8 @@
   }
 </script>
 
-<%= google_sign_in_button 'Sign in with my Google account', proceed_to: create_login_url %>
 
-<%= google_sign_in_button image_tag('google_logo.png', alt: 'Google'), proceed_to: create_login_url %>
-
-<%= google_sign_in_button proceed_to: create_login_url do %>
-  Sign in with my <%= image_tag('google_logo.png', alt: 'Google') %> account
-<% end %>
-<%= form_with( model: @user, url: "/users/login", method: 'POST' ) do |form|%>
+<%= form_with( model: @user, url: "/users/login", method: 'POST' ) do |form| %>
 
     <div class="row m-5">
         <h1 class="heading">Login</h1>
@@ -77,7 +50,10 @@
 <div class="signUpNow">
     Don't have an account ? <a href="/users/new"> Sign Up</a>
 
-<div class="g-signin2 google-sign-in" data-onsuccess="onSignIn"></div>
+        <%= google_sign_in_button proceed_to: create_login_url,class: "google-sign-in-button" do %>
+            Sign in with <%= image_tag 'google.webp', alt: 'Google',width: "20%" %>
+        <% end %>
+
 </div>
 <div class="downloadNow">
     <div class="getNow">Get the App now...</div>

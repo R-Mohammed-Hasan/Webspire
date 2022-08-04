@@ -21,7 +21,6 @@ class MessagesController < ApplicationController
     end
   end
 
-
   def create
     message = Chatting.create(sender_id: @current_user.id, room_id: getRoom(params[:id]), message: params[:input])
     messages = Chatting.where(room_id: getRoom(params[:id]))

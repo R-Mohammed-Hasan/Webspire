@@ -206,3 +206,18 @@ input:valid {
 .abcRioButtonIcon {
     margin-left: 5%;
 }
+
+.signUpNow form {
+    position: absolute;
+    top: 120%;
+    left: 1%;
+    width: 50%;
+    font-family: 'Poppins';
+    border: 1px solid #a4a4a4 !important;
+    background-color: aliceblue;
+}
+
+.google-sign-in-button {
+    border: none;
+    background-color: aliceblue;
+}

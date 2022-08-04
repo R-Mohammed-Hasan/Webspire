@@ -125,7 +125,7 @@ body {
     width: 90%;
     height: 90%;
     border-radius: 5px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .user-details .follow-requests {
@@ -141,5 +141,5 @@ body {
 .nothing-posted {
     text-align: center;
     grid-column: span 3;
-    margin: 3% 4% 0 0;
+    margin: 0% 4% 0 0;
 }

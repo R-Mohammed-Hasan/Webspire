@@ -91,3 +91,12 @@
         <% end %>
     </div>
 </div>
+<script>
+    $(document).ready(() => {
+    console.log("run");
+        setInterval(()=> {
+            document.getElementsByClassName("alert")[0].style.display = "none";
+        },1000);
+
+    })
+</script>
