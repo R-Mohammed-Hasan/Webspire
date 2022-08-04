@@ -22,6 +22,10 @@ Rails.application.routes.draw do
 
   post "/users/login", to: "sessions#create"
 
+  get 'login', to: 'logins#new'
+
+  get 'login/create', to: 'logins#create', as: :create_login
+
   get "/users/forgotPassword", to: "users#forgot_password"
 
   post "/users/forgotPassword",to: "users#send_mail"

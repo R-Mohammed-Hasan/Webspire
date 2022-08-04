@@ -187,3 +187,22 @@ input:valid {
     font-size: 18px;
     box-shadow: 5px 5px 5px grey, -5px -5px 10px grey inset, 10px 10px 10px white inset;
 }
+
+.google-sign-in {
+    position: absolute;
+    top: 125%;
+    left: 34%;
+}
+
+.google-sign-in .abcRioButtonContents span {
+    font-size: 18px;
+    font-family: 'Poppins';
+}
+
+.abcRioButton {
+    border-radius: 10px;
+}
+
+.abcRioButtonIcon {
+    margin-left: 5%;
+}
