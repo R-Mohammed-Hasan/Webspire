@@ -19,7 +19,7 @@ class HomeController < ApplicationController
 
   def search
     @users = User.where("user_name LIKE ? OR name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
-    @posts = Post.where("description LIKE ?", "%#{params[:q]}%")
+    @posts = Post.where("description LIKE ? OR created_at", "%#{params[:q]}%","%#{params[:q]}%")
   end
 
 

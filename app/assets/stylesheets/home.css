@@ -697,3 +697,8 @@ input[type="search"] {
     height: 30px;
     background-color: #ea4747 !important;
 }
+
+#notification-icon {
+    cursor: pointer;
+    border-radius: 50%;
+}

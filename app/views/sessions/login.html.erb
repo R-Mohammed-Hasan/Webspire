@@ -1,25 +1,16 @@
 <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
-<script src="https://apis.google.com/js/platform.js" async defer>
+<script  async defer>
     function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }
 </script>
 
 <meta name="google-signin-client_id" content="829821209241-ifumfipv89knk98sffoma32btnjb3lda.apps.googleusercontent.com">
-
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
 
 
 <%= form_with( model: @user, url: "/users/login", method: 'POST' ) do |form| %>

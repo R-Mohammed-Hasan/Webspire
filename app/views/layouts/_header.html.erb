@@ -61,6 +61,7 @@
                     <li><a class="dropdown-item last" href="/signOut">Sign Out...</a></li>
                 </ul>
             </li>
+            <img id="notification-icon" width="4%" onclick="notification()">
         </div>
     </div>
 </nav>
@@ -95,9 +96,27 @@
     $(document).ready(() => {
         setInterval(()=> {
             if(document.getElementsByClassName("alert")[0]){
-            document.getElementsByClassName("alert")[0].style.display = "none";
+              document.getElementsByClassName("alert")[0].style.display = "none";
             }
         },6000);
+        Notification.requestPermission().then((permission) => {
+        handlePermission(permission);
+    });
 
-    })
+    });
+     function handlePermission(permission) {
+        document.getElementById("notification-icon").src =
+        Notification.permission === 'granted' ? '<%= asset_path "notification.jpg" %>' : '<%= asset_path "disable-notification.png" %>' ;
+    }
+
+let ting = new Audio("<%= asset_path 'bell.mp3' %>");
+
+    function notification(){
+        Notification.requestPermission().then((permission) => {
+            handlePermission(permission);
+            ting.play();
+        }).catch(() => {
+                console.log("rejected");
+        });
+    }
 </script>
