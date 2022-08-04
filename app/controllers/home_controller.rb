@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def home
-    @posts = Post.where(user_id: @current_user.friends)
+    @posts = Post.all.order("created_at DESC")
     @users_id = @current_user.friends
   end
 

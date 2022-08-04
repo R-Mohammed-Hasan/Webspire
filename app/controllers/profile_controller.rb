@@ -28,11 +28,7 @@ class ProfileController < ApplicationController
   end
 
   def profile
-    if @current_user.id == params[:id]
-      @user = @current_user
-    else
-      @user = User.find(params[:id])
-    end
+    @user = @current_user.id == params[:id] ? @current_user : User.find(params[:id])
     @posts = Post.where(user_id: params[:id])
     @request_sent = FollowRequest.where("sender_id = ? AND receiver_id = ? ",@current_user.id,@user.id)
     @post = Post.new

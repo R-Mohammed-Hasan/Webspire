@@ -245,6 +245,7 @@ input[type="search"] {
     color: grey;
     margin-left: 2%;
     font-size: 14px;
+    width: 100%;
 }
 
 .post-info>.user-profile {

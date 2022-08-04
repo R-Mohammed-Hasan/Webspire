@@ -93,10 +93,11 @@
 </div>
 <script>
     $(document).ready(() => {
-    console.log("run");
         setInterval(()=> {
+            if(document.getElementsByClassName("alert")[0]){
             document.getElementsByClassName("alert")[0].style.display = "none";
-        },1000);
+            }
+        },6000);
 
     })
 </script>
