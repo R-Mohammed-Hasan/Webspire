@@ -47,6 +47,9 @@ function showMoreOption(post_id) {
         "reportPost"
     ).href = `mailto:mohammed.hasan@fwsa.freshworks.com?subject=Regarding inappropriateness of a Post&body=Post of id: ${post_id} is inappropriate. Kindly review it.`;
     document.getElementById("goToPost").href="/post/"+post_id;
+    let copyLink = document.getElementById("copy-link");
+    copyLink.dataLink = `https://webspire-instagram.herokuapp.com/post/${post_id}`;
+    navigator.clipboard.writeText(copyLink.dataLink);
     $(".more-option-box").css({
         transform: "scale(1)",
         transition: "all 0.3s",

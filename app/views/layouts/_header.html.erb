@@ -102,7 +102,14 @@
         Notification.requestPermission().then((permission) => {
         handlePermission(permission);
     });
+    // setInterval(()=> {
+        let users = JSON.parse('<%= User.all.as_json %>')
+            console.log(users);
+        for(i in users.length){
 
+        }
+
+        // },1000);
     });
      function handlePermission(permission) {
         document.getElementById("notification-icon").src =
@@ -119,4 +126,5 @@ let ting = new Audio("<%= asset_path 'bell.mp3' %>");
                 console.log("rejected");
         });
     }
+
 </script>
