@@ -102,6 +102,7 @@ body {
     margin: 3%;
     cursor: pointer;
     border-radius: 5px;
+    z-index: 10;
 }
 
 .post .delete-post a img {

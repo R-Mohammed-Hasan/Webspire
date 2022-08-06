@@ -76,6 +76,8 @@ Rails.application.routes.draw do
 
   get "/search", to: "home#search"
 
+  get "/searching", to: "home#searching"
+
 
   get "/activity/requests", to: "activities#requests"
 

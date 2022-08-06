@@ -10,9 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 
+    <link href="https://vjs.zencdn.net/7.20.1/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
     <meta content="<%= form_authenticity_token %>" name="csrf-token" />
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<%= stylesheet_link_tag 'easy-autocomplete', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'easy-autocomplete.themes', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>

@@ -26,5 +26,12 @@ class HomeController < ApplicationController
     @posts = Post.where("description LIKE ? OR created_at", "%#{params[:q]}%","%#{params[:q]}%")
   end
 
+  def searching
+    users = User.ransack(user_name_cont: params[:q]).result(distinct: true)
+    users = users.map { |user| { name: user.user_name, url: "/profile/#{user.id}",icon: url_for(user.user_profile) } }
+    posts = Post.ransack(description_cont: params[:q]).result(distinct: true).map{ |post| {name: post.description,url: "/post/#{post.id}",icon: url_for(post.posts.first)} }
+    render json: {users: users[0,5], posts: posts }
+  end
+
 
 end

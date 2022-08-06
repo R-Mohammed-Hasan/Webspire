@@ -1,6 +1,10 @@
-<%= javascript_include_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'loading', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag 'loading', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<%= javascript_include_tag 'loading', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<%= javascript_include_tag 'jquery.easy-autocomplete','data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 
 <div class="loading">
     <img src="<%= asset_path 'Webspire-logo.gif' %>" alt="">
@@ -12,7 +16,7 @@
             <img src="<%= asset_path 'Webspire_Logo-removebg-preview.png' %>" width="100%" alt="">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item ms-5">
                     <a class="nav-link <%= is_active("home") %>" aria-current="page" href="/"><img title="Home" src="<%= asset_path'home-icon.png' %>" width="90%" alt=""></a>
                 </li>
@@ -37,10 +41,13 @@
                     <a class="nav-link" aria-current="page"><img title="Add Post" src="<%= asset_path'add-post-icon.png' %>" onclick="openPostDialog()" width="90%" alt=""></a>
                 </li>
             </ul>
-            <form class="d-flex search-form" action="/search">
-                <input class="form-control me-2" type="search" name="q" value="<%= params[:q] %>" placeholder="Search a person or post..?" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex search-form" action="/searching" data-method="get" data-remote="true" >
+                <input class="form-control me-2" type="search"  data-behavior="autocomplete"
+                name="q" id="search" value="<%= params[:q] %>" placeholder="Search a user or post..?" aria-label="Search">
+                <button class="btn btn-outline-success" id="searchButton" type="submit">Search</button>
             </form>
+            <img id="notification-icon" width="4%" onclick="notification()">
+
             <li class="nav-item ms-3 dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <%= image_tag @current_user.user_profile, class: "user-profile" %>
@@ -61,7 +68,6 @@
                     <li><a class="dropdown-item last" href="/signOut">Sign Out...</a></li>
                 </ul>
             </li>
-            <img id="notification-icon" width="4%" onclick="notification()">
         </div>
     </div>
 </nav>
@@ -92,7 +98,50 @@
         <% end %>
     </div>
 </div>
+
+
+
 <script>
+
+document.addEventListener("turbolinks:load", () => {
+    $input = $("#search");
+    var details;
+    var options = {
+        getValue: "name",
+        url: (phrase)=> {
+            return `/searching?q=${phrase}`
+        },
+        template: {
+		type: "iconLeft",
+		fields: {
+			iconSrc: "icon"
+		}
+	    },
+        categories:[
+            {
+                listLocation: "users",
+                header: "<strong>Search Results for Users :</strong>"
+            },
+            {
+                listLocation: "posts",
+                header: "<strong>Search Results for Posts :</strong>"
+            }
+        ],
+        list: {
+            onChooseEvent: function(){
+                console.log("input  ")
+              var url = $input.getSelectedItemData().url;
+              console.log("url "+url);
+              $input.val("");
+              Turbolinks.visit(url);
+            },
+            match: {
+                enabled: true
+             },
+        }
+    };
+    $input.easyAutocomplete(options);
+})
     $(document).ready(() => {
         setInterval(()=> {
             if(document.getElementsByClassName("alert")[0]){

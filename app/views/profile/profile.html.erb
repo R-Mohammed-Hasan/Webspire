@@ -84,7 +84,11 @@
                     </a>
                 </div>
             <% end %>
-            <%= image_tag post.posts.first, class: "post-img" %>
+            <% if post.posts.first.content_type === "video/mp4" %>
+                <%= video_tag url_for(post.posts.first), class: "post-img",controls: true %>
+            <% else %>
+                <%= image_tag post.posts.first, class: "post-img" %>
+            <% end %>
       </a>
     </div>
 <% end %>
