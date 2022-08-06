@@ -13,7 +13,11 @@ class HomeController < ApplicationController
   end
 
   def home
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.all.order("created_at DESC").paginate(page: params[:page],per_page: 1)
+    respond_to do |format|
+      format.html
+      format.js
+    end
     @users_id = @current_user.friends
   end
 

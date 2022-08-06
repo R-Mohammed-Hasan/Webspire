@@ -10,8 +10,9 @@ class User < ApplicationRecord
 
   validates :user_name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
-  validates :mobile_number, presence: true, uniqueness: true
-
+  validates :mobile_number, uniqueness: true
+  validates :user_profile, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
+  validates :story, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def posts
     posts = Post.where(user_id: self.id)

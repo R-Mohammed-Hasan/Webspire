@@ -103,8 +103,8 @@
         handlePermission(permission);
     });
     // setInterval(()=> {
-        let users = JSON.parse('<%= User.all.as_json %>')
-            console.log(users);
+        let users = '<%= User.all.as_json %>'.replace(/&quot;/ig,'').replace(/&gt;/ig,'').replace(/=/g,':').replace(/[a-z]:/g,'":"').replace(/, /g,'","').replace(/}"/g,'"}').replace(/"{/g,'{"').replace('[{','[{"').replace('}]','"}]')
+        console.log(JSON.parse(users));
         for(i in users.length){
 
         }

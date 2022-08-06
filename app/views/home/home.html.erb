@@ -33,7 +33,7 @@
         <% if user.story.present? %>
             <% unless user.id == @current_user.id %>
                 <div>
-                    <a href="/profile/stories"><%= image_tag user.story , class: "story-image"%></a>
+                    <a href="/profile/stories"><%= image_tag user.story, class: "story-image"%></a>
                     <p class="nameOfUser"><%= user.user_name %></p>
                 </div>
             <% end %>
@@ -47,6 +47,11 @@
     <div class="postsContainer">
         <%= render "posts/posts",locals: {posts: @posts} %>
     </div>
+
+    <div id="infinite-scrolling">
+         <%= will_paginate @posts %>
+    </div>
+
 </div>
 
 <div class="post-comments">

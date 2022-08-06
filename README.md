@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Sign Up
+   (i) Google Sign up
+2. Login
+   (i) Google Sign up
+3. CRUD Post
+4. Add/Delete Story
+5. Like a Post
+6. Add/Delete a Comment on a Post
+7. Messaging
+8. Forgot Password
+9. Notification to people
+10. Search

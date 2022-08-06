@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   post "/users/login", to: "sessions#create"
 
+  get 'signUp/create', to: 'users#google_sign_up', as: :create_google_sign_up
+
   get 'login', to: 'sessions#google_login'
 
   get 'login/create', to: 'sessions#google_login_create', as: :create_login

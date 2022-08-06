@@ -7,7 +7,7 @@ body {
     opacity: 0.5;
 }
 
-form {
+.sign-up-container {
     transform: translate(50%, 1%);
     position: absolute;
     inset: 0% auto auto 24%;
@@ -91,4 +91,21 @@ input:invalid {
 
 input:valid {
     color: #06d706;
+}
+
+.google-sign-in-button {
+    position: absolute;
+    bottom: 9%;
+    width: 50%;
+    left: 27%;
+    font-family: 'Poppins';
+    font-size: 18px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    transition: 0.3s all;
+}
+
+.google-sign-in-button:hover {
+    background-color: #3c89fb;
+    color: #fff;
 }
