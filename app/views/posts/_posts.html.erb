@@ -4,9 +4,7 @@
  <% @posts.each do |post| %>
     <% user = User.find(post.user_id) %>
         <div class="post-container">
-            <div class="post-bg">
-                <%= image_tag post.posts.first  unless post.posts.first.content_type == "video/mp4" %>
-            </div>
+
             <div class="post-info">
                 <div class="user-profile">
                     <a href="profile/<%= user.id %>">
@@ -41,7 +39,7 @@
                                 <source src="<%= url_for(post) %>" type="video/mp4" />
                             </video>
                         <% else %>
-                            <%= image_tag post, width:"100%",height:"100%" %>
+                            <%= image_tag post,data: {bg: "#{url_for(post)}"},class: "active-post", width:"100%",height:"100%" %>
                         <% end %>
                     </div>
                 <% end %>

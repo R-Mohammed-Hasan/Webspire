@@ -1,5 +1,4 @@
-console.log("Hi");
-$('.postsContainer').append('<%= j render @posts %>');
+$('.postsContainer').append('<%= j render "posts/posts" %>');
 <% if @posts.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @posts %>');
 <% else %>
