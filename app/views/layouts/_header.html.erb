@@ -104,6 +104,14 @@
 <script>
 
 document.addEventListener("turbolinks:load", () => {
+      $("#search").focus(() => {
+            $('.easy-autocomplete-container').css({'z-index':'5'})
+        });
+        $("#search").focusout(() => {setTimeout(() => {
+            $('.easy-autocomplete-container').css({'z-index':'-1'})
+
+        },1000);
+        });
     $input = $("#search");
     var details;
     var options = {
@@ -129,7 +137,6 @@ document.addEventListener("turbolinks:load", () => {
         ],
         list: {
             onChooseEvent: function(){
-                console.log("input  ")
               var url = $input.getSelectedItemData().url;
               console.log("url "+url);
               $input.val("");

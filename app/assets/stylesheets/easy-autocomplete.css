@@ -343,12 +343,11 @@
 }
 
 .easy-autocomplete-container {
-    left: 50%;
-    top: 10%;
-    position: fixed;
-    width: 30%;
-    height: 45%;
-    z-index: 0;
+    top: 76px;
+    position: absolute;
+    width: 450px;
+    height: 350px;
+    z-index: -1;
     font-size: 20px;
     font-family: 'Poppins';
 }
