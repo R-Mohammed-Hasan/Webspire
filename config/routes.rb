@@ -73,6 +73,8 @@ Rails.application.routes.draw do
 
   get "/post/edit/:id", to: "posts#edit"
 
+  post "/post/edit/:post_id", to: "posts#edit"
+
 
   get "/search", to: "home#search"
 
@@ -85,9 +87,8 @@ Rails.application.routes.draw do
 
   get "/activity/reject/:id", to: "activities#reject"
 
-  put "/comment/:post_id", to: "posts#create_comment"
 
-  post "/post/edit/:post_id", to: "posts#edit"
+  put "/comment/:post_id", to: "posts#create_comment"
 
   put "/comment/delete/:comment_id",to: "posts#delete_comment"
 

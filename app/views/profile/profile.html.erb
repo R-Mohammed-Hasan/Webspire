@@ -67,10 +67,10 @@
     </div>
 </div>
 <h2 class="post-header">Your Posts</h2>
-<div class="user-posts">
 <% unless @posts.present? %>
         <h2 class="nothing-posted"> No posts posted yet..!</h2>
 <% end %>
+<div class="user-posts">
 <% @posts.each do |post| %>
     <div class="post">
       <a href="/post/<%= post.id %>" class="view-post-link">

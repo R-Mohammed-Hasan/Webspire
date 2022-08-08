@@ -23,7 +23,6 @@
                 <li class="nav-item ms-5">
                     <a class="nav-link <%= is_active("show") %> <%= is_active("message") %>" href="/message"><img title="Message" src="<%= asset_path'message-icon.png' %>" width="90%" alt=""></a>
                 </li>
-
                 <li class="nav-item ms-5">
                     <a class="nav-link <%= is_active("explore") %>" href="/" tabindex="-1"><img title="Explore" src="<%= asset_path"explore.png" %>" width="90%" alt=""></a>
                 </li>
@@ -113,17 +112,16 @@ document.addEventListener("turbolinks:load", () => {
         },1000);
         });
     $input = $("#search");
-    var details;
     var options = {
         getValue: "name",
         url: (phrase)=> {
             return `/searching?q=${phrase}`
         },
         template: {
-		type: "iconLeft",
-		fields: {
-			iconSrc: "icon"
-		}
+            type: "iconLeft",
+            fields: {
+                iconSrc: "icon"
+            }
 	    },
         categories:[
             {

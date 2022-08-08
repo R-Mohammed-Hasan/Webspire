@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     post.posts.attach(params[:user_post])
     post.description = params[:description]
     post.save
-    redirect_to "/profile/#{@current_user.id}"
+    redirect_to "/profile/#{@current_user.id}",success: "Your post has been posted"
   end
 
   def edit
@@ -22,8 +22,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    image = Post.find(params[:id])
-    image.destroy
+    post = Post.find(params[:id])
+    post.destroy if post.user_id == @current_user.id
     redirect_to "/profile/#{current_user.id}"
   end
 
@@ -43,7 +43,8 @@ class PostsController < ApplicationController
   end
 
   def delete_comment
-      Comment.find(params[:comment_id]).destroy
+      comment = Comment.find(params[:comment_id])
+      comment.destroy if comment.user_id == @current_user.id
   end
 
   private

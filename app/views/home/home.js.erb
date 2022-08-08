@@ -1,3 +1,4 @@
+console.log("data"+ data);
 $('.postsContainer').append('<%= j render "posts/posts" %>');
 <% if @posts.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @posts %>');
