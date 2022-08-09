@@ -1,7 +1,6 @@
 # README
-<hr>
 
-# Features
+## Features
 
 ### 1. Sign Up
          (i) Google Sign up
