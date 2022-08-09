@@ -1,4 +1,5 @@
 # README
+<hr>
 
 # Features
 
