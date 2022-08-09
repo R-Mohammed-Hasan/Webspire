@@ -14,6 +14,7 @@ class HomeController < ApplicationController
 
   def home
     @posts = Post.all.order("created_at DESC").paginate(page: params[:page],per_page: 1)
+    Rails.logger.info @posts
     respond_to do |format|
       format.html
       format.js

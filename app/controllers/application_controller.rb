@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
     user_id = session[:current_user_id]
     @current_user = user_id ?  User.find(user_id) : nil
   end
+
 end
