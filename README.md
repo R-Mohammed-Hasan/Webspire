@@ -2,7 +2,7 @@
 
 ## Features
 
-     ### 1. Sign Up
+### 1. Sign Up
          (i) Google Sign up
       ### 2. Login
          (i) Google Sign in
