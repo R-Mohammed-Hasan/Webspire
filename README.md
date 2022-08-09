@@ -18,5 +18,6 @@
 9. Notification to people
    (i) Received friend request
    (ii) Accepted/Rejected friend request
+   (iii) Desktop Notification (in progress)
 10. Search
     (i) Auto-showing search suggestions for users
