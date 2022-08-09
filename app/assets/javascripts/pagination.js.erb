@@ -10,7 +10,8 @@ if ($(".pagination").length && $(".postsContainer").length) {
             $(".pagination").html(
                 '<img src="<%= asset_path "loading.gif" %>" alt="Loading..." title="Loading..." />'
             );
-            return JSON.stringify($.getScript(url));
+            console.log($.getScript(url));
+            return $.getScript(url);
         }
     });
     $(window).scroll();
