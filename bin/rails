@@ -2,5 +2,5 @@
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative "../config/boot"
 require "rails/commands"
-  client_id= "829821209241-4qoi3rf5g5se146huseuumo6qs5j9egn.apps.googleusercontent.com"
-  client_secret="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"
+  client_id= ENV['google_sign_in_client_id']
+  client_secret= ENV['google_sign_in_client_secret']

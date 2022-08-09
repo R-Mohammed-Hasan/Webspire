@@ -302,15 +302,16 @@ input[type="search"] {
 }
 
 .post-content .active-post::before {
-    content: 'hasan';
+    content: '';
     position: absolute;
     top: 7%;
     left: 32%;
     width: 100%;
     height: 74%;
     display: block;
-    background-color: grey;
-    /* background-image: url("Webspire-Logo.png"); */
+    /* background-color: grey; */
+    z-index: 3;
+    background: url('Webspire-Logo.png');
     background-size: 100% 100%;
     object-fit: cover;
     filter: blur(30px);

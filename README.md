@@ -12,7 +12,7 @@
    (i) Shows dummy interesting stories for new users
 5. Like a Post
 6. Add/Delete a Comment on a Post
-7. Messaging
+7. Chatting
 8. Forgot Password
    (i) Mail sent via Mailer
 9. Notification to people
