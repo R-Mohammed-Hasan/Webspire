@@ -9,6 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "588bad29-932f-40f1-b41d-ef3015acf1a4",
+    });
+  });
+</script>
     <meta content="<%= form_authenticity_token %>" name="csrf-token" />
 
     <%= javascript_include_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>

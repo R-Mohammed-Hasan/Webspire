@@ -9,12 +9,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "588bad29-932f-40f1-b41d-ef3015acf1a4",
+    });
+  });
+</script>
 
     <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <link rel="icon" href="<%= asset_path 'spider-logo-title.jpg' %>">
+
 
 </head>
 

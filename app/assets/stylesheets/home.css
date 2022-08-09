@@ -312,9 +312,9 @@ input[type="search"] {
     /* background-color: grey; */
     z-index: 3;
     background: url('Webspire-Logo.png');
-    background-size: 100% 100%;
+    /* background-size: 100% 100%; */
     object-fit: cover;
-    filter: blur(30px);
+    filter: blur(5px);
 }
 
 .post-content .post-video {
