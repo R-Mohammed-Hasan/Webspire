@@ -305,16 +305,15 @@ input[type="search"] {
     content: '';
     position: absolute;
     top: 7%;
-    left: 32%;
+    left: 2%;
     width: 100%;
     height: 74%;
     display: block;
-    /* background-color: grey; */
     z-index: 3;
-    background: url('Webspire-Logo.png');
-    /* background-size: 100% 100%; */
+    background: url("Webspire-Logo.png");
+    background-size: 100% 100%;
     object-fit: cover;
-    filter: blur(5px);
+    filter: blur(2px);
 }
 
 .post-content .post-video {
