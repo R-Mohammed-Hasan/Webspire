@@ -2,8 +2,8 @@
 
 <%= javascript_include_tag 'loading', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= javascript_include_tag 'jquery.easy-autocomplete','data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'jquery.easy-autocomplete','data-turbolinks-track': 'reload' %>
 
 
 <div class="loading">
@@ -29,9 +29,17 @@
                 <li class="nav-item ms-5">
                     <a class="nav-link <%= is_active("activity") %>" href="/profile/activity" tabindex="-1">
                         <img title="Activity" src="<%= asset_path "activity.png" %>" width="90%" alt="">
-                        <% if Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" ).length > 0 %>
+                        <% activities = Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" ).length %>
+                        <% requests = FollowRequest.where(receiver_id: @current_user.id).length %>
+                        <% if activities > 0 || requests  > 0 %>
                             <button class="btn btn-danger notification-count">
-                                <%= Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" ).length %>
+                            <% if activities == nil %>
+                                <%= requests %>
+                            <% elsif requests == nil %>
+                                <%= activities %>
+                            <% else %>
+                                <%= activities + requests %>
+                            <% end %>
                             </button>
                         <% end %>
                     </a>
@@ -80,7 +88,7 @@
                     <label for="username" class="col-form-label ms-4">Post : </label>
                 </div>
                 <div class="col-auto input">
-                    <%= f.file_field :user_post, multiple:true, required: true %>
+                    <%= f.file_field :user_post, multiple:true, required: true,accept: "image/jpg,image/jpeg,image/png" %>
                 </div>
             </div>
             <div class="row g-3 my-2 align-items-center">
@@ -103,69 +111,71 @@
 
 <script>
 
-// document.addEventListener("turbolinks:load", () => {
-//       $("#search").focus(() => {
-//             $('.easy-autocomplete-container').css({'z-index':'5'})
-//         });
-//         $("#search").focusout(() => {setTimeout(() => {
-//             $('.easy-autocomplete-container').css({'z-index':'-1'})
+document.addEventListener("turbolinks:load", () => {
+      $("#search").focus(() => {
+            $('.easy-autocomplete-container').css({'z-index':'5'})
+        });
+        $("#search").focusout(() => {setTimeout(() => {
+            $('.easy-autocomplete-container').css({'z-index':'-1'})
 
-//         },1000);
-//         });
-//     $input = $("#search");
-//     var options = {
-//         getValue: "name",
-//         url: (phrase)=> {
-//             return `/searching?q=${phrase}`
-//         },
-//         template: {
-//             type: "iconLeft",
-//             fields: {
-//                 iconSrc: "icon"
-//             }
-// 	    },
-//         categories:[
-//             {
-//                 listLocation: "users",
-//                 header: "<strong>Search Results for Users :</strong>"
-//             },
-//             {
-//                 listLocation: "posts",
-//                 header: "<strong>Search Results for Posts :</strong>"
-//             }
-//         ],
-//         list: {
-//             onChooseEvent: function(){
-//               var url = $input.getSelectedItemData().url;
-//               console.log("url "+url);
-//               $input.val("");
-//               Turbolinks.visit(url);
-//             },
-//             match: {
-//                 enabled: true
-//              },
-//         }
-//     };
-//     $input.easyAutocomplete(options);
-// })
-//     $(document).ready(() => {
-//         setInterval(()=> {
-//             if(document.getElementsByClassName("alert")[0]){
-//               document.getElementsByClassName("alert")[0].style.display = "none";
-//             }
-//         },6000);
-//         Notification.requestPermission().then((permission) => {
-//         handlePermission(permission);
-//     });
-//     // setInterval(()=> {
-//         let users = '<%= User.all.as_json %>'.replace(/&quot;/ig,'').replace(/&gt;/ig,'').replace(/=/g,':').replace(/[a-z]:/g,'":"').replace(/, /g,'","').replace(/}"/g,'"}').replace(/"{/g,'{"').replace('[{','[{"').replace('}]','"}]')
-//         console.log(JSON.parse(users));
-//         for(i in users.length){
+        },1000);
+        });
+    $input = $("#search");
+    var options = {
+        getValue: "name",
+        url: (phrase)=> {
+            return `/searching?q=${phrase}`
+        },
+        template: {
+            type: "iconLeft",
+            fields: {
+                iconSrc: "icon"
+            }
+	    },
+        categories:[
+            {
+                listLocation: "users",
+                header: "<strong>Search Results for Users :</strong>"
+            },
+            {
+                listLocation: "posts",
+                header: "<strong>Search Results for Posts :</strong>"
+            }
+        ],
+        list: {
+            onChooseEvent: function(){
+              var url = $input.getSelectedItemData().url;
+              console.log("url "+url);
+              $input.val("");
+              Turbolinks.visit(url);
+            },
+            match: {
+                enabled: true
+             },
+        }
+    };
+    $input.easyAutocomplete(options);
+})
+    $(document).ready(() => {
+    document.getElementsByClassName("easy-autocomplete")[0].style.width = "57%";
+        setInterval(()=> {
+            if(document.getElementsByClassName("alert")[0]){
+              document.getElementsByClassName("alert")[0].style.display = "none";
+              return
+            }
+        },6000);
+        Notification.requestPermission().then((permission) => {
+        handlePermission(permission);
+    });
+    // setInterval(()=> {
+        let users = '<%= User.all.as_json %>'.replace(/&quot;/ig,'').replace(/&gt;/ig,'').replace(/=/g,':').replace(/[a-z]:/g,'":"').replace(/, /g,'","').replace(/}"/g,'"}').replace(/"{/g,'{"').replace('[{','[{"').replace('}]','"}]')
+        console.log(JSON.parse(users));
+        for(i in users.length){
 
-//         }
+        }
 
-//         // },1000);
-//     });
+        // },1000);
+    });
 //      function handlePermission(permission) {
 //         document.getElementById("notification-icon").src =
 //         Notification.permission === 'granted' ? '<%= asset_path "notification.jpg" %>' : '<%= asset_path "disable-notification.png" %>' ;

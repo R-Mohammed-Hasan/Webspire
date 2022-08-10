@@ -6,7 +6,7 @@ if ($(".pagination").length && $(".postsContainer").length) {
         if (url!=undefined && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
             $(".pagination").html('<img src="<%= asset_path "loading.gif" %>" alt="Loading..." title="Loading..." />');
             console.log($.getScript(url.responseText));
-            JSON.parse($.getScript(url.response))
+            $.getScript(url);
         }
     });
     $(window).scroll();

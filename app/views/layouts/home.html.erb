@@ -38,6 +38,17 @@
 
 
 
+<script>
+    $(document).ready(() => {
+        setInterval(()=> {
+            let alerter = document.getElementsByClassName("alert")[0];
+            if(alerter){
+            document.getElementsByClassName("alert")[0].style.display = "none";
+            }
+            return;
+        },6000);
 
+    })
+</script>
 </body>
 </html>

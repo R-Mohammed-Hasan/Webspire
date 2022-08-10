@@ -143,6 +143,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x64-mingw32)
       racc (~> 1.4)
+    noti (1.0.2)
+      json
     oauth2 (2.0.6)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -296,6 +298,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   mysql2 (~> 0.5)
+  noti
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6)
