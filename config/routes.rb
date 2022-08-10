@@ -1,26 +1,25 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  root 'home#home'
 
-  root "home#home"
+  get '/message', to: 'messages#show'
 
-  get "/message",to: "messages#show"
+  get '/message/:id', to: 'messages#message'
 
-  get "/message/:id",to: "messages#message"
+  put '/message/new/:id', to: 'messages#create'
 
-  put "/message/new/:id", to: "messages#create"
+  get '/signOut', to: 'sessions#destroy'
 
-  get "/signOut", to: "sessions#destroy"
+  post '/users', to: 'users#create'
 
+  get '/users/new', to: 'users#sign_up'
 
-  post "/users", to: "users#create"
+  get '/users/login', to: 'sessions#login'
 
-  get "/users/new", to: "users#sign_up"
-
-  get "/users/login", to: "sessions#login"
-
-  post "/users/login", to: "sessions#create"
+  post '/users/login', to: 'sessions#create'
 
   get 'signUp/create', to: 'users#google_sign_up', as: :create_google_sign_up
 
@@ -28,70 +27,61 @@ Rails.application.routes.draw do
 
   get 'login/create', to: 'sessions#google_login_create', as: :create_login
 
-  get "/users/forgotPassword", to: "users#forgot_password"
+  get '/users/forgotPassword', to: 'users#forgot_password'
 
-  post "/users/forgotPassword",to: "users#send_mail"
+  post '/users/forgotPassword', to: 'users#send_mail'
 
-  get "/users/resetPassword", to: "users#reset_password"
+  get '/users/resetPassword', to: 'users#reset_password'
 
-  post "/users/resetPassword", to: "users#update_password"
+  post '/users/resetPassword', to: 'users#update_password'
 
+  get '/profile/request/:id', to: 'profile#request_following'
 
-  get "/profile/request/:id", to: "profile#request_following"
+  get '/profile/requests', to: 'profile#follow_requests'
 
-  get "/profile/requests", to: "profile#follow_requests"
+  get '/profile/activity', to: 'profile#activity'
 
-  get "/profile/activity", to: "profile#activity"
+  put '/profile/editProfile', to: 'profile#edit_profile_image'
 
-  put "/profile/editProfile", to: "profile#edit_profile_image"
+  get '/profile/edit', to: 'profile#new_edit'
 
-  get "/profile/edit", to: "profile#new_edit"
+  post '/profile/edit', to: 'profile#edit_profile'
 
-  post "/profile/edit", to: "profile#edit_profile"
+  put '/profile/story', to: 'profile#story_create'
 
-  put "/profile/story", to: "profile#story_create"
+  get '/profile/stories', to: 'profile#story', as: 'story'
 
-  get "/profile/stories", to: "profile#story", as: "story"
+  delete '/story/delete/:id', to: 'profile#delete_story'
 
-  delete "/story/delete/:id", to: "profile#delete_story"
+  get '/profile/:id', to: 'profile#profile'
 
-  get "/profile/:id", to: "profile#profile"
+  get '/profile/unfollow/:id', to: 'profile#unfollow'
 
+  post '/post/create', to: 'posts#post_create'
 
-  get "/profile/unfollow/:id", to: "profile#unfollow"
+  get '/post/:id', to: 'posts#show'
 
+  get '/post/delete/:id', to: 'posts#destroy'
 
-  post "/post/create", to: "posts#post_create"
+  put '/post/like/:post_id', to: 'posts#like'
 
-  get "/post/:id", to: "posts#show"
+  put '/post/dislike/:post_id', to: 'posts#dislike'
 
-  get "/post/delete/:id", to: "posts#destroy"
+  get '/post/edit/:id', to: 'posts#edit'
 
-  put "/post/like/:post_id", to: "posts#like"
+  post '/post/edit/:post_id', to: 'posts#edit'
 
-  put "/post/dislike/:post_id", to: "posts#dislike"
+  get '/search', to: 'home#search'
 
-  get "/post/edit/:id", to: "posts#edit"
+  get '/searching', to: 'home#searching'
 
-  post "/post/edit/:post_id", to: "posts#edit"
+  get '/activity/requests', to: 'activities#requests'
 
+  get '/activity/accept/:id', to: 'activities#accept'
 
-  get "/search", to: "home#search"
+  get '/activity/reject/:id', to: 'activities#reject'
 
-  get "/searching", to: "home#searching"
+  put '/comment/:post_id', to: 'posts#create_comment'
 
-
-  get "/activity/requests", to: "activities#requests"
-
-  get "/activity/accept/:id", to: "activities#accept"
-
-  get "/activity/reject/:id", to: "activities#reject"
-
-
-  put "/comment/:post_id", to: "posts#create_comment"
-
-  put "/comment/delete/:comment_id",to: "posts#delete_comment"
-
-
-
+  put '/comment/delete/:comment_id', to: 'posts#delete_comment'
 end

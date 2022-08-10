@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -22,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'dotenv-rails', groups: [:development, :test, :production]
+gem 'dotenv-rails', groups: %i[development test production]
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
@@ -32,7 +34,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -53,13 +55,16 @@ end
 gem 'rufo', '~> 0.0.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'rails-ajax', '~> 1.0', '>= 1.0.0.20140320'
-gem 'jquery-rails'
+gem 'activestorage-validator'
+gem 'coffee-rails'
 gem 'ffaker'
 gem 'google_sign_in'
-gem 'activestorage-validator'
-gem 'will_paginate', '~> 3.3', '>= 3.3.1'
-gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'rails-ajax', '~> 1.0', '>= 1.0.0.20140320'
 gem 'ransack'
+gem 'webpush'
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+
+gem 'rubocop', require: false
