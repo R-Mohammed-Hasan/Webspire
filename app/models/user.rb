@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_secure_password
   has_one_attached :user_profile
   has_one_attached :story do |attachable|
-    attachable.variant :content_type => "jpg/png"
+    attachable.variant content_type: 'jpg/png'
   end
   has_many :likes
   has_many :comments
@@ -15,22 +17,18 @@ class User < ApplicationRecord
   validates :story, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def posts
-    posts = Post.where(user_id: self.id)
-    posts
+    Post.where(user_id: id)
   end
 
   def friends
-    friends = Follower.where("user_id = ? or follower_id = ? ", self.id, self.id)
-    friends.map {|friend| self.id == friend.user_id ? friend.follower_id : friend.user_id  }
+    friends = Follower.where('user_id = ? or follower_id = ? ', id, id)
+    friends.map { |friend| id == friend.user_id ? friend.follower_id : friend.user_id }
   end
 
   def friend(user_id)
-    self.friends.each do |friend_id|
-          if  friend_id == user_id
-            return true
-          end
-      end
-      return false
+    friends.each do |friend_id|
+      return true if friend_id == user_id
+    end
+    false
   end
-
 end

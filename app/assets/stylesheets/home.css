@@ -301,21 +301,6 @@ input[type="search"] {
     background-color: rgb(72, 255, 255);
 }
 
-.post-content .active-post::before {
-    content: '';
-    position: absolute;
-    top: 7%;
-    left: 2%;
-    width: 100%;
-    height: 74%;
-    display: block;
-    z-index: 3;
-    background: url("Webspire-Logo.png");
-    background-size: 100% 100%;
-    object-fit: cover;
-    filter: blur(2px);
-}
-
 .post-content .post-video {
     width: 100%;
     height: 100%;
@@ -369,11 +354,10 @@ input[type="search"] {
     height: 100%;
 }
 
-.post-content .slick-slide img {
+.post-content .slick-slide .active-post {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    backdrop-filter: blur(40px);
 }
 
 .post-content .slick-dots li.slick-active button::before {
