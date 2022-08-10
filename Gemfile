@@ -64,6 +64,6 @@ gem 'google_sign_in'
 gem 'jquery-rails'
 gem 'rails-ajax', '~> 1.0', '>= 1.0.0.20140320'
 gem 'ransack'
+gem 'rubocop', require: false
 gem 'webpush'
 gem 'will_paginate'
-gem 'rubocop', require: false

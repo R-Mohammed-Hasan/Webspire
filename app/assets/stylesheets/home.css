@@ -24,7 +24,7 @@ nav .moreOptions {
 }
 
 .search-form input[type="search"]#search {
-    width: 196px;
+    width: 100%;
     transition: 0.3s all;
 }
 
@@ -135,7 +135,6 @@ input[type="search"]:focus~.easy-autocomplete-container {
 }
 
 .d-flex {
-    margin-right: 10%;
     width: 30%;
     justify-content: left;
 }

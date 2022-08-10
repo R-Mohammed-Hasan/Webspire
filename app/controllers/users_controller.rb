@@ -14,13 +14,15 @@ class UsersController < ApplicationController
       redirect_to '/users/new', warning: 'E-mail already registered...!'
       return
     end
-    user = User.create(user_params)
+    user = User.new(user_params)
     session[:current_user_id] = user.id
     user.user_profile.attach(io: File.open('app/assets/images/user-default-icon.png'), filename: 'user-default-icon.png',
                              content_type: 'image/png')
+    user.save
     if user.errors.full_messages.length.positive?
       redirect_to '/users/new', warning: user.errors.full_messages.join(',')
     else
+      session[:current_user_id] = user.id
       redirect_to root_path, success: "You have been successfully registered as #{user.user_name}"
     end
   end
@@ -59,7 +61,7 @@ class UsersController < ApplicationController
     user_profile = open(GoogleSignIn::Identity.new(flash[:google_sign_in]['id_token']).avatar_url)
     name = GoogleSignIn::Identity.new(flash[:google_sign_in]['id_token']).name.split(' ').join('_')
     given_name = GoogleSignIn::Identity.new(flash[:google_sign_in]['id_token']).family_name
-    user = User.new(name: given_name, email: email, user_name: name, password: "#{name}_webspire")
+    user = User.new(name: given_name, email: email, user_name: name, password: "#{name}_webspire7.")
     user.user_profile.attach(io: user_profile, filename: 'user-profile')
     user.save
     session[:current_user_id] = user.id

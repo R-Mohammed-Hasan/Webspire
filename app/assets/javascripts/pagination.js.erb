@@ -4,10 +4,9 @@ if ($(".pagination").length && $(".postsContainer").length) {
         var url;
         url = $(".pagination .next_page").attr("href");
         if (url!=undefined && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
-            $(".pagination").html('<img src="<%= asset_path "loading.gif" %>" alt="Loading..." title="Loading..." />');
             console.log($.getScript(url.responseText));
-            JSON.parse($.getScript(url.response))
+            return $.getScript(url);
         }
+        return;
     });
-    $(window).scroll();
 }
