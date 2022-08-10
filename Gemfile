@@ -65,6 +65,5 @@ gem 'jquery-rails'
 gem 'rails-ajax', '~> 1.0', '>= 1.0.0.20140320'
 gem 'ransack'
 gem 'webpush'
-gem 'will_paginate', '~> 3.3', '>= 3.3.1'
-
+gem 'will_paginate'
 gem 'rubocop', require: false

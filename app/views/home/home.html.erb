@@ -45,7 +45,7 @@
     <!-- carousel to view post -->
 
     <div class="postsContainer">
-        <%= render "posts/posts",locals: {posts: @posts} %>
+        <%= render @posts %>
     </div>
 
     <div id="infinite-scrolling">
@@ -86,6 +86,7 @@
         </div>
     </div>
 </div>
+
 
 <%= javascript_include_tag 'pagination', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>

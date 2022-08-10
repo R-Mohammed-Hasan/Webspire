@@ -360,19 +360,6 @@ input[type="search"] {
     object-fit: contain;
 }
 
-.post-content>.active-post::before {
-    content: '';
-    position: absolute;
-    top: 7%;
-    left: 0%;
-    width: 50%;
-    height: 86%;
-    display: block;
-    z-index: 3;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-
 .post-content .slick-dots li.slick-active button::before {
     font-size: 15px;
 }
