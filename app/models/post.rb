@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
+  self.per_page = 1
   belongs_to :user
   has_many_attached :posts
   has_many :likes

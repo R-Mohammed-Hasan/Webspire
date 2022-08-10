@@ -6,7 +6,7 @@
         <div class="multiple-items">
             <div>
                 <%= form_with url: "/profile/story", id: "story-form", method: "put" do |f| %>
-                    <%= f.file_field :story_img, style: "display:none", onchange: "uploadStory()", id: "story-file" %>
+                    <%= f.file_field :story_img, style: "display:none", onchange: "uploadStory()", id: "story-file",accept: "image/jpg,image/jpeg,image/png" %>
                 <% end %>
                 <% if @current_user.story.present? %>
                     <a href="/profile/stories">

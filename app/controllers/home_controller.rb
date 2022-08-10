@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def home
-    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 2)
+    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 1)
     respond_to do |format|
       format.html
       format.js
