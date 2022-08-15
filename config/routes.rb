@@ -84,5 +84,4 @@ Rails.application.routes.draw do
   put "/comment/:post_id", to: "posts#create_comment"
 
   put "/comment/delete/:comment_id", to: "posts#delete_comment"
-
 end
