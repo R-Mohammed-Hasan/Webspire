@@ -2,9 +2,20 @@
 
 <%= javascript_include_tag 'loading', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+
+
 <%= javascript_include_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'jquery.easy-autocomplete','data-turbolinks-track': 'reload' %>
 
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "588bad29-932f-40f1-b41d-ef3015acf1a4",
+    });
+  });
+</script>
 
 <div class="loading">
     <img src="<%= asset_path 'Webspire-logo.gif' %>" alt="">
