@@ -1,19 +1,10 @@
-<%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
-<script  async defer>
-    function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    }
-</script>
+<%= stylesheet_link_tag "login", media: "all", 'data-turbolinks-track': "reload" %>
+<%= javascript_include_tag "login", media: "all", 'data-turbolinks-track': "reload" %>
 
 <meta name="google-signin-client_id" content="829821209241-ifumfipv89knk98sffoma32btnjb3lda.apps.googleusercontent.com">
 
 
-<%= form_with( model: @user, url: "/users/login", method: 'POST' ) do |form| %>
+<%= form_with(model: @user, url: "/users/login", method: "POST") do |form| %>
 
     <div class="row m-5">
         <h1 class="heading">Login</h1>
@@ -41,8 +32,8 @@
 <div class="signUpNow">
     Don't have an account ? <a href="/users/new"> Sign Up</a>
 
-        <%= google_sign_in_button proceed_to: create_login_url,class: "google-sign-in-button" do %>
-            Sign in with <%= image_tag 'google.webp', alt: 'Google',width: "20%" %>
+        <%= google_sign_in_button proceed_to: create_login_url, class: "google-sign-in-button" do %>
+            Sign in with <%= image_tag "google.webp", alt: "Google", width: "20%" %>
         <% end %>
 
 </div>
@@ -67,8 +58,8 @@
         <a href="/search?q=foodAndDrink" class="page">Food & Drink</a>
         <a href="/search?q=dance" class="page">Dance</a>
         <a href="/search?q=about" class="page">Terms and Conditions</a>
-
     </div>
+
     <div class="copyRights">
         © 2022 Webspire from Freshworks
     </div>

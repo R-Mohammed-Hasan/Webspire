@@ -406,6 +406,15 @@ input[type="search"] {
     }
 }
 
+@keyframes disLike {
+    20% {
+        transform: rotate(12deg);
+    }
+    70% {
+        transform: rotate(-12deg);
+    }
+}
+
 .credits>.comment,
 .bookmark {
     width: 4%;
@@ -763,4 +772,9 @@ input[type="search"] {
 
 .pagination img {
     width: 10%;
+}
+
+#onesignal-bell-container.onesignal-reset .onesignal-bell-launcher.onesignal-bell-launcher-sm .onesignal-bell-launcher-button {
+    width: 40px;
+    height: 40px;
 }

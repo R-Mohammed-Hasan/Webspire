@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
-  layout 'home'
+  layout "home"
 
   before_action :delete_expired_stories
 
   def delete_expired_stories
-    stories = ActiveStorage::Attachment.where(name: 'story')
+    stories = ActiveStorage::Attachment.where(name: "story")
     stories.each do |story|
-      story.destroy if Date.parse(story.created_at.strftime('%Y-%m-%d')) < Date.today
+      story.destroy if Date.parse(story.created_at.strftime("%Y-%m-%d")) < Date.today
     end
   end
 
   def home
-    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 1)
+    @posts = Post.order("created_at DESC").paginate(page: params[:page], per_page: 1)
     respond_to do |format|
       format.html
       format.js
@@ -22,8 +22,8 @@ class HomeController < ApplicationController
   end
 
   def search
-    @users = User.where('user_name LIKE ? OR name LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%")
-    @posts = Post.where('description LIKE ? OR created_at LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%")
+    @users = User.where("user_name LIKE ? OR name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+    @posts = Post.where("description LIKE ? OR created_at LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
   end
 
   def searching

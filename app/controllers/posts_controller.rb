@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  layout 'home'
+  layout "home"
 
   def show
     post = Post.find(params[:id])
-    render 'posts/show', locals: { post: post }
+    render "posts/show", locals: { post: post }
   end
 
   def post_create
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     post.posts.attach(params[:user_post])
     post.description = params[:description]
     post.save
-    redirect_to "/profile/#{@current_user.id}", success: 'Your post has been posted'
+    redirect_to "/profile/#{@current_user.id}", success: "Your post has been posted"
   end
 
   def edit

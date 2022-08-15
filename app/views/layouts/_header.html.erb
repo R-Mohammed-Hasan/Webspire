@@ -1,11 +1,11 @@
-<%= stylesheet_link_tag 'loading', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "loading", media: "all", 'data-turbolinks-track': "reload" %>
 
-<%= javascript_include_tag 'loading', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "loading", media: "all", 'data-turbolinks-track': "reload" %>
 
 
 
-<%= javascript_include_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'jquery.easy-autocomplete','data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "home", media: "all", 'data-turbolinks-track': "reload" %>
+<%= javascript_include_tag "jquery.easy-autocomplete", 'data-turbolinks-track': "reload" %>
 
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
@@ -18,31 +18,31 @@
 </script>
 
 <div class="loading">
-    <img src="<%= asset_path 'Webspire-logo.gif' %>" alt="">
+    <img src="<%= asset_path "Webspire-logo.gif" %>" alt="">
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="">
-            <img src="<%= asset_path 'Webspire_Logo-removebg-preview.png' %>" width="100%" alt="">
+            <img src="<%= asset_path "Webspire_Logo-removebg-preview.png" %>" width="100%" alt="">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item ms-5">
-                    <a class="nav-link <%= is_active("home") %>" aria-current="page" href="/"><img title="Home" src="<%= asset_path'home-icon.png' %>" width="90%" alt=""></a>
+                    <a class="nav-link <%= is_active("home") %>" aria-current="page" href="/"><img title="Home" src="<%= asset_path "home-icon.png" %>" width="90%" alt=""></a>
                 </li>
                 <li class="nav-item ms-5">
-                    <a class="nav-link <%= is_active("show") %> <%= is_active("message") %>" href="/message"><img title="Message" src="<%= asset_path'message-icon.png' %>" width="90%" alt=""></a>
+                    <a class="nav-link <%= is_active("show") %> <%= is_active("message") %>" href="/message"><img title="Message" src="<%= asset_path "message-icon.png" %>" width="90%" alt=""></a>
                 </li>
                 <li class="nav-item ms-5">
-                    <a class="nav-link <%= is_active("explore") %>" href="/" tabindex="-1"><img title="Explore" src="<%= asset_path"explore.png" %>" width="90%" alt=""></a>
+                    <a class="nav-link <%= is_active("explore") %>" href="/" tabindex="-1"><img title="Explore" src="<%= asset_path "explore.png" %>" width="90%" alt=""></a>
                 </li>
                 <li class="nav-item ms-5">
                     <a class="nav-link <%= is_active("activity") %>" href="/profile/activity" tabindex="-1">
                         <img title="Activity" src="<%= asset_path "activity.png" %>" width="90%" alt="">
-                        <% activities = Activity.where("sender_id = ? and status != ?", @current_user.id, "seen" ).length %>
+                        <% activities = Activity.where("sender_id = ? and status != ?", @current_user.id, "seen").length %>
                         <% requests = FollowRequest.where(receiver_id: @current_user.id).length %>
-                        <% if activities > 0 || requests  > 0 %>
+                        <% if activities > 0 || requests > 0 %>
                             <button class="btn btn-danger notification-count">
                             <% if activities == nil %>
                                 <%= requests %>
@@ -57,7 +57,7 @@
 
                 </li>
                     <li class="nav-item ms-5">
-                    <a class="nav-link" aria-current="page"><img title="Add Post" src="<%= asset_path'add-post-icon.png' %>" onclick="openPostDialog()" width="90%" alt=""></a>
+                    <a class="nav-link" aria-current="page"><img title="Add Post" src="<%= asset_path "add-post-icon.png" %>" onclick="openPostDialog()" width="90%" alt=""></a>
                 </li>
 
             </ul>
@@ -93,13 +93,13 @@
 
 <div class="post-dialog-container" onfocusout="hideMoreOption()">
     <div class="post-dialog-box">
-   <%= form_with url:"/post/create", method: "post", class:"profile-edit-form" do |f|%>
+   <%= form_with url: "/post/create", method: "post", class: "profile-edit-form" do |f| %>
             <div class="row g-3 my-2 align-items-center">
                 <div class="col-auto label">
                     <label for="username" class="col-form-label ms-4">Post : </label>
                 </div>
                 <div class="col-auto input">
-                    <%= f.file_field :user_post, multiple:true, required: true,accept: "image/jpg,image/jpeg,image/png,video/mp4" %>
+                    <%= f.file_field :user_post, multiple: true, required: true, accept: "image/jpg,image/jpeg,image/png,video/mp4" %>
                 </div>
             </div>
             <div class="row g-3 my-2 align-items-center">
@@ -166,7 +166,8 @@ document.addEventListener("turbolinks:load", () => {
         }
     };
     $input.easyAutocomplete(options);
-})
+});
+
     $(document).ready(() => {
     document.getElementsByClassName("easy-autocomplete")[0].style.width = "57%";
         setInterval(()=> {
@@ -175,24 +176,22 @@ document.addEventListener("turbolinks:load", () => {
               return
             }
         },6000);
-        Notification.requestPermission().then((permission) => {
-        handlePermission(permission);
-    });
-    // setInterval(()=> {
-        let users = '<%= User.all.as_json %>'.replace(/&quot;/ig,'').replace(/&gt;/ig,'').replace(/=/g,':').replace(/[a-z]:/g,'":"').replace(/, /g,'","').replace(/}"/g,'"}').replace(/"{/g,'{"').replace('[{','[{"').replace('}]','"}]')
-        console.log(JSON.parse(users));
-        for(i in users.length){
 
-        }
-
-        // },1000);
     });
+
+    //     Notification.requestPermission().then((permission) => {
+    //     handlePermission(permission);
+    // });
+
+        // let users = '<%= User.all.as_json %>'.replace(/&quot;/ig,'').replace(/&gt;/ig,'').replace(/=/g,':').replace(/[a-z]:/g,'":"').replace(/, /g,'","').replace(/}"/g,'"}').replace(/"{/g,'{"').replace('[{','[{"').replace('}]','"}]')
+        // console.log(JSON.parse(users));
+
 //      function handlePermission(permission) {
 //         document.getElementById("notification-icon").src =
 //         Notification.permission === 'granted' ? '<%= asset_path "notification.jpg" %>' : '<%= asset_path "disable-notification.png" %>' ;
 //     }
 
-// let ting = new Audio("<%= asset_path 'bell.mp3' %>");
+// let ting = new Audio("<%= asset_path "bell.mp3" %>");
 
 //     function notification(){
 //         Notification.requestPermission().then((permission) => {

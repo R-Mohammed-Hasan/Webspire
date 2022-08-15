@@ -117,7 +117,7 @@ function showComments(comments,users,current_user_id,user_images) {
     for(user of users){
         if(comment.user_id == user.id){
         let deleteIcon = `<a class="delete-comment" data-index="${comment.id}" onclick="deleteComment(event,${comment.id})" >
-                                <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon'   width='45%'>
+                                <img src="<%= asset_path "delete-icon.jpg" %>" class='delete-comment-icon'   width='45%'>
                           </a>`;
             output += `<div class="comment-container">
                         <div class="comment-details">
@@ -176,7 +176,7 @@ function addComment(user,user_profile,post_id){
                         <p class="commentor"><a href="/profile/${user.id}">${user.user_name}</a></p>
                         <p class="commented-time">${date}</p>
                         <a class="delete-comment" href="">
-                            <img src="<%= asset_path 'delete-icon.jpg' %>" class='delete-comment-icon' alt=""  width='45%'>
+                            <img src="<%= asset_path "delete-icon.jpg" %>" class='delete-comment-icon' alt=""  width='45%'>
                         </a>
 
                     </div>
@@ -196,14 +196,14 @@ function updateLike(post_id,event){
     if(el.getAttribute("liked") == "false"){
         let likesCount = document.getElementById(`likesCountForPost${post_id}`);
         likesCount.innerHTML = JSON.parse(likesCount.innerHTML) + 1;
-        event.target.src = "<%= asset_path 'liked-icon.png'%>";
+        event.target.src = "<%= asset_path "liked-icon.png" %>";
         event.target.style.animation = "animateLike 0.3s 1";
         el.setAttribute("liked","true");
     }else{
         let likesCount = document.getElementById(`likesCountForPost${post_id}`);
         likesCount.innerHTML = JSON.parse(likesCount.innerHTML) - 1;
-        event.target.src = "<%= asset_path 'like-icon.png'%>";
-        event.target.style.animation = "";
+        event.target.src = "<%= asset_path "like-icon.png" %>";
+        event.target.style.animation = "disLike 0.4s 1 linear";
         el.setAttribute("liked","false");
     }
 }

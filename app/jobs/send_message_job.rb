@@ -4,10 +4,10 @@ class SendMessageJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    request = ApplicationController.render partial: 'messages/request',
+    request = ApplicationController.render partial: "messages/request",
                                            locals: { message: message }
 
-    response = ApplicationController.render partial: 'messages/response',
+    response = ApplicationController.render partial: "messages/response",
                                             locals: { message: message }
     ActionCable.server.broadcast "room_channel_#{getRoom(message.room_id)}",
                                  request: request,
