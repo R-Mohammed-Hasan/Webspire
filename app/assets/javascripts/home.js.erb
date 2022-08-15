@@ -203,7 +203,7 @@ function updateLike(post_id,event){
         let likesCount = document.getElementById(`likesCountForPost${post_id}`);
         likesCount.innerHTML = JSON.parse(likesCount.innerHTML) - 1;
         event.target.src = "<%= asset_path "like-icon.png" %>";
-        event.target.style.animation = "disLike 0.4s 1 linear";
+        event.target.style.animation = "disLike 0.3s 1 linear";
         el.setAttribute("liked","false");
     }
 }

@@ -36,4 +36,5 @@ class HomeController < ApplicationController
     end
     render json: { users: users[0, 5], posts: posts }
   end
+
 end

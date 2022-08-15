@@ -4,14 +4,17 @@
     <div class="postsContainer">
       <% user = User.find(post.user_id) %>
         <div class="post-container">
+        <div class="post-bg">
+            <%= image_tag post.posts.first %>
+        </div>
             <div class="post-info">
                 <div class="user-profile">
-                    <a href="profile/<%= user.id %>">
+                    <a href="/profile/<%= user.id %>">
                         <%= image_tag user.user_profile, width: "100%", height: "100%", style: "border-radius:50%;" %>
                     </a>
                 </div>
                 <div class="username">
-                    <a href="profile/<%= user.id %>">
+                    <a href="/profile/<%= user.id %>">
                             <%= user.user_name %>
                         </a>
                 </div>
@@ -64,12 +67,6 @@
                     <p class="post-description">
                         <strong> Description :</strong> <%= post.description %></p>
                 </div>
-
-                <p class="show-solutions">
-                    <span>
-                    Show Discussions....
-                    </span>
-                </p>
 
                 <%= form_with url: "/comment/#{post.id}", class: "comment-box", method: "put", remote: true, :html => { :onsubmit => "addComment(#{@current_user.to_json},'#{url_for(@current_user.user_profile)}',#{post.id})" } do |form| %>
                     <input type="submit" value="Send"class="add-comment-button">
