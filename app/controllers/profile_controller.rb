@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
   layout "profile"
 
   def activity
-    @activities = Activity.where(sender_id: @current_user.id)
+    @activities = Activity.where(sender_id: @current_user.id).order("created_at DESC")
     @requests = FollowRequest.where(receiver_id: @current_user.id)
     notifications = Activity.where("sender_id = ? and status != ?", @current_user.id, "seen")
     notifications.each { |notification| notification.update(status: "seen") }

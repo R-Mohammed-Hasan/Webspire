@@ -13,7 +13,10 @@
                         <a href="/activity/requests" class="friend-requests-link">Show Friend Requests <button class="btn btn-danger requests-count"><%= @requests.length %></button></a>
                     </div>
                 </div>
-                <% @activities.reverse.each do |activity| %>
+                <div class="friend-requests info">
+                            Newer ones first <span class='up-arrow'> ↑</span>
+                </div>
+                <% @activities.each do |activity| %>
                     <div class="friend-requests">
                         <div class="user-img">
                             <% user = User.find(activity.user_id) %>
