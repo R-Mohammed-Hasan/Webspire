@@ -33,8 +33,10 @@ class PostsController < ApplicationController
     if liked
       liked.destroy
     else
-      _like = Like.create!(user_id: @current_user.id, post_id: params[:post_id])
-      @posts = Post.where(user_id: @current_user.id)
+      _like = Like.create(user_id: @current_user.id, post_id: params[:post_id])
+      _post = Post.find(params[:post_id])
+      Activity.create(user_id: @current_user.id, sender_id: _post.user_id, activity: "liked your post",
+        status: "not_seen")
     end
   end
 

@@ -20,6 +20,8 @@
 
 ### 5. Like a Post
 
+        (i) Notification will be sent to the user who posted it
+
 ### 6. Add/Delete a Comment on a Post
 
 ### 7. Chatting
