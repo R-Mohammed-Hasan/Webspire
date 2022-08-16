@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_secure_password
   has_one_attached :user_profile
   has_one_attached :story do |attachable|
-    attachable.variant content_type: "jpg/png"
+    attachable.variant content_type: 'jpg/png'
   end
   has_many :likes
   has_many :comments
@@ -13,15 +13,15 @@ class User < ApplicationRecord
   validates :user_name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :mobile_number, uniqueness: true
-  validates :user_profile, presence: true, blob: { content_type: ["image/png", "image/jpg", "image/jpeg"] }
-  validates :story, blob: { content_type: ["image/png", "image/jpg", "image/jpeg"] }
+  validates :user_profile, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
+  validates :story, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def posts
     Post.where(user_id: id)
   end
 
   def friends
-    friends = Follower.where("user_id = ? or follower_id = ? ", id, id)
+    friends = Follower.where('user_id = ? or follower_id = ? ', id, id)
     friends.map { |friend| id == friend.user_id ? friend.follower_id : friend.user_id }
   end
 

@@ -10,7 +10,7 @@
             <p class="name-of-user"><a href="/profile/<%= @current_user.id %>"><%= @current_user.user_name %></a></p>
             <div class="chatting-user">
                 <% if params[:id] %>
-                    <% chatting_user = User.find(params[:id][2]) %>
+                    <% chatting_user = User.find(params[:id][1]) %>
                         <%= image_tag chatting_user.user_profile %>
                         <div class="user-info"> <a id="userNameInMessage" href="/profile/<%= chatting_user.id %>"><%= chatting_user.user_name %></a>
                             <p class="status-of-user">Active Now</p>
