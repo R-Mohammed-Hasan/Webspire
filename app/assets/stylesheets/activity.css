@@ -73,11 +73,49 @@ body {
 }
 
 .friend-requests .activity {
-    margin-left: 2%;
+    margin-left: 1%;
     width: 100%;
     font-size: 18px;
 }
 
 .requests-count {
     background-color: #ff3232 !important;
+}
+
+.friend-requests.info:hover {
+    background-color: #ffffff;
+}
+
+.friend-requests.info {
+    font-size: 22px;
+    font-weight: bold;
+    justify-content: center;
+    color: #ff3f3f;
+    position: relative;
+}
+
+.friend-requests.info::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 59%;
+    display: inline-block;
+    width: 42%;
+    height: 3%;
+    background-color: #ff8a8a;
+}
+
+.friend-requests.info::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    display: inline-block;
+    width: 41%;
+    height: 3%;
+    background-color: #ff8a8a;
+}
+
+.friend-requests.info>.up-arrow {
+    margin: 0% 0% .5% 1%;
 }

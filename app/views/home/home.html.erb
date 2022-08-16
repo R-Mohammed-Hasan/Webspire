@@ -6,15 +6,15 @@
         <div class="multiple-items">
             <div>
                 <%= form_with url: "/profile/story", id: "story-form", method: "put" do |f| %>
-                    <%= f.file_field :story_img, style: "display:none", onchange: "uploadStory()", id: "story-file",accept: "image/jpg,image/jpeg,image/png" %>
+                    <%= f.file_field :story_img, style: "display:none", onchange: "uploadStory()", id: "story-file", accept: "image/jpg,image/jpeg,image/png" %>
                 <% end %>
                 <% if @current_user.story.present? %>
                     <a href="/profile/stories">
-                        <%= image_tag  @current_user.story,class: "story-image", title: "Your Story" %>
+                        <%= image_tag @current_user.story, class: "story-image", title: "Your Story" %>
                     </a>
                         <p class="nameOfUser"><%= @current_user.user_name %></p>
                 <% else %>
-                    <%= image_tag "add-story-icon.png", onclick: "openStoriesDialog()", class: "story-image default" ,title: "Add Story" %>
+                    <%= image_tag "add-story-icon.png", onclick: "openStoriesDialog()", class: "story-image default", title: "Add Story" %>
                 <% end %>
             </div>
             <% if @users_id.length < 10 %>
@@ -22,7 +22,7 @@
                  <% user = User.find(i) %>
                     <% if user.story.present? %>
                         <div>
-                            <a href="/profile/stories"><%= image_tag user.story , class: "story-image"%></a>
+                            <a href="/profile/stories"><%= image_tag user.story, class: "story-image" %></a>
                             <p class="nameOfUser">Webspire</p>
                         </div>
                     <% end %>
@@ -33,7 +33,7 @@
         <% if user.story.present? %>
             <% unless user.id == @current_user.id %>
                 <div>
-                    <a href="/profile/stories"><%= image_tag user.story, class: "story-image"%></a>
+                    <a href="/profile/stories"><%= image_tag user.story, class: "story-image" %></a>
                     <p class="nameOfUser"><%= user.user_name %></p>
                 </div>
             <% end %>
@@ -49,7 +49,7 @@
     </div>
 
     <div id="infinite-scrolling">
-         <%= will_paginate @posts %>
+        <%= will_paginate @posts %>
     </div>
 
 </div>
@@ -88,5 +88,5 @@
 </div>
 
 
-<%= javascript_include_tag 'pagination', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "pagination", media: "all", 'data-turbolinks-track': "reload" %>
+<%= javascript_include_tag "home", media: "all", 'data-turbolinks-track': "reload" %>

@@ -1,5 +1,5 @@
-<%= stylesheet_link_tag 'profile', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'profile', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "profile", media: "all", 'data-turbolinks-track': "reload" %>
+<%= javascript_include_tag "profile", 'data-turbolinks-track': "reload" %>
 <title>Profile Page</title>
 <div class="container">
 
@@ -13,7 +13,7 @@
                 <%= @user.user_name %>
                 <% if @user.id == @current_user.id %>
                 <a href="/profile/edit" class="edit-profile m-5">
-                    <%= image_tag "edit-icon.png", width:"8%" %>
+                    <%= image_tag "edit-icon.png", width: "8%" %>
                 </a>
                 <% end %>
             </div>
@@ -85,7 +85,7 @@
                 </div>
             <% end %>
             <% if post.posts.first.content_type === "video/mp4" %>
-                <%= video_tag url_for(post.posts.first), class: "post-img",controls: true %>
+                <%= video_tag url_for(post.posts.first), class: "post-img", controls: true %>
             <% else %>
                 <%= image_tag post.posts.first, class: "post-img" %>
             <% end %>
@@ -95,7 +95,7 @@
 
  <div class="edit-post-container">
             <div class="edit-post-dialog-box">
-               <%= form_with model: @post,url: "", method: "post", class:"profile-edit-form",authenticity_token: false, id:"editForm" do |f|%>
+               <%= form_with model: @post, url: "", method: "post", class: "profile-edit-form", authenticity_token: false, id: "editForm" do |f| %>
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
                 <div class="row g-3 my-2 align-items-center">
                     <div class="col-auto input">

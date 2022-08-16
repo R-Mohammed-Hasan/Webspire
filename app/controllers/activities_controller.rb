@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
   end
 
   def accept
-    follower = Follower.create(user_id: params[:id], follower_id: @current_user.id)
+    Follower.create(user_id: params[:id], follower_id: @current_user.id)
     request = FollowRequest.where(sender_id: params[:id], receiver_id: @current_user.id)
     request[0].destroy
     Activity.create(user_id: @current_user.id, sender_id: params[:id], activity: 'has accepted your friend request',

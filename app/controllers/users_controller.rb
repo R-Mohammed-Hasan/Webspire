@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'open-uri'
+
 class UsersController < ApplicationController
   layout 'users'
   skip_before_action :ensure_user_logged_in

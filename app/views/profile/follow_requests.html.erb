@@ -1,11 +1,11 @@
-<%= stylesheet_link_tag 'followRequests', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "followRequests", media: "all", 'data-turbolinks-track': "reload" %>
 
  <div class="container p-3 mt-1">
         <div class="activity-container">
             <h1 class="my-4">Friend Requests</h1>
             <div class="activity-content">
                 <% unless requests.length > 0 %>
-                    <h2 class="mt-5">No friend requests</h2>
+                    <h2 class="mt-5">No friend requests...🙄</h2>
                 <% end %>
               <% requests.each do |request| %>
               <% user = User.find(request.sender_id) %>

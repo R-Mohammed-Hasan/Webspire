@@ -9,12 +9,6 @@ class MessagesController < ApplicationController
   end
 
   def message
-    messages = Chatting.where(room_id: getRoom(params[:id]))
-    friends = @current_user.friends
-    render 'messages/message', locals: { friends: friends }
-  end
-
-  def message
     if (params[:id].split('_')[0] == @current_user.id.to_s) || (params[:id].split('_')[1] == @current_user.id.to_s)
       messages = Chatting.where(room_id: getRoom(params[:id]))
       friends = @current_user.friends
@@ -24,7 +18,6 @@ class MessagesController < ApplicationController
 
   def create
     message = Chatting.create(sender_id: @current_user.id, room_id: getRoom(params[:id]), message: params[:input])
-    messages = Chatting.where(room_id: getRoom(params[:id]))
     SendMessageJob.perform_later(message)
   end
 

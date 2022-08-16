@@ -1,6 +1,6 @@
     <title>Edit Profile Page</title>
 
-<%= stylesheet_link_tag 'editProfile', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "editProfile", media: "all", 'data-turbolinks-track': "reload" %>
 
 <div class="container">
     <div class="user-profile-container">
@@ -19,7 +19,7 @@
     </div>
 
     <div class="profile-edit-container">
-        <%= form_with model: @user,url:"/profile/edit", method: "post", class:"profile-edit-form" do |f|%>
+        <%= form_with model: @user, url: "/profile/edit", method: "post", class: "profile-edit-form" do |f| %>
             <div class="row g-3 my-2 align-items-center">
                 <div class="col-auto label">
                     <label for="username" class="col-form-label">User Name</label>

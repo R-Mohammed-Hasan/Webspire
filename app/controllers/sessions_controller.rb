@@ -42,7 +42,6 @@ class SessionsController < ApplicationController
   def authenticate_with_google
     if id_token = flash[:google_sign_in]['id_token']
       User.find_by(email: GoogleSignIn::Identity.new(id_token).email_address)
-
     end
   end
 end

@@ -80,10 +80,6 @@ form {
     border-radius: 5px;
 }
 
-.input-group {
-    justify-content: center;
-}
-
 a {
     font-size: 17px !important;
     text-decoration: none;
@@ -215,6 +211,7 @@ input:valid {
     font-family: 'Poppins';
     border: 1px solid #a4a4a4 !important;
     background-color: aliceblue;
+    border: 1px solid rgb(83, 83, 83);
 }
 
 .google-sign-in-button {

@@ -1,16 +1,16 @@
- <%= stylesheet_link_tag 'story', media: 'all', 'data-turbolinks-track': 'reload' %>
+ <%= stylesheet_link_tag "story", media: "all", 'data-turbolinks-track': "reload" %>
 
   <div class="stories-container">
-  <%= link_to "/story/delete/#{@current_user.id}",method: "delete",title: "Delete your story",data: {confirm: 'Are you sure to delete your story ?'} , class:"delete-story-icon" do %>
-    <%= image_tag 'delete-icon.jpg', width: "5%" %>
+  <%= link_to "/story/delete/#{@current_user.id}", method: "delete", title: "Delete your story", data: { confirm: "Are you sure to delete your story ?" }, class: "delete-story-icon" do %>
+    <%= image_tag "delete-icon.jpg", width: "5%" %>
  <% end %>
     <a href="/" class="close-icon">
       <img src="<%= asset_path "close-icon.webp" %>" >
     </a>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
-          <% for i in 0..users.length-1 %>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i==0 %>" aria-current="true" aria-label="Slide "></button>
+          <% for i in 0..users.length - 1 %>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i == 0 %>" aria-current="true" aria-label="Slide "></button>
           <% end %>
       </div>
          <div class="carousel-inner">

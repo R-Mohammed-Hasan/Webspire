@@ -11,18 +11,18 @@
 
     <meta content="<%= form_authenticity_token %>" name="csrf-token" />
 
-    <%= javascript_include_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "public", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= stylesheet_link_tag "public", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= stylesheet_link_tag "home", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
 
-     <link rel="icon" href="<%= asset_path 'spider-logo-title.jpg' %>">
+     <link rel="icon" href="<%= asset_path "spider-logo-title.jpg" %>">
 
 
     </head>
 
 <body>
-    <%= render "layouts/header"%>
+    <%= render "layouts/header" %>
     <%= render "layouts/flasher" %>
 
     <%= yield %>

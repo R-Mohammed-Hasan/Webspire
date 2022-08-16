@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
   layout 'profile'
 
   def activity
-    @activities = Activity.where(sender_id: @current_user.id)
+    @activities = Activity.where(sender_id: @current_user.id).order('created_at DESC')
     @requests = FollowRequest.where(receiver_id: @current_user.id)
     notifications = Activity.where('sender_id = ? and status != ?', @current_user.id, 'seen')
     notifications.each { |notification| notification.update(status: 'seen') }
@@ -38,7 +38,7 @@ class ProfileController < ApplicationController
   end
 
   def story_create
-    user =  User.find(@current_user.id)
+    user = User.find(@current_user.id)
     user.story.purge_later
     user.story.attach(io: params[:story_img].to_io, filename: params[:story_img].original_filename,
                       content_type: 'jpg/png')

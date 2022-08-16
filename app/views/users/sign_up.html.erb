@@ -1,7 +1,7 @@
-<%= stylesheet_link_tag 'signUp', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'signUp', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "signUp", media: "all", 'data-turbolinks-track': "reload" %>
+<%= javascript_include_tag "signUp", media: "all", 'data-turbolinks-track': "reload" %>
 <div class="sign-up-container">
-    <%= form_with(model: @user,url: "/users",methd: "post") do |form| %>
+    <%= form_with(model: @user, url: "/users", methd: "post") do |form| %>
         <div class="row m-5">
             <h1 class="heading">Sign Up</h1>
             <h4>Chat and know about your friends online</h4>
@@ -41,7 +41,7 @@
         </div>
     <% end %>
 
-        <%= google_sign_in_button proceed_to: create_google_sign_up_url,class: "google-sign-in-button" do %>
-            Sign Up with <%= image_tag 'google.webp', alt: 'Google',width: "20%" %>
+        <%= google_sign_in_button proceed_to: create_google_sign_up_url, class: "google-sign-in-button" do %>
+            Sign Up with <%= image_tag "google.webp", alt: "Google", width: "20%" %>
         <% end %>
 </div>

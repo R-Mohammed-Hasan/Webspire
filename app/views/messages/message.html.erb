@@ -1,5 +1,5 @@
-<%= stylesheet_link_tag 'message', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'message', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "message", media: "all", 'data-turbolinks-track': "reload" %>
+<%= javascript_include_tag "message", media: "all", 'data-turbolinks-track': "reload" %>
 
 <div id="currentRoomId" data-room-id="<%= params[:id] %>"></div>
 <div id="currentUserId" data-user-id="<%= @current_user.id %>"></div>
@@ -9,8 +9,8 @@
         <div class="message-header">
             <p class="name-of-user"><a href="/profile/<%= @current_user.id %>"><%= @current_user.user_name %></a></p>
             <div class="chatting-user">
-                <%  if params[:id] %>
-                    <% chatting_user = User.find(params[:id][2]) %>
+                <% if params[:id] %>
+                    <% chatting_user = User.find(params[:id][1]) %>
                         <%= image_tag chatting_user.user_profile %>
                         <div class="user-info"> <a id="userNameInMessage" href="/profile/<%= chatting_user.id %>"><%= chatting_user.user_name %></a>
                             <p class="status-of-user">Active Now</p>
@@ -30,14 +30,14 @@
                 <% room_id = @current_user.id.to_i < @user.id.to_i ? "#{@current_user.id}_#{@user.id}" : "#{@user.id}_#{@current_user.id}" %>
                <a href="/message/<%= room_id %>">
                 <div class="user-chatting <%= is_messaging(room_id) %>">
-                    <img src="<%= asset_path 'user-default-icon.png' %>" alt="">
+                    <img src="<%= asset_path "user-default-icon.png" %>" alt="">
                     <p class="user-name">
                         <%= @user.user_name %>
                     </p>
                 </div>
                 </a>
               <% end %>
-            <% else%>
+            <% else %>
                 <a>
                     <div class="user-chatting">
                         <p class="user-name no-chat m-5">
@@ -60,7 +60,7 @@
                             <%= render "messages/message", message: message, current_user_id: @current_user.id %>
                         <% end %>
                     </div>
-                    <%= form_with  url: "/message/new/#{params[:id]}",authenticity_token: true, remote: true,method: "put" do |f| %>
+                    <%= form_with url: "/message/new/#{params[:id]}", authenticity_token: true, remote: true, method: "put" do |f| %>
                         <input type="text" name="input" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
                         <input type="submit" class="btn btn-primary" value="Send">
                     <% end %>
@@ -81,5 +81,5 @@
 </div>
 
 <audio style="display:none" id="tingAudio">
-    <source src="<%= asset_path 'notification.mp3' %>" type="audio/mp3">
+    <source src="<%= asset_path "notification.mp3" %>" type="audio/mp3">
 </audio>

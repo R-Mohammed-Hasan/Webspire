@@ -1,5 +1,5 @@
     <title>Activity Page</title>
-<%= stylesheet_link_tag 'activity', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "activity", media: "all", 'data-turbolinks-track': "reload" %>
 
   <div class="container p-3 mt-1">
         <div class="activity-container">
@@ -7,13 +7,16 @@
             <div class="activity-content">
                 <div class="friend-requests">
                     <div class="user-img">
-                        <img src="<%= asset_path "multi-user-default-icon.png"%>" alt="">
+                        <img src="<%= asset_path "multi-user-default-icon.png" %>" alt="">
                     </div>
                     <div class="activity">
                         <a href="/activity/requests" class="friend-requests-link">Show Friend Requests <button class="btn btn-danger requests-count"><%= @requests.length %></button></a>
                     </div>
                 </div>
-                <% @activities.reverse.each do |activity| %>
+                <div class="friend-requests info">
+                            Newer ones first <span class='up-arrow'> ↑</span>
+                </div>
+                <% @activities.each do |activity| %>
                     <div class="friend-requests">
                         <div class="user-img">
                             <% user = User.find(activity.user_id) %>

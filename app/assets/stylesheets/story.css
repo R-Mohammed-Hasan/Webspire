@@ -1,126 +1,123 @@
-  .stories-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: brightness(20%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-family: Poppins;
-      overflow-y: auto;
-      /* background-image: url("<%= asset_path Webspire_Logo-removebg-preview.png %>"); */
-  }
-  
-  .stories-container .story-container {
-      margin-top: 5%;
-      height: 100%;
-  }
-  
-  .story-container .user-story {
-      width: 600px;
-      height: 600px;
-  }
-  
-  .user-details {
-      width: 600px;
-      text-align: center;
-      display: flex;
-      margin-bottom: 5%;
-      column-gap: 5%;
-      align-items: center;
-  }
-  
-  .user-details .user-name {
-      width: 60%;
-      text-align: left;
-      font-size: 20px;
-  }
-  
-  .user-details .user-profile {
-      width: 15%;
-      border-radius: 50%;
-  }
-  
-  a {
-      text-decoration: none;
-      color: white;
-  }
-  
-  a:hover {
-      color: #ffffffcf;
-  }
-  
-  .close-icon {
-      width: 3%;
-      position: absolute;
-      top: 5%;
-      right: 5%;
-  }
-  
-  .close-icon img {
-      cursor: pointer;
-      background-color: white;
-      border-radius: 50%;
-      padding: 5px;
-      justify-self: right;
-      width: 100%;
-  }
-  
-  .carousel-control-next-icon {
-      position: absolute;
-      top: 56%;
-      right: 20%;
-      padding: 27%;
-      background-color: black;
-      border-radius: 5px;
-  }
-  
-  .carousel-control-prev-icon {
-      position: absolute;
-      top: 56%;
-      left: 5%;
-      padding: 27%;
-      background-color: black;
-      border-radius: 5px;
-  }
-  
-  .carousel {
-      width: 32%;
-  }
-  
-  .carousel-indicators [data-bs-target] {
-      height: 5px;
-  }
-  
-  .carousel-indicators {
-      top: 102%;
-  }
-  
-  .user-profile {
-      width: 15%;
-      height: 90%;
-  }
-  
-  .user-details {
-      height: 100px;
-  }
-  
-  .delete-story-icon {
-      position: absolute;
-      top: 5%;
-      right: 35%;
-      text-align: right;
-  }
-  
-  .delete-story-icon img {
-      border-radius: 10px;
-  }
-  
-  .carousel-control-next,
-  .carousel-control-prev {
-      top: 14px;
-  }
+.stories-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: brightness(20%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Poppins;
+    overflow-y: auto;
+    /* background-image: url("<%= asset_path Webspire_Logo-removebg-preview.png %>"); */
+}
+
+.stories-container .story-container {
+    margin-top: 5%;
+    height: 100%;
+}
+
+.story-container .user-story {
+    width: 600px;
+    height: 600px;
+}
+
+.user-details {
+    width: 600px;
+    text-align: center;
+    display: flex;
+    margin-bottom: 5%;
+    column-gap: 5%;
+    align-items: center;
+    height: 100px;
+}
+
+.user-details .user-name {
+    width: 60%;
+    text-align: left;
+    font-size: 20px;
+}
+
+.user-details .user-profile {
+    width: 15%;
+    border-radius: 50%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #ffffffcf;
+}
+
+.close-icon {
+    width: 3%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+.close-icon img {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    justify-self: right;
+    width: 100%;
+}
+
+.carousel-control-next-icon {
+    position: absolute;
+    top: 56%;
+    right: 20%;
+    padding: 27%;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.carousel-control-prev-icon {
+    position: absolute;
+    top: 56%;
+    left: 5%;
+    padding: 27%;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.carousel {
+    width: 32%;
+}
+
+.carousel-indicators [data-bs-target] {
+    height: 5px;
+}
+
+.carousel-indicators {
+    top: 102%;
+}
+
+.user-profile {
+    width: 15%;
+    height: 90%;
+}
+
+.delete-story-icon {
+    position: absolute;
+    top: 5%;
+    right: 35%;
+    text-align: right;
+}
+
+.delete-story-icon img {
+    border-radius: 10px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    top: 14px;
+}

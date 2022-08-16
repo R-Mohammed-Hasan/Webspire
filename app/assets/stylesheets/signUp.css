@@ -65,7 +65,6 @@ input::-webkit-outer-spin-button {
     height: 1%;
     width: 44%;
     background-color: grey;
-    ;
 }
 
 .or::after {
@@ -103,9 +102,11 @@ input:valid {
     background-color: aliceblue;
     border-radius: 5px;
     transition: 0.3s all;
+    border: 1px solid rgb(83, 83, 83);
 }
 
 .google-sign-in-button:hover {
     background-color: #3c89fb;
     color: #fff;
+    border: 2px solid black;
 }
