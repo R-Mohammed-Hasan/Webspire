@@ -741,6 +741,11 @@ input[type="search"] {
     display: inline-block;
 }
 
+.post-dialog-box .post-description {
+    width: 350px;
+    height: 100px;
+}
+
 .notification-count {
     position: absolute;
     display: flex;

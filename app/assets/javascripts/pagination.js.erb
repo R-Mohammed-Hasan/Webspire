@@ -4,8 +4,10 @@ if ($(".pagination").length && $(".postsContainer").length) {
         var url;
         url = $(".pagination .next_page").attr("href");
         if (url!=undefined && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
-            console.log($.getScript(url.responseText));
-            return $.getScript(url);
+            window.pagination_loading = true;
+            return $.getScript(url).always(function() {
+                return window.pagination_loading = false;
+            });
         }
         return;
     });
