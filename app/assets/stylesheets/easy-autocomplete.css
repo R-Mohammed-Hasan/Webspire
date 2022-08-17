@@ -349,7 +349,7 @@
     height: 350px;
     z-index: -1;
     font-size: 20px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
 ul .eac-category {
@@ -371,7 +371,7 @@ ul .eac-item {
     padding-left: 0;
     position: relative;
     top: -1px;
-    font-family: 'Poppins' !important;
+    font-family: 'Poppins', sans-serif !important;
     box-shadow: 0px 0px 5px black;
     overflow-y: auto;
 }

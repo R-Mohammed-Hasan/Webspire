@@ -7,7 +7,7 @@ nav {
     height: 90px;
     align-items: center;
     font-size: 20px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border-bottom: 1px solid #cbcbcb;
 }
 
@@ -64,7 +64,7 @@ input[type="search"]:focus~.easy-autocomplete-container {
     height: 25px;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
 }
 
@@ -273,7 +273,7 @@ input[type="search"] {
 
 .post-info>.username {
     font-size: 19px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
 
@@ -436,7 +436,7 @@ input[type="search"] {
     font-size: 17px;
     text-indent: 2%;
     color: black;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     height: 100%;
     max-width: 100%;
     overflow: hidden;
@@ -448,7 +448,7 @@ input[type="search"] {
 
 .post-credits>.show-solutions {
     font-size: 19px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     margin: 3px 10px;
     color: #5f5f5f;
     cursor: pointer;
@@ -476,7 +476,7 @@ input[type="search"] {
     top: 3%;
     background-color: #62d3ff;
     padding: 4px 10px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border-radius: 0px 5px 5px 0px;
     cursor: pointer;
 }
@@ -505,7 +505,7 @@ input[type="search"] {
     border-radius: 10px;
     padding: 5px;
     background-color: #e5e5e5;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: 18px;
     box-shadow: 5px 5px 5px grey, -5px -5px 10px grey inset, 10px 10px 10px white inset;
 }
@@ -679,7 +679,7 @@ input[type="search"] {
     width: 100%;
     padding: 2%;
     font-size: 18px;
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
 }
 
 .comment-container {

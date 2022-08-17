@@ -34,7 +34,7 @@ form {
 
 .heading {
     margin-bottom: 2%;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
 .input-group {
@@ -179,7 +179,7 @@ input:valid {
     border-radius: 10px;
     padding: 2% 3% 2% 3%;
     background-color: #e5e5e5;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: 18px;
     box-shadow: 5px 5px 5px grey, -5px -5px 10px grey inset, 10px 10px 10px white inset;
 }
@@ -192,7 +192,7 @@ input:valid {
 
 .google-sign-in .abcRioButtonContents span {
     font-size: 18px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
 .abcRioButton {
@@ -208,10 +208,9 @@ input:valid {
     top: 120%;
     left: 1%;
     width: 50%;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     border: 1px solid #a4a4a4 !important;
     background-color: aliceblue;
-    border: 1px solid rgb(83, 83, 83);
 }
 
 .google-sign-in-button {
