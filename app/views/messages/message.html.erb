@@ -61,7 +61,7 @@
                         <% end %>
                     </div>
                     <%= form_with url: "/message/new/#{params[:id]}", authenticity_token: true, remote: true, method: "put" do |f| %>
-                        <input type="text" name="input" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
+                        <input type="text" maxlength="60000" name="input" class="form-control input-lg" autocomplete="off" id="inputsm" placeholder="Send a message or link...">
                         <input type="submit" class="btn btn-primary" value="Send">
                     <% end %>
                 </div>
