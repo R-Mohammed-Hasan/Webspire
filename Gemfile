@@ -67,3 +67,4 @@ gem 'ransack'
 gem 'rubocop', require: false
 gem 'webpush'
 gem 'will_paginate'
+gem "mimemagic"

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+
   skip_before_action :ensure_user_logged_in
   layout 'users'
 

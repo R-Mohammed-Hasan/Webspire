@@ -2,6 +2,7 @@
 
 class PostsController < ApplicationController
   layout 'home'
+  require 'streamio-ffmpeg'
 
   def show
     post = Post.find(params[:id])
@@ -10,6 +11,8 @@ class PostsController < ApplicationController
 
   def post_create
     post = Post.new(user_id: @current_user.id)
+    videos = params[:user_post].select { |post| post.content_type == 'video/mp4' }
+    redirect_to root_path, danger: 'Please limit your video to 30 seconds and not more than that' if videos.select{ |video| video.size > 1605138 }.length > 0
     post.posts.attach(params[:user_post])
     post.description = params[:description]
     post.save

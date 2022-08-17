@@ -76,7 +76,7 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
-    domain: 'localhost:3000',
+    domain: 'https://webspire-instagram.herokuapp.com',
     port: 587,
     user_name: 'Webspire - Freshworks',
     password: ENV['MAIL_PASSWORD'],
