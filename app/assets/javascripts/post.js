@@ -5,13 +5,11 @@ function copiedText(event) {
     }, 5000);
 }
 
-console.log("running");
 $(".postsContainer").infiniteScroll({
     // options
-
     path: () => {
         url = $(".pagination .next_page").attr("href");
-        return url;
+        console.log(url);
     },
     append: ".post-container",
     history: false,

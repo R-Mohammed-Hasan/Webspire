@@ -13,17 +13,26 @@ class HomeController < ApplicationController
   end
 
   def home
-    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 1)
+    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 2)
     # @posts = Post.all.order('created_at DESC')
-    respond_to do |format|
-      format.html
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
     @users_id = @current_user.friends
   end
 
+  def paginate
+    p "================================================="
+    p "================================================="
+    p "================================================="
+    p params[:page]
+    p Post.paginate(page: params[:page]).order('created_at DESC')
+  end
+
   def search
-    @users = User.where('user_name LIKE ? OR name LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%")
-    @posts = Post.where('description LIKE ? OR created_at LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%")
+    @users = User.where('user_name LIKE ? OR name LIKE ?', "%#{params[:q].strip}%", "%#{params[:q].strip}%")
+    @posts = Post.where('description LIKE ? OR created_at LIKE ?', "%#{params[:q].strip}%", "%#{params[:q].strip}%")
   end
 
   def searching

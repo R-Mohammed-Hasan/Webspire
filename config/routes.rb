@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root 'home#home'
 
+  get '/:page', to: 'home#paginate'
+
   get '/message', to: 'messages#show'
 
   get '/message/:id', to: 'messages#message'
