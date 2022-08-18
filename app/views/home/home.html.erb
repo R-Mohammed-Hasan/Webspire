@@ -1,3 +1,7 @@
+<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+
+<%= javascript_include_tag "post", media: "all", 'data-turbolinks-track': "reload" %>
+
 <title>Home Page</title>
 <div class="container justify-content-center">
 
@@ -42,6 +46,7 @@
         </div>
     </div>
 
+
     <!-- carousel to view post -->
 
     <div class="postsContainer">
@@ -77,7 +82,7 @@
         </a>
         </div>
         <div class="option ">
-            <p id="copy-link" data-link>Copy Link</p>
+            <p id="copy-link" data-link onclick="copiedText(event)">Copy Link</p>
 
         </div>
         <div onclick="hideMoreOption() " class="option last ">
@@ -88,5 +93,4 @@
 </div>
 
 
-<%= javascript_include_tag "pagination", media: "all", 'data-turbolinks-track': "reload" %>
 <%= javascript_include_tag "home", media: "all", 'data-turbolinks-track': "reload" %>
