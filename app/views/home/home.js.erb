@@ -1,6 +1,1 @@
-$('.postsContainer').append('<%= j render @posts %>');
-<% if @posts.next_page %>
-    $('.pagination').replaceWith('<%= j will_paginate @posts %>');
-<% else %>
-   $('.pagination').remove();
-<% end %>
+'<%= j render @posts %>'

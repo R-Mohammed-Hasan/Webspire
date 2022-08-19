@@ -13,21 +13,28 @@ class HomeController < ApplicationController
   end
 
   def home
-    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 2)
+    if params[:page]
+      return paginate
+    end
+    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 1)
     # @posts = Post.all.order('created_at DESC')
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+    respond_to do |format|
+      format.html
+      format.js
+    end
     @users_id = @current_user.friends
   end
 
   def paginate
-    p "================================================="
-    p "================================================="
-    p "================================================="
     p params[:page]
-    p Post.paginate(page: params[:page]).order('created_at DESC')
+    offset = params[:page]
+    @res_post = Post.paginate(page: params[:page]).order('created_at DESC').offset(offset)
+    p "================================================="
+    p "================================================="
+    p "================================================="
+    p @res_post
+    render partial: 'posts/single_post', locals: {post: @res_post[0]}
+
   end
 
   def search

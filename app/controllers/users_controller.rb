@@ -37,6 +37,8 @@ class UsersController < ApplicationController
     if @user.present?
       PasswordMailer.with(user: @user).reset.deliver_now
       # This send @user as "params" to password_mailer
+    else
+      redirect_to request.referrer, danger: "You must be signed up with this email address already"
     end
   end
 

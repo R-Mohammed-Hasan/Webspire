@@ -3,9 +3,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root 'home#home'
 
-  get '/:page', to: 'home#paginate'
 
   get '/message', to: 'messages#show'
 
@@ -23,11 +21,11 @@ Rails.application.routes.draw do
 
   post '/users/login', to: 'sessions#create'
 
-  get 'signUp/create', to: 'users#google_sign_up', as: :create_google_sign_up
+  get '/signUp/create', to: 'users#google_sign_up', as: :create_google_sign_up
 
-  get 'login', to: 'sessions#google_login'
+  get '/login', to: 'sessions#google_login'
 
-  get 'login/create', to: 'sessions#google_login_create', as: :create_login
+  get '/login/create', to: 'sessions#google_login_create', as: :create_login
 
   get '/users/forgotPassword', to: 'users#forgot_password'
 
@@ -86,4 +84,9 @@ Rails.application.routes.draw do
   put '/comment/:post_id', to: 'posts#create_comment'
 
   put '/comment/delete/:comment_id', to: 'posts#delete_comment'
+
+
+  root 'home#home'
+
+
 end
