@@ -1,25 +1,25 @@
+localStorage.setItem("page","2");
 if ($(".pagination").length && $(".postsContainer").length) {
 localStorage.setItem("loading","false");
     $(window).scroll(function() {
         var url;
-
-        url = $(".pagination .next_page").attr("href");
-        if (url!=undefined && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
-            localStorage.setItem("loading","true");
-            $.ajax({
-                url: url,
-                method: "get",
-                }).then(function(res){
-                    if(res){
-                       $('.postsContainer').append(res);
-                    }
-                }).then( function () {
+        let page_id = localStorage.getItem("page");
+        url = `/?page=${page_id}`;
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+        console.log(url);
+            let is_loading = localStorage.getItem("loading");
+            if(is_loading == "false"){
+                localStorage.setItem("loading","true");
+                $.ajax({
+                    url: url,
+                    method: "get",
+                    }).then((res) => {
+                        if(res){
+                            $('.postsContainer').append(res);
+                        }
                         const post_contents = [...$(".post-content")]
-                        console.log(post_contents);
-                        console.log("initilized_Slick");
                         post_contents.forEach(post => {
                             const classList = post.classList
-                            console.log(classList);
                             if(!classList.contains("slick-initialized")){
                                 $(post).slick({
                                     infinite: false,
@@ -31,11 +31,22 @@ localStorage.setItem("loading","false");
                                     touchMove: true,
                                     edge: true,
                                     dots: true,
-                            })
-                        }
-                    })
-            } );
+                                })
+                            }
+                            localStorage.setItem("loading","false");
+                            localStorage.setItem("page", JSON.parse(page_id)+1);
+                        })
+                })
+            }
+
         }
         return;
     });
 }
+
+
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+       console.log("bottom")
+    }
+};

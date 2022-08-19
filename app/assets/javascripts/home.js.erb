@@ -32,10 +32,7 @@ $(".multiple-items").slick({
 });
 
 function initilizeSlick(){
-
     const post_contents = [...$(".post-content")]
-
-    console.log(post_contents);
 
     post_contents.forEach(post => {
         $(post).slick({
@@ -50,7 +47,6 @@ function initilizeSlick(){
             dots: true,
         })
     })
-
 }
 
 function showMoreOption(post_id) {

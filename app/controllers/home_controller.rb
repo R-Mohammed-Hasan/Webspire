@@ -26,14 +26,13 @@ class HomeController < ApplicationController
   end
 
   def paginate
-    p params[:page]
     offset = params[:page]
-    @res_post = Post.paginate(page: params[:page]).order('created_at DESC').offset(offset)
-    p "================================================="
-    p "================================================="
-    p "================================================="
-    p @res_post
-    render partial: 'posts/single_post', locals: {post: @res_post[0]}
+    p "===================================================="
+    p "===================================================="
+    p "===================================================="
+    p @current_user.friends
+    @res_post = Post.friends.paginate(page: params[:page]).order('created_at DESC').offset(offset)
+    render partial: 'posts/single_post', locals: {post: @res_post[0]} if @res_post[0]
 
   end
 
