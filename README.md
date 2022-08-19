@@ -69,6 +69,7 @@
 #### As a user, I should be able to Sign up in a seamless way. If any error found, display error message and be in the same page. If entered valid details, then lead to Login Page. In this page, user can choose which role he wants to sign up as. Google Sign up is available in which password will be set randomly.
 
 <hr>
+
 ## Login
 
 #### As a user, I should be able to login in a proper way. User can only be able to login if the user has already signed up in this website. User should enter the correct Mail Id and Password to go to next page; else display error message. Google Sign in is available in which user can easilt sign in using Google mail
