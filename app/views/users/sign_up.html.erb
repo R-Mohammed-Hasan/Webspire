@@ -24,7 +24,7 @@
                 <input class="form-control" type="text" name="user[email]" onfocusout="signUpButton()" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" required placeholder="E-mail">
             </div>
             <div class="input-group my-3">
-                <input class="form-control" type="text" name="user[mobile_number]" onfocusout="signUpButton()" pattern="[789][0-9]{9}" id="mobileNumber" required placeholder="Mobile Number">
+                <input class="form-control" type="text" name="user[mobile_number]" title="Please enter proper mobile number" onfocusout="signUpButton()" pattern="[789][0-9]{9}" id="mobileNumber" required placeholder="Mobile Number">
             </div>
             <div class="input-group my-3">
                 <input class="form-control" type="password" name="user[password]" onfocusout="signUpButton()" value="" id="password" title="Please enter more than 8 characters that include special characters like ., and numbers" pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[.,\-_]).{8,}" required

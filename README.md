@@ -46,7 +46,7 @@
 
          (i) Auto-showing search suggestions for users
 
-### 11. Pagination (in progress)
+### 11. Pagination
 
         (i) Infinite Scrolling
 
@@ -116,7 +116,7 @@
 
 #### Auto suggestions will be shown to users when searching for a user or a post. Used an API for showing suggestions.
 
-## Pagination(In progress)
+## Pagination
 
 #### When user scrolls down to the bottom of the page, posts will be appended automatically.
 
