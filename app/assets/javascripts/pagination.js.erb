@@ -1,13 +1,48 @@
-if ($(".pagination").length && $(".postsContainer").length) {
-
+if ($(".postsContainer").length) {
+    localStorage.setItem("loading","false");
     $(window).scroll(function() {
         var url;
-        url = $(".pagination .next_page").attr("href");
-        if (url!=undefined && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
-            window.pagination_loading = true;
-            return $.getScript(url).always(function() {
-                return window.pagination_loading = false;
-            });
+        let page_id = localStorage.getItem("page");
+        if(!page_id){
+            localStorage.setItem("page","2");
+        }
+        url = `/?page=${page_id}`;
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+        document.getElementById("infinite-scrolling").classList.add("show")
+            let is_loading = localStorage.getItem("loading");
+            if(is_loading == "false"){
+                localStorage.setItem("loading","true");
+                $.ajax({
+                    url: url,
+                    method: "get",
+                    }).then((res) => {
+                            $('.postsContainer').append(res);
+                            document.getElementById("infinite-scrolling").classList.remove("show")
+                            const post_contents = [...$(".post-content")]
+                            post_contents.forEach(post => {
+                                const classList = post.classList
+                                if(!classList.contains("slick-initialized")){
+                                    $(post).slick({
+                                        infinite: false,
+                                        arrows: true,
+                                        speed: 400,
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1,
+                                        swipeToSlide: true,
+                                        touchMove: true,
+                                        edge: true,
+                                        dots: true,
+                                    })
+                                }
+                                localStorage.setItem("loading","false");
+                                localStorage.setItem("page", JSON.parse(page_id)+1);
+                            })
+                }).catch((err) => {
+                        localStorage.setItem("page", JSON.parse(page_id)-1);
+                        document.getElementById("infinite-scrolling").innerHTML = "You have seen all of your friends posts..😲"
+                });
+            }
+
         }
         return;
     });

@@ -30,17 +30,24 @@ $(".multiple-items").slick({
         },
     ],
 });
-$(".post-content").slick({
-    infinite: false,
-    arrows: true,
-    speed: 400,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    touchMove: true,
-    edge: true,
-    dots: true,
-});
+
+function initilizeSlick(){
+    const post_contents = [...$(".post-content")]
+
+    post_contents.forEach(post => {
+        $(post).slick({
+            infinite: false,
+            arrows: true,
+            speed: 400,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            swipeToSlide: true,
+            touchMove: true,
+            edge: true,
+            dots: true,
+        })
+    })
+}
 
 function showMoreOption(post_id) {
     document.getElementById(
@@ -207,3 +214,6 @@ function updateLike(post_id,event){
         el.setAttribute("liked","false");
     }
 }
+
+
+initilizeSlick();

@@ -1,3 +1,9 @@
+<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+
+<%= javascript_include_tag "post", media: "all", 'data-turbolinks-track': "reload" %>
+
+    <%= stylesheet_link_tag "home", media: "all", 'data-turbolinks-track': "reload" %>
+
 <title>Home Page</title>
 <div class="container justify-content-center">
 
@@ -42,15 +48,23 @@
         </div>
     </div>
 
+
     <!-- carousel to view post -->
 
     <div class="postsContainer">
-        <%= render @posts %>
+        <% if @posts.length < 1 %>
+            <h2 class="text-center mt-5">No Posts has been posted by your friends...☹️☹️</h2>
+        <% else %>
+            <%= render "posts/post" %>
+        <% end %>
     </div>
 
-    <div id="infinite-scrolling">
-        <%= will_paginate @posts %>
-    </div>
+     <% unless @posts.length == 0 %>
+        <div id="infinite-scrolling">
+            <img src="<%= asset_path 'loading.gif' %> " width="15%" alt='loading'>
+        </div>
+    <% end %>
+
 
 </div>
 
@@ -77,7 +91,7 @@
         </a>
         </div>
         <div class="option ">
-            <p id="copy-link" data-link>Copy Link</p>
+            <p id="copy-link" data-link onclick="copiedText(event)">Copy Link</p>
 
         </div>
         <div onclick="hideMoreOption() " class="option last ">
@@ -86,7 +100,6 @@
         </div>
     </div>
 </div>
-
 
 <%= javascript_include_tag "pagination", media: "all", 'data-turbolinks-track': "reload" %>
 <%= javascript_include_tag "home", media: "all", 'data-turbolinks-track': "reload" %>

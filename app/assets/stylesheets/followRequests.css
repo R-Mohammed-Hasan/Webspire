@@ -36,10 +36,6 @@ body {
     height: 5%;
 }
 
-.activity-container .user-img img {
-    border-radius: 50%;
-}
-
 .activity-container .friend-requests {
     display: flex;
     align-items: center;
@@ -62,6 +58,7 @@ body {
 .activity-container .user-img img {
     width: 100%;
     height: 60px;
+    border-radius: 50%;
 }
 
 .activity-container .friend-requests .friend-requests-link,

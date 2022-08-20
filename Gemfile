@@ -68,3 +68,4 @@ gem 'rubocop', require: false
 gem 'webpush'
 gem 'will_paginate'
 gem "mimemagic"
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
