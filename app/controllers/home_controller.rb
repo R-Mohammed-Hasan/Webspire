@@ -13,11 +13,8 @@ class HomeController < ApplicationController
   end
 
   def home
-    if params[:page]
-      return paginate
-    end
-    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 1)
-    # @posts = Post.all.order('created_at DESC')
+    return paginate if params[:page]
+    @posts = Post.order('created_at DESC').paginate(page: params[:page], per_page: 1).where(user_id: @current_user.friends)
     respond_to do |format|
       format.html
       format.js
@@ -26,14 +23,9 @@ class HomeController < ApplicationController
   end
 
   def paginate
-    offset = params[:page]
-    p "===================================================="
-    p "===================================================="
-    p "===================================================="
-    p @current_user.friends
-    @res_post = Post.friends.paginate(page: params[:page]).order('created_at DESC').offset(offset)
-    render partial: 'posts/single_post', locals: {post: @res_post[0]} if @res_post[0]
-
+    offset = params[:page].to_i - 1
+    @res_post = @current_user.friends.map { |friend| User.find(friend).posts }.first
+    render partial: 'posts/single_post', locals: {post: @res_post[offset] } if @res_post
   end
 
   def search

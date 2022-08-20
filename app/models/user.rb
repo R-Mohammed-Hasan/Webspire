@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :story, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def posts
-    Post.where(user_id: id)
+    Post.where(user_id: self.id)
   end
 
   def friends

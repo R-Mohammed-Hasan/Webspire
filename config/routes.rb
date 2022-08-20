@@ -85,7 +85,6 @@ Rails.application.routes.draw do
 
   put '/comment/delete/:comment_id', to: 'posts#delete_comment'
 
-
   root 'home#home'
 
 
