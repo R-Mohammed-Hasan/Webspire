@@ -12,17 +12,16 @@ class User < ApplicationRecord
 
   validates :user_name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
-  validates :mobile_number, uniqueness: true
   validates :user_profile, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
   validates :story, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def posts
     Post.where(user_id: self.id)
-  end
+end
 
   def friends
     friends = Follower.where('user_id = ? or follower_id = ? ', id, id)
-    friends.map { |friend| id == friend.user_id ? friend.follower_id : friend.user_id }
+    return friends.length > 0 ? friends.map { |friend| id == friend.user_id ? friend.follower_id : friend.user_id } : []
   end
 
   def friend(user_id)

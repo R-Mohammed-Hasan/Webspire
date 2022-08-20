@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to root_path, success: "You have been logged in successfully as #{user.user_name}"
     else
-      redirect_to users_login_path, danger: 'Google Authentication error.......'
+      redirect_to users_login_path, danger: 'You must have account in Webspire to sign in'
     end
   end
 

@@ -12,8 +12,10 @@ class UsersController < ApplicationController
 
   def create
     if User.find_by(email: params[:user][:email])
-      redirect_to '/users/new', warning: 'E-mail already registered...!'
-      return
+      return redirect_to '/users/new', warning: 'E-mail already registered...!'
+    end
+    if User.find_by(mobile_number: params[:user][:mobile_number])
+      return redirect_to '/users/new', warning: 'Mobile Number already registered...!'
     end
     user = User.new(user_params)
     session[:current_user_id] = user.id
@@ -66,7 +68,13 @@ class UsersController < ApplicationController
     given_name = GoogleSignIn::Identity.new(flash[:google_sign_in]['id_token']).family_name
     user = User.new(name: given_name, email: email, user_name: name, password: "#{name}_webspire7.")
     user.user_profile.attach(io: user_profile, filename: 'user-profile')
-    user.save
+    p '============================================================='
+    p '============================================================='
+    p '============================================================='
+    p '============================================================='
+    p user
+
+    user.save!
     session[:current_user_id] = user.id
     if user.errors.full_messages.length.positive?
       redirect_to '/users/new', warning: user.errors.full_messages.join(',')
