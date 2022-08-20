@@ -759,6 +759,25 @@ input[type="search"] {
     background-color: #ea4747 !important;
 }
 
+.credits>.post-comments-container {
+    width: 5%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.credits .post-comments-container>p {
+    margin-top: 15%;
+}
+
+.credits>.post-comments-container .comment {
+    width: 85%;
+    cursor: pointer;
+}
+
 #notification-icon {
     cursor: pointer;
     border-radius: 50%;

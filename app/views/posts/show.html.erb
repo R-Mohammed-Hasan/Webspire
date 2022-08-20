@@ -16,7 +16,10 @@
                 <div class="username">
                     <a href="/profile/<%= user.id %>">
                             <%= user.user_name %>
-                        </a>
+                    </a>
+                    <div class="posted-time">
+                        <%= post.created_at.strftime("%d %B %Y") %>
+                    </div>
                 </div>
                   <div class="more-option" onclick="showMoreOption(<%= post.id %>)">
                     <img src="<%= asset_path "more-icon.png" %>" width="100%" alt="">
