@@ -111,7 +111,7 @@ function uploadStory() {
     $("#story-form").submit();
 }
 
-function showComments(comments,users,current_user_id,user_images) {
+function showComments(comments,users,current_user_id,user_images,post_id) {
   $(".post-comments").show(300);
   let output = "";
 
@@ -123,7 +123,7 @@ function showComments(comments,users,current_user_id,user_images) {
   for(comment of comments){
     for(user of users){
         if(comment.user_id == user.id){
-        let deleteIcon = `<a class="delete-comment" data-index="${comment.id}" onclick="deleteComment(event,${comment.id})" >
+        let deleteIcon = `<a class="delete-comment" data-index="${comment.id}" onclick="deleteComment(event,${comment.id},${post_id})" >
                                 <img src="<%= asset_path "delete-icon.jpg" %>" alt="" class='delete-comment-icon'   width='45%'>
                           </a>`;
             output += `<div class="comment-container">
@@ -151,7 +151,8 @@ function hideComments() {
     $(".post-comments").hide(100);
 }
 
-function deleteComment(event,comment_id) {
+function deleteComment(event,comment_id,post_id) {
+    let comments_length = document.getElementById("comment-length-"+post_id);
     $(event.target.parentNode.parentNode.parentNode).hide(150);
     jQuery.ajax({
         type: "put",
@@ -159,6 +160,8 @@ function deleteComment(event,comment_id) {
         beforeSend: function(xhr) {
             xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
         }
+    }).then(() => {
+        comments_length.innerHTML = JSON.parse(comments_length.innerText.trim()) - 1;
     });
 }
 
@@ -167,7 +170,8 @@ function addComment(user,user_profile,post_id){
     var today = new Date();
     var date = today.getFullYear() + '-0' + (today.getMonth()+1) + '-0' + today.getDate();
     let comment = document.getElementById(`add-comment-${post_id}`).value;
-
+    let comments_length = document.getElementById("comment-length-"+post_id);
+    comments_length.innerHTML = JSON.parse(comments_length.innerText.trim()) + 1;
     let be_first_container = document.getElementById("no-comments-tool-tip");
     if(be_first_container){
        be_first_container.innerHTML = be_first_container.innerText == "Be the first to add comment to this post...🤩" ? "" : be_first_container.innerText;
