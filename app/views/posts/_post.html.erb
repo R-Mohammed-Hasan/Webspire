@@ -55,18 +55,17 @@
                                     <%= image_submit_tag "like-icon.png", class: "like", "liked" => "false", onclick: "updateLike(#{post.id},event)", title: "Like this post" %>
                                 <% end %>
                         <% end %>
-
                         <p class="likes-count" id="likesCountForPost<%= post.id %>"><%= post.likes %></p>
                     </div>
-                    <div class="post-comments-container">
+                     <div class="post-comments-container">
                         <% @comments = Comment.where(post_id: post.id) %>
                         <% @all_users = User.where(id: @comments.map { |comment| comment.user_id }) %>
-                        <img class="comment" title="Comments" onclick="showComments(<%= @comments.to_json %>,<%= @all_users.to_json %>,<%= @current_user.id %>,<%= @all_users.to_h { |user| [user.id, url_for(user.user_profile)] }.to_json %>)" src="<%= asset_path "comment-icon.png" %>" alt="">
-                        <p>
+                        <img class="comment" title="Comments" onclick="showComments(<%= @comments.to_json %>,<%= @all_users.to_json %>,<%= @current_user.id %>,<%= @all_users.to_h { |user| [user.id, url_for(user.user_profile)] }.to_json %>,<%= post.id %>)" src="<%= asset_path "comment-icon.png" %>" alt="">
+                        <p id="comment-length-<%= post.id %>">
                             <%= @comments.length %>
                         </p>
                     </div>
-                        <img class="bookmark" title="Bookmark this" src="<%= asset_path "bookmark-icon.png" %>" alt="">
+                    <img class="bookmark" title="Bookmark this" src="<%= asset_path "bookmark-icon.png" %>" alt="">
                 </div>
 
                 <div class="post-description-container">
