@@ -184,8 +184,9 @@ input[type="file"].nav-link {
 }
 
 .navbar-nav {
-    margin-right: 10%;
+    margin: 0% 10% 0% 5%;
     width: 40%;
+    column-gap: 5%;
 }
 
 .navbar-nav,
