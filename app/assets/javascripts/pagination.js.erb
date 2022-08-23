@@ -7,7 +7,7 @@ if ($(".postsContainer").length) {
             localStorage.setItem("page","2");
         }
         url = `/?page=${page_id}`;
-        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 100) {
         document.getElementById("infinite-scrolling").classList.add("show")
             let is_loading = localStorage.getItem("loading");
             if(is_loading == "false"){
