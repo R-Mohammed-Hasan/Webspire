@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :story, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def posts
-    Post.where(user_id: self.id)
+    Post.where(user_id: self.id)  # Need to order by ccreated date
 end
 
   def friends

@@ -25,6 +25,10 @@ class HomeController < ApplicationController
   def paginate
     offset = params[:page].to_i - 1
     @res_post = @current_user.friends.map { |friend| User.find(friend).posts }.first
+    p '==========================================='
+    p '==========================================='
+    p '==========================================='
+    p @res_post
     if @res_post.last == @res_post[offset]
         return nil
     end
