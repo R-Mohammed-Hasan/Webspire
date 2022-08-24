@@ -23,16 +23,9 @@ class HomeController < ApplicationController
   end
 
   def paginate
-    offset = params[:page].to_i - 1
-    @res_post = @current_user.friends.map { |friend| User.find(friend).posts }.first
-    p '==========================================='
-    p '==========================================='
-    p '==========================================='
-    p @res_post
-    if @res_post.last == @res_post[offset]
-        return nil
-    end
-    render partial: 'posts/single_post', locals: {post: @res_post[offset] } if @res_post
+    offset = params[:page].to_i
+    @res_post = Post.order('created_at DESC').where(user_id: @current_user.friends).drop(0)
+    render partial: 'posts/single_post', locals: {post: @res_post[offset] } if @res_post[offset]
   end
 
   def search

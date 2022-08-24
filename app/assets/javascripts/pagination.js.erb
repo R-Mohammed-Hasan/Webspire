@@ -4,7 +4,7 @@ if ($(".postsContainer").length) {
         var url;
         let page_id = localStorage.getItem("page");
         if(!page_id){
-            localStorage.setItem("page","2");
+            localStorage.setItem("page","1");
         }
         url = `/?page=${page_id}`;
         if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 100) {
