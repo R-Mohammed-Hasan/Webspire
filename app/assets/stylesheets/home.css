@@ -194,6 +194,10 @@ input[type="file"].nav-link {
     align-items: center;
 }
 
+.nav-link>.header-title {
+    display: none;
+}
+
 .dropdown-menu[data-bs-popper] {
     top: 100%;
     left: -60px;
@@ -808,4 +812,38 @@ input[type="search"] {
 #onesignal-bell-container.onesignal-reset .onesignal-bell-launcher.onesignal-bell-launcher-sm .onesignal-bell-launcher-button {
     width: 40px;
     height: 40px;
+}
+
+@media (max-width: 600px) {
+    nav {
+        font-size: 15px;
+    }
+    .nav-item {
+        height: 42px;
+    }
+    .navbar-nav,
+    .navbar-collapse {
+        background-color: #f8f9fa;
+        z-index: 100;
+    }
+    .navbar-brand {
+        display: none;
+    }
+    .navbar-nav {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .nav-link>img {
+        display: none;
+    }
+    .nav-link>.header-title {
+        display: inline-block;
+        margin: 0;
+    }
+    .active-link::after {
+        bottom: 16%;
+    }
+    .navbar-light .navbar-nav .nav-link {
+        text-align: center;
+    }
 }
