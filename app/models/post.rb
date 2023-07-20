@@ -18,4 +18,8 @@ class Post < ApplicationRecord
     Like.where(post_id: id).length
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["likes", "posts", "posts_attachments","description_cont"]
+  end
+
 end

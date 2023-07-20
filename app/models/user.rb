@@ -2,10 +2,8 @@
 
 class User < ApplicationRecord
   has_secure_password
+  has_one_attached :story
   has_one_attached :user_profile
-  has_one_attached :story do |attachable|
-    attachable.variant content_type: 'jpg/png'
-  end
   has_many :likes
   has_many :comments
   has_many :chattings
@@ -30,4 +28,9 @@ end
     end
     false
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ['user_name', 'email', 'name']
+  end
+
 end

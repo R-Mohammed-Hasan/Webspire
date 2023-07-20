@@ -24,7 +24,7 @@
                 <% end %>
             </div>
             <% if @users_id.length < 10 %>
-               <% for i in 2...13 %>
+               <% for i in 1..11 %>
                  <% user = User.find(i) %>
                     <% if user.story.present? %>
                         <div>
