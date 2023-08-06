@@ -16,6 +16,7 @@ class SendMessageJob < ApplicationJob
   end
 
   def getRoom(room_id)
-    room_id[0].to_i < room_id[2].to_i ? room_id : room_id.reverse
+    room_id = room_id.split('_')
+    room_id[0].to_i < room_id[1].to_i ? room_id.join('_') : room_id.reverse.join('_')
   end
 end
