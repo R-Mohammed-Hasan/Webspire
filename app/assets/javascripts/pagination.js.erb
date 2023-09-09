@@ -3,8 +3,13 @@ if ($(".postsContainer").length) {
     $(window).scroll(function() {
         var url;
         let page_id = localStorage.getItem("page");
-        if(!page_id){
-            localStorage.setItem("page","1");
+
+      // May be if needed can uncommment it
+//         if(!page_id){
+//             localStorage.setItem("page","1");
+
+        if(!page_id || (page_id < 0) ){
+             localStorage.setItem("page","1");
         }
         url = `/?page=${page_id}`;
         if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 100) {
