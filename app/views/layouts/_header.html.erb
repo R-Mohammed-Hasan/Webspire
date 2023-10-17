@@ -157,6 +157,7 @@ document.addEventListener("turbolinks:load", () => {
         ],
         list: {
             onChooseEvent: function(){
+                console.log('$input', $input, $input.getSelectedItemData());
               var url = $input.getSelectedItemData().url;
               console.log("url "+url);
               $input.val("");

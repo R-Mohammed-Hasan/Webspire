@@ -3,6 +3,7 @@
 class HomeController < ApplicationController
   layout 'home'
 
+  # It is this place where expired storeies gets deleted. You ay experience stories are missing after a day of account creation because of this
   before_action :delete_expired_stories
 
   def delete_expired_stories
