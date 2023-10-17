@@ -113,8 +113,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_071849) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -122,10 +122,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_071849) do
     t.text "email"
     t.bigint "mobile_number"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "description"
-    t.column "gender", "enum('male','female','not say')"
+    t.string "gender"
     t.string "name"
   end
 
