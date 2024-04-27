@@ -69,5 +69,4 @@ gem 'webpush'
 gem 'will_paginate'
 gem "mimemagic", '>= 0.3.8'
 gem "net-http"
-
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
