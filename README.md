@@ -123,3 +123,14 @@
 ## Share a Post
 
 ## User can copy the url of a post and share it to other users in message
+
+<hr />
+
+# Run in local ?
+
+Is the latest deployment broken...? No worries, I have dockerized the application and pushed it to Docker hub so that developers like us can easily run it in local...
+Link to docker hub: 
+
+Run these commands after pulling the image: 
+
+docker-compose up

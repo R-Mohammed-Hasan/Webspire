@@ -1,0 +1,30 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    # We can even add a persist volume here
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: webspire
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+  app:
+
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ".:/webspire"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      DATABASE_USER: root
+      DATABASE_NAME: webspire
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: db

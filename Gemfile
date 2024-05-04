@@ -3,10 +3,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.6.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '>= 6.1.6'
+gem 'rails', '~> 6.1.6'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.5'
 # Use Puma as the app server
@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails', groups: %i[development test production]
 
 # Use Active Storage variant
@@ -67,6 +67,5 @@ gem 'ransack'
 gem 'rubocop', require: false
 gem 'webpush'
 gem 'will_paginate'
-gem "mimemagic", '>= 0.3.8'
-gem "net-http"
+gem "mimemagic"
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
