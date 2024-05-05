@@ -3,6 +3,8 @@ services:
   db:
     image: mysql:5.7
     # We can even add a persist volume here
+    # volumes:
+    # - mysql:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -24,7 +26,10 @@ services:
     links:
       - db
     environment:
-      DATABASE_USER: root
+      DATABASE_USER: appuser
       DATABASE_NAME: webspire
       DATABASE_PASSWORD: password
       DATABASE_HOST: db
+
+# volumes:
+#   mysql:

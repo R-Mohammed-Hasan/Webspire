@@ -129,8 +129,10 @@
 # Run in local ?
 
 Is the latest deployment broken...? No worries, I have dockerized the application and pushed it to Docker hub so that developers like us can easily run it in local...
-Link to docker hub: 
+Link to docker hub: https://hub.docker.com/r/mohammedhasan007/webspire
 
-Run these commands after pulling the image: 
+Run these commands:
 
-docker-compose up
+        git clone https://github.com/R-Mohammed-Hasan/Webspire.git
+        cd <dir_name_of_the_project_cloned>
+        docker-compose up

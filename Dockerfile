@@ -4,13 +4,12 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
 RUN mkdir /webspire
 WORKDIR /webspire
-
-ADD Gemfile /webspire/Gemfile
-ADD Gemfile.lock /webspire/Gemfile.lock
+COPY . /webspire/
 
 RUN bundle install
 
-ADD . /webspire
+# RUN echo "=============================="
 
-# RUN rails db:migrate
-# RUN rails db:seed
+# This doesn't work since the DB is not available till this point of application, only after spinning 
+# RUN chmod +x ./entrypoint.sh
+# ENTRYPOINT ["./entrypoint.sh"]
